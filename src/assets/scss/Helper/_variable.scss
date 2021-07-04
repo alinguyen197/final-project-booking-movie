@@ -1,0 +1,48 @@
+//header
+$white: #fff;
+$black: #000;
+$hoverText: #fb4226;
+$account: #9b9b9b;
+
+//footer
+$colorText: #949494;
+$colorBg: #222;
+
+// breakpoint
+$breakpoints: (
+  "extra-large": 1200px,
+  "large": 992px,
+  "medium": 768px,
+  "small": 576px,
+  "phone": 380px,
+);
+
+//font-family
+@font-face {
+  font-family: thin;
+  src: url(../../font/sf-ui-display-thin-58646e9b26e8b.otf);
+}
+@font-face {
+  font-family: utralight;
+  src: url(../../font/sf-ui-display-ultralight-58646b19bf205.otf);
+}
+@font-face {
+  font-family: semibold;
+  src: url(../../font/sf-ui-display-semibold-58646eddcae92.otf);
+}
+@font-face {
+  font-family: medium;
+  src: url(../../font/sf-ui-display-medium-58646be638f96.otf);
+}
+@font-face {
+  font-family: light;
+  src: url(../../font/sf-ui-display-light-58646b33e0551.otf);
+}
+@font-face {
+  font-family: heavy;
+  src: url(../../font/sf-ui-display-heavy-586470160b9e5.otf);
+}
+@font-face {
+  font-family: bold;
+  src: url(../../font/sf-ui-display-bold-58646a511e3d9.otf);
+}

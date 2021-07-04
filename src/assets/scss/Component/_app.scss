@@ -1,0 +1,121 @@
+.app {
+  background-image: url("../../img/backapp.jpeg");
+  background-position: center;
+  background-size: cover;
+  color: $white;
+  padding: 120px 0px 80px 0px;
+  .app-main {
+    .app-main-left {
+      .app-text-left {
+        font-size: 32px;
+        font-family: bold;
+      }
+      .app-btn-left {
+        color: $white;
+        background-color: $hoverText;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 18px;
+        margin-bottom: 15px;
+        font-family: medium;
+      }
+      .app-text-small-left {
+        font-size: 18px;
+        margin-bottom: 30px;
+        font-family: medium;
+      }
+      .app-text-under {
+        font-size: 15px;
+        font-family: medium;
+        a {
+          text-decoration: none;
+          color: $white;
+          border-bottom: 1px solid $white;
+        }
+      }
+    }
+    .app-main-right {
+      background-image: url("../../img/mobile.png");
+      height: auto;
+      width: 50%;
+      background-size: cover;
+      padding: 6px;
+      margin: auto;
+      overflow: hidden;
+      .carousel-item {
+        img {
+          width: 100%;
+          border-radius: 32px;
+        }
+      }
+    }
+  }
+
+  // responsive
+  @include respond-to("big") {
+    .app-main-left {
+      padding: 100px 0px 50px 80px;
+    }
+  }
+  @include respond-to("extra-large") {
+    .app-main-left {
+      padding: 100px 0px 50px 80px;
+    }
+  }
+  @include respond-to("large") {
+    .app-main-left {
+      padding: 100px 0px 50px 80px;
+    }
+  }
+  @include respond-to("medium") {
+    .app-main-left {
+      text-align: center;
+      padding: 0px 50px !important;
+    }
+  }
+  @include respond-to("small") {
+    .app-main-left {
+      text-align: center;
+      padding: 0px 50px !important;
+      .app-text-left {
+      }
+      .app-btn-left {
+      }
+      .app-text-small-left {
+      }
+      .app-text-under {
+        a {
+        }
+      }
+    }
+  }
+  @include respond-to("phone") {
+    .app-main-left {
+      .app-text-left {
+        font-size: 20px !important;
+      }
+      .app-btn-left {
+        font-size: 16px !important;
+      }
+      .app-text-small-left {
+        font-size: 16px !important;
+      }
+      .app-text-under {
+        font-size: 14px !important;
+        a {
+        }
+      }
+    }
+    .app-main-right {
+      padding: 4px !important;
+      .carousel-item {
+        img {
+          width: 100%;
+          border-radius: 23px !important;
+        }
+      }
+    }
+  }
+}

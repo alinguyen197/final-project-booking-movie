@@ -2,8 +2,11 @@
 @import "./Helper/variable";
 @import "./Helper/mixin";
 @import "./Component/header";
+@import "./Component/Home/app";
 @import "./Component/footer";
-@import "./Component/app";
+@import "./Component/Home/movieList";
+@import "./Component/Home/cinemaList";
+@import "./Component/Home/news";
 
 // trang đăng nhập
 @import "./Layout/signIn";

@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
-import { ListMovieReducer } from "./listMoiveReducer";
-
+import { movieListReducer } from "./movieListReducer";
+import commonReducer from "./commonReducer";
 export const rootReducer = combineReducers({
-  ListMovieReducer,
+  movieListReducer,
+  commonReducer,
 });

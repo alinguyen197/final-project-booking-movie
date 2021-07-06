@@ -121,7 +121,7 @@
       }
     }
   }
-  @media screen and (min-width: 1200px) {
+  @include respond-to-min-width("extra-large") {
     .dropdown-toggle {
       display: none;
     }

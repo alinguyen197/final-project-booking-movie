@@ -55,76 +55,76 @@ export default class Footer extends Component {
                 </div>
                 <div className="col-12">
                   <div className="footer-partner-icon">
-                    <a href="">
+                    <a href="#cgv">
                       <img src={cgv} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#bhd">
                       <img src={bhd} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#galaxy">
                       <img src={galaxy} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#cinesta">
                       <img src={cinesta} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#lotte">
                       <img src={lotte} alt="" />
                     </a>
                   </div>
                 </div>
                 <div className="col-12">
                   <div className="footer-partner-icon">
-                    <a href="">
+                    <a href="#mega">
                       <img src={mega} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#beta">
                       <img src={beta} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#dongda">
                       <img src={dongda} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#touch">
                       <img src={touch} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#cnx">
                       <img src={cnx} alt="" />
                     </a>
                   </div>
                 </div>
                 <div className="col-12">
                   <div className="footer-partner-icon">
-                    <a href="">
+                    <a href="#starlight">
                       <img src={starlight} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#dns">
                       <img src={dns} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#zalo">
                       <img src={zalo} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#payoo">
                       <img src={payoo} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#vcb">
                       <img src={vcb} alt="" />
                     </a>
                   </div>
                 </div>
                 <div className="col-12">
                   <div className="footer-partner-icon">
-                    <a href="">
+                    <a href="#arg">
                       <img src={arg} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#viettin">
                       <img src={viettin} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#ivb">
                       <img src={ivb} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#go">
                       <img src={go} alt="" />
                     </a>
-                    <a href="">
+                    <a href="#laban">
                       <img src={laban} alt="" />
                     </a>
                   </div>
@@ -135,19 +135,19 @@ export default class Footer extends Component {
               <div className="row">
                 <div className="col-6 footer-social-phone">
                   <p className="footer-title">MOBIE APP</p>
-                  <a href="">
+                  <a href="#apple">
                     <img src={apple} alt="" />
                   </a>
-                  <a href="">
+                  <a href="#android">
                     <img src={android} alt="" />
                   </a>
                 </div>
                 <div className="col-xs-6 col-lg-6 col-md-12 col-sm-12   footer-social-app">
                   <p className="footer-title">SOCIAL</p>
-                  <a href="">
+                  <a href="#fb">
                     <img src={fb} alt="" />
                   </a>
-                  <a href="">
+                  <a href="#zl">
                     <img src={zl} alt="" />
                   </a>
                 </div>
@@ -176,7 +176,7 @@ export default class Footer extends Component {
               </span>
               <span>Số Điện Thoại (Hotline): 1900 545 436</span>
               <span>
-                Email: <a href="">support@tix.vn</a>{" "}
+                Email: <a href="#support">support@tix.vn</a>{" "}
               </span>
             </div>
             <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xs-2 footer-infor-contact-right">

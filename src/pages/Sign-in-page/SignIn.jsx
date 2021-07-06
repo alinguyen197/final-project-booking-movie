@@ -33,7 +33,7 @@ export default class SignIn extends Component {
                 Đăng Nhập
               </button>
             </form>
-            <a href="" className="text-white float-right">
+            <a href="#Register" className="text-white float-right">
               Register
             </a>
           </div>

@@ -18,7 +18,7 @@ export default class Header extends Component {
         {/* Navbar-Drop-Down */}
         <div id="sideMenu">
           <button
-            class="dropdown-toggle"
+            className="dropdown-toggle"
             type="button"
             id="dropdownMenu2"
             data-toggle="dropdown"
@@ -29,10 +29,14 @@ export default class Header extends Component {
           </button>
           <ul className="dropdown-menu dropdown-menu-right">
             <li>
-              <NavLink to="#" clNavLinkssName="title-menu-mobile menu">
-                <img className="btnLogin btnAvatarMobile" src={logoLogin} />
+              <NavLink to="#" className="title-menu-mobile menu">
+                <img
+                  className="btnLogin btnAvatarMobile"
+                  src={logoLogin}
+                  alt="user"
+                />
                 <span>Đăng Nhập</span>
-                <img src={arrowRight} className="icon-arrow-right" />
+                <img src={arrowRight} className="icon-arrow-right" alt="user" />
               </NavLink>
             </li>
             <li>
@@ -72,7 +76,9 @@ export default class Header extends Component {
               </NavLink>
             </li>
             <li>
-              <a className="menu titleDisplay title-menu-mobile">Hồ Chí Minh</a>
+              <a className="menu titleDisplay title-menu-mobile" href="#hcm">
+                Hồ Chí Minh
+              </a>
             </li>
           </ul>
         </div>
@@ -112,33 +118,33 @@ export default class Header extends Component {
           </div>
           <div className="logout">
             <i className="fas fa-map-marker-alt mr-2" />
-            <a className="btn-dropdown" data-toggle="dropdown">
+            <a href="#hcm" className="btn-dropdown" data-toggle="dropdown">
               Hồ Chí Minh
               <i className="fas fa-chevron-down ml-4" />
             </a>
             <div className="dropdown-menu">
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="#hcm">
                 Hồ Chí Minh
               </a>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="#dn">
                 Đồng Nai
               </a>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="#dt">
                 Đồng Tháp
               </a>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="#dt">
                 Đồng Tháp
               </a>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="#dt">
                 Đồng Tháp
               </a>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="#dt">
                 Đồng Tháp
               </a>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="#dt">
                 Đồng Tháp
               </a>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="#dt">
                 Đồng Tháp
               </a>
             </div>

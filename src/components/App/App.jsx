@@ -23,8 +23,8 @@ class App extends Component {
                   App miễn phí - Tải về ngay!
                 </button>
                 <p className="app-text-under">
-                  TIX có hai phiên bản <a href="">IOS</a> &
-                  <a href=""> Android</a>
+                  TIX có hai phiên bản <a href="#IOS">IOS</a> &
+                  <a href="#Android"> Android</a>
                 </p>
               </div>
             </div>

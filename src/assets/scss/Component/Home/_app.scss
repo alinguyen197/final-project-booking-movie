@@ -1,5 +1,5 @@
 .app {
-  background-image: url("../../img/backapp.jpeg");
+  background-image: url("../../../img/backapp.jpeg");
   background-position: center;
   background-size: cover;
   color: $white;
@@ -37,7 +37,7 @@
       }
     }
     .app-main-right {
-      background-image: url("../../img/mobile.png");
+      background-image: url("../../../img/mobile.png");
       height: auto;
       width: 50%;
       background-size: cover;
@@ -54,11 +54,12 @@
   }
 
   // responsive
-  @include respond-to("big") {
+  @include respond-to-min-width("extra-large") {
     .app-main-left {
       padding: 100px 0px 50px 80px;
     }
   }
+
   @include respond-to("extra-large") {
     .app-main-left {
       padding: 100px 0px 50px 80px;

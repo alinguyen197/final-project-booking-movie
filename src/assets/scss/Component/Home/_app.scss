@@ -80,33 +80,21 @@
     .app-main-left {
       text-align: center;
       padding: 0px 50px !important;
-      .app-text-left {
-      }
-      .app-btn-left {
-      }
-      .app-text-small-left {
-      }
-      .app-text-under {
-        a {
-        }
-      }
     }
   }
   @include respond-to("phone") {
     .app-main-left {
       .app-text-left {
-        font-size: 20px !important;
+        font-size: $size-20 !important;
       }
       .app-btn-left {
-        font-size: 16px !important;
+        font-size: $size-16 !important;
       }
       .app-text-small-left {
-        font-size: 16px !important;
+        font-size: $size-16 !important;
       }
       .app-text-under {
-        font-size: 14px !important;
-        a {
-        }
+        font-size: $size-14 !important;
       }
     }
     .app-main-right {

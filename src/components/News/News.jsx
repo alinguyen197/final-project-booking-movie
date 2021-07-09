@@ -2,6 +2,7 @@ import React from "react";
 import NewsItemFilm from "./NewsItemFilm";
 import NewItemReview from "./NewItemReview";
 import NewItemPromotion from "./NewItemPromotion";
+
 export default function News() {
   return (
     <section id="news">
@@ -78,7 +79,7 @@ export default function News() {
           </div>
         </div>
         <div className="read-more">
-          <a href="#read-more">XEM THÊM</a>
+          <button>XEM THÊM</button>
         </div>
       </div>
     </section>

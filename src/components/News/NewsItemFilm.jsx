@@ -9,6 +9,7 @@ import tiectrangmau from "../../assets/img/news/tiec-trang-mau-chinh-thuc-can-mo
 import supergirl from "../../assets/img/news/ngo-thanh-van-chinh-thuc-khoi-dong-cuoc-thi-thiet-ke-trang-phuc-cho-sieu-anh-hung-dau-tien-cua-viet-nam-vinaman-16041584850247.jpeg";
 import like from "../../assets/img/news/like.png";
 import cmt from "../../assets/img/news/comment.png";
+
 export default function NewsItemFilm() {
   return (
     <div>

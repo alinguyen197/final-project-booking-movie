@@ -1,7 +1,10 @@
 import { takeLatest, call, put } from "redux-saga/effects";
 import { service } from "../../services/service";
 import { STATUS_CODE } from "../../util/const/settingSystem";
-import { GET_MOVIE_LIST } from "../const/movieListConst";
+import {
+  GET_MOVIE_LIST,
+  GET_MOVIE_LIST_SUCCESS,
+} from "../const/movieListConst";
 
 /**
  *
@@ -15,7 +18,7 @@ function* getMovieList(action) {
 
     if (status === STATUS_CODE.SUCCESS) {
       yield put({
-        type: "GET_MOVIE_LIST_SUCCESS",
+        type: GET_MOVIE_LIST_SUCCESS,
         payload: data,
       });
     }
@@ -23,6 +26,8 @@ function* getMovieList(action) {
     console.log(err);
   }
 }
+
 export function* followGetMovieList() {
+  // takeLatest gọi hàm chạy render function genetor
   yield takeLatest(GET_MOVIE_LIST, getMovieList);
 }

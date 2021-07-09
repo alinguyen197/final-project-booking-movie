@@ -7,6 +7,12 @@ export class Service {
       method: "GET",
     });
   }
+  getMovieDetailApi() {
+    return axios({
+      url: `${DOMAIN}/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`,
+      method: "GET",
+    });
+  }
 }
 
 export const service = new Service();

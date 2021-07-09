@@ -1,0 +1,55 @@
+.carousel-booking {
+  font-family: medium;
+  font-size: $size-14;
+  .row {
+    margin: 0px;
+    .col-2,
+    .col-4 {
+      padding: 0px;
+    }
+  }
+  .booking-form-film,
+  .booking-form-cinema,
+  .booking-form-date,
+  .booking-form-time {
+    width: 100%;
+    font-family: semibold;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    &::after {
+      display: table;
+      content: " ";
+      position: absolute;
+      z-index: 1;
+      border-right: 1px solid $colorDescription;
+      right: 15px;
+      width: 3px;
+      height: 30px;
+    }
+  }
+  .booking-form-film {
+    padding-left: 20px;
+  }
+  // .booking-form-cinema {
+  // }
+  // .booking-form-date {
+  // }
+  // .booking-form-time {
+  // }
+  .booking-form-button {
+    height: 70px;
+    width: 100%;
+    font-family: semibold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button {
+      border-radius: 5px;
+      background-color: $colorDescription;
+      color: $white;
+      border: none;
+      padding: 10px 20px;
+    }
+  }
+}

@@ -8,6 +8,8 @@ $account: #9b9b9b;
 $colorText: #949494;
 $colorBg: #222;
 
+//news
+$colorDescription: #4a4a4a;
 // breakpoint
 $breakpoints: (
   "extra-large": 1200px,
@@ -16,6 +18,13 @@ $breakpoints: (
   "small": 576px,
   "phone": 380px,
 );
+
+//font-size
+$size-13: 13px;
+$size-14: 14px;
+$size-16: 16px;
+$size-18: 18px;
+$size-20: 20px;
 
 //font-family
 @font-face {

@@ -13,6 +13,15 @@ export class Service {
       method: "GET",
     });
   }
+
+  // User Login
+  getUserLoginApi(userLogin) {
+    return axios({
+      url: `${DOMAIN}/QuanLyNguoiDung/DangNhap`,
+      method: "POST",
+      data: userLogin,
+    });
+  }
 }
 
 export const service = new Service();

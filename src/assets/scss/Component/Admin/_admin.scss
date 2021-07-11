@@ -1,0 +1,48 @@
+#admin {
+  font-family: medium;
+  overflow-x: hidden;
+  .admin-menu {
+    position: relative;
+    width: 100%;
+    .admin-menu-left {
+      position: fixed;
+      width: 300px;
+      height: 100%;
+      background: linear-gradient(#e66465, #9198e5);
+      transition: 0.5s;
+      ul {
+        li {
+          list-style: none;
+
+          &:nth-child(1):hover {
+            background-color: transparent;
+          }
+          &:hover {
+            background-color: #9198e5;
+          }
+          a {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            color: $white;
+            padding: 20px;
+            .icon {
+              font-size: 20px;
+            }
+            .title {
+              padding-left: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    .admin-menu-right {
+      position: absolute;
+      width: calc(100% - 200px);
+      background-color: blueviolet;
+      height: 100vh;
+      left: 200px;
+    }
+  }
+}

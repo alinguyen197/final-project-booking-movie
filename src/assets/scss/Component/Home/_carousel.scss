@@ -30,7 +30,7 @@
             rgba(0, 0, 0, 0)
           );
         }
-        button {
+        .carousel-btn-modal-video {
           position: absolute;
           top: 50%;
           left: 50%;
@@ -41,9 +41,10 @@
           transition: 0.5s;
           border: none;
           outline: none;
+         
         }
         &:hover {
-          button {
+          .carousel-btn-modal-video {
             opacity: 1;
           }
         }
@@ -131,3 +132,4 @@
     display: none !important;
   }
 }
+@import 'node_modules/react-modal-video/scss/modal-video.scss';

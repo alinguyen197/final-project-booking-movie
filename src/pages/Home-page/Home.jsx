@@ -6,6 +6,7 @@ import App from "../../components/App/App";
 import News from "../../components/News/News";
 import Carousel from "../../components/Carousel/Carousel";
 import RenderMovieList from "../../components/RenderMoiveList/RenderMovieList";
+import Header from "../../components/Header/Header";
 
 export default class Home extends Component {
   render() {

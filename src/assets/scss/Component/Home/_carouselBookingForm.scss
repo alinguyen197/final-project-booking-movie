@@ -8,13 +8,11 @@
       padding: 0px;
     }
   }
-  .booking-form-film,
-  .booking-form-cinema,
-  .booking-form-date,
-  .booking-form-time {
+  .booking-form-film {
     width: 100%;
     font-family: semibold;
     display: flex;
+
     align-items: center;
     height: 70px;
     &::after {
@@ -22,21 +20,31 @@
       content: " ";
       position: absolute;
       z-index: 1;
-      border-right: 1px solid $colorDescription;
+      border-right: 1px solid #fff;
+      border-right-color: rgba(238, 238, 238, 0.88);
       right: 15px;
       width: 3px;
-      height: 30px;
+      height: 35px;
     }
   }
   .booking-form-film {
     padding-left: 20px;
+    .form-group {
+      margin-bottom: 0;
+      width: 95%;
+
+      &:focus {
+        border: none;
+        box-shadow: transparent !important;
+        outline: none;
+      }
+      input {
+        width: 100%;
+        border: none;
+      }
+    }
   }
-  // .booking-form-cinema {
-  // }
-  // .booking-form-date {
-  // }
-  // .booking-form-time {
-  // }
+
   .booking-form-button {
     height: 70px;
     width: 100%;

@@ -4,11 +4,33 @@ import logoLogin from "../../assets/img/avatar.png";
 import menuOption from "../../assets/img/menu-options.png";
 import arrowRight from "../../assets/img/next-session.png";
 import { NavLink } from "react-router-dom";
-export default class Header extends Component {
-  openNav = () => {
-    console.log("xx");
-  };
+import { connect } from "react-redux";
+class Header extends Component {
+  renderUserLogin() {
+    const { taiKhoan } = this.props.userLogin;
+    if (taiKhoan !== "") {
+      const taiKhoanLocal = JSON.parse(localStorage.getItem("taiKhoan"));
+      return (
+        <NavLink to="/sign-in">
+          <img className="btnLogin " src={logoLogin} alt="Login" />
+          {taiKhoanLocal == "" ? (
+            <span>Đăng nhập</span>
+          ) : (
+            <span>{taiKhoanLocal}</span>
+          )}
+        </NavLink>
+      );
+    } else {
+      return (
+        <NavLink to="/sign-in">
+          <img className="btnLogin " src={logoLogin} alt="Login" />
+          {taiKhoan == "" ? <span>Đăng nhập</span> : <span>{taiKhoan}</span>}
+        </NavLink>
+      );
+    }
+  }
   render() {
+    console.log("render header ");
     return (
       <nav className="navbar navbar-expand-sm  ">
         <NavLink className="navbar-brand" to="/">
@@ -30,15 +52,17 @@ export default class Header extends Component {
           <ul className="dropdown-menu dropdown-menu-right">
             <li>
               <NavLink to="#" className="title-menu-mobile menu">
-                <img
+                {this.renderUserLogin()}
+                {/* <img
                   className="btnLogin btnAvatarMobile"
                   src={logoLogin}
                   alt="user"
                 />
-                <span>Đăng Nhập</span>
+                <span>Đăng Nhập</span> */}
                 <img src={arrowRight} className="icon-arrow-right" alt="user" />
               </NavLink>
             </li>
+
             <li>
               <NavLink
                 to="#showtime"
@@ -109,13 +133,7 @@ export default class Header extends Component {
           </ul>
         </div>
         <div className="myaccount">
-          <div className="accout">
-            <NavLink to="/sign-in">
-              <img src={logoLogin} alt="Login" />
-              <span>Đăng Nhập</span>
-            </NavLink>
-            {/* <a href></a> */}
-          </div>
+          <div className="accout">{this.renderUserLogin()}</div>
           <div className="logout">
             <i className="fas fa-map-marker-alt mr-2" />
             <a href="#hcm" className="btn-dropdown" data-toggle="dropdown">
@@ -154,3 +172,9 @@ export default class Header extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    userLogin: state.userLoginReducer.userLogin,
+  };
+};
+export default connect(mapStateToProps, null)(Header);

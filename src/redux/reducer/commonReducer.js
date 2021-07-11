@@ -15,7 +15,7 @@ const commomReducer = (state = initialState, action) => {
       return { ...state };
 
     default:
-      return state;
+      return { ...state };
   }
 };
 export default commomReducer;

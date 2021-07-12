@@ -1,4 +1,3 @@
-import { Redirect } from "react-router-dom";
 import { takeLatest, call, put, delay } from "redux-saga/effects";
 import { service } from "../../services/service";
 import { STATUS_CODE } from "../../util/const/settingSystem";
@@ -54,6 +53,12 @@ export function* followGetMovieList() {
  */
 function* getUserLogin(action) {
   try {
+    // start loading
+    yield put({
+      type: START_LOADING,
+    });
+    //delay cho hiệu ứng đẹp
+    yield delay(1000);
     let { data, status } = yield call(() => {
       return service.getUserLoginApi(action.payload);
     });
@@ -69,13 +74,21 @@ function* getUserLogin(action) {
     if (status === STATUS_CODE.SUCCESS) {
       yield put({
         type: GET_USER_LOGIN_SUCCESS,
-        payload: data,
+        payload: { ...data, isValid: true },
       });
     }
+
+    //stop loading
+    yield put({
+      type: STOP_LOADING,
+    });
     alert("Đăng nhập thành công !!");
     action.history.push("/");
   } catch (err) {
-    console.log(err);
+    alert("Tài Khoản & Mật khẩu không chính xác !!!");
+    yield put({
+      type: STOP_LOADING,
+    });
   }
 }
 

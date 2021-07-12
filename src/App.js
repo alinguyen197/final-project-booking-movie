@@ -10,6 +10,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <LoadingComponent />
+
         <Switch>
           <Route path="/" exact={true}>
             <Home />

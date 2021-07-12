@@ -7,28 +7,26 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 class Header extends Component {
   renderUserLogin() {
-    const { taiKhoan } = this.props.userLogin;
-    if (taiKhoan !== "") {
-      const taiKhoanLocal = JSON.parse(localStorage.getItem("taiKhoan"));
+    // const { taiKhoan, isValid } = this.props.userLogin;
+    const taiKhoanLocal = JSON.parse(localStorage.getItem("taiKhoan"));
+    console.log(taiKhoanLocal);
+    if (taiKhoanLocal == null) {
       return (
-        <NavLink to="/sign-in">
+        <NavLink to="/sign-in" className="accout-logout">
           <img className="btnLogin " src={logoLogin} alt="Login" />
-          {taiKhoanLocal == "" ? (
-            <span>Đăng nhập</span>
-          ) : (
-            <span>{taiKhoanLocal}</span>
-          )}
+          <span>Đăng nhập</span>
         </NavLink>
       );
     } else {
       return (
-        <NavLink to="/sign-in">
+        <NavLink to="/#" onMouseEnter={this.handleLogOut}>
           <img className="btnLogin " src={logoLogin} alt="Login" />
-          {taiKhoan == "" ? <span>Đăng nhập</span> : <span>{taiKhoan}</span>}
+          <span className="toggle">{taiKhoanLocal}</span>
         </NavLink>
       );
     }
   }
+  handleLogOut = () => {};
   render() {
     console.log("render header ");
     return (
@@ -134,7 +132,7 @@ class Header extends Component {
         </div>
         <div className="myaccount">
           <div className="accout">{this.renderUserLogin()}</div>
-          <div className="logout">
+          <div className="address">
             <i className="fas fa-map-marker-alt mr-2" />
             <a href="#hcm" className="btn-dropdown" data-toggle="dropdown">
               Hồ Chí Minh

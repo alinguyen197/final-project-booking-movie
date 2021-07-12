@@ -5,7 +5,7 @@ export default function Admin() {
     <section id="admin">
       <div style={{ height: 60 }}></div>
       <div className="admin-menu">
-        <div className="admin-menu-left">
+        <div className="admin-menu-left" >
           <ul>
             <li>
               <a href="">
@@ -75,7 +75,70 @@ export default function Admin() {
             </li>
           </ul>
         </div>
-        <div className="admin-menu-right"></div>
+        <div className="admin-menu-right">
+          <div className="topbar">
+            <div className="toggle" >
+            <i class="fa fa-bars" aria-hidden="true"></i>
+ 
+            </div>
+          
+         
+            <div className="user">
+                <p>Xin chào</p>
+                <img src={logo} alt="" />
+              </div>
+              
+          </div>
+          
+         <button class="btn btn-primary
+         " > Thêm Phim</button>
+          <div className="search">
+              <label htmlFor="">
+                <input  type="text" placeholder="Nhập vào tài khoản hoặc họ tên người dùng"/>
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </label>
+              <button type="button" class="btn btn-secondary">Tìm </button>
+        
+            </div>
+          <table class="table table-striped">
+          <thead>
+            <tr>
+      <th scope="col">Mã Phim</th>
+      <th scope="col">Tên Phim</th>
+      <th scope="col">Hinh Ảnh</th>
+      <th scope="col">Mô Tả</th>
+      <th scope="col">Mã Nhóm</th>
+      <th scope="col" type="">Ngày khỏi chiếu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td>@fat</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+      <td>@fat</td>
+      <td>@fat</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
       </div>
     </section>
   );

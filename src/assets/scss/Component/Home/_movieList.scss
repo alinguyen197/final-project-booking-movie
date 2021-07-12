@@ -1,0 +1,51 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+#rendermovielist {
+  margin-bottom: 10%;
+  .movielist-inner {
+    .nav {
+      justify-content: center;
+      margin-bottom:40px !important;
+      .nav-item {
+        margin-right: 20px;
+        .nav-link.active {
+          background-color: transparent;
+          color: $hoverText;
+          transform: scale(1.2);
+        }
+        .nav-link {
+          color: $black;
+          font-family: semibold;
+          font-size: $size-20;
+          &:hover {
+            transition: 0.5s;
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+    .movielist-item{
+      display:flex;
+      margin-bottom:20px;
+      overflow:hidden;
+    }
+    .slick-next,.slick-next {
+      &:before {
+       
+      }
+    }
+    .slick-prev,.slick-next{
+      background:$account; 
+      height:35px;
+      width:35px ;
+      border-radius:50%;
+    }
+  }
+  @include respond-to("phone"){
+      .slick-prev,.slick-next{display:none !important}
+  }
+  @include respond-to("small"){
+    .slick-prev,.slick-next{display:none !important}
+    
+  }
+}

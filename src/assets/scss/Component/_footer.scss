@@ -50,7 +50,7 @@ footer {
   .footer-infor-contact-left {
     img {
       border-radius: 8px;
-      width: 80px;
+      width: 100%;
       height: auto;
     }
   }
@@ -69,13 +69,27 @@ footer {
   }
   .footer-infor-contact-right {
     img {
-      width: 130px;
+      width: 100%;
       height: auto;
       float: right;
     }
   }
   //responsive
-  @include respond-to("extra-large") {
+  @include respond-to-min-width("extra-large") {
+    .footer-infor-contact-right {
+      img {
+        width: 150px;
+        height: auto;
+        float: right;
+      }
+    }
+    .footer-infor-contact-left {
+      img {
+        border-radius: 8px;
+        width: 100px;
+        height: auto;
+      }
+    }
   }
   @include respond-to("large") {
     .col-lg-6 {

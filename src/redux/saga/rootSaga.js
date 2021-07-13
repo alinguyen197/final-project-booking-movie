@@ -5,5 +5,6 @@ export function* rootSaga() {
   yield all([
     callApiSaga.followGetMovieList(),
     callApiSaga.followGetUserLogin(),
+    callApiSaga.followGetMovieDetail(),
   ]);
 }

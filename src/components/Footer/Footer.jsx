@@ -156,12 +156,12 @@ export default class Footer extends Component {
           </div>
           <hr style={{ backgroundColor: "#9b9b9b" }} />
           <div className="row">
-            <div className="col-12 col-sm-12 col-md-1 col-lg-1 col-xs-1 footer-infor-contact-left">
+            <div className="col-12 col-sm-12 col-md-2 col-lg-2 col-xs-2 footer-infor-contact-left">
               <div>
                 <img src={zion} alt="" />
               </div>
             </div>
-            <div className="col-12 col-sm-12 col-md-9 col-lg-9 col-xs-9 footer-infor-contact-center">
+            <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xs-8 footer-infor-contact-center">
               <span className="footer-infor-contact-title ">
                 TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION
               </span>

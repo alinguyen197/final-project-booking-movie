@@ -3,7 +3,9 @@ import Header from "./components/Header/Header.jsx";
 import LoadingComponent from "./components/Loading/LoadingComponent.jsx";
 import Admin from "./pages/Admin-page/Admin.jsx";
 import Home from "./pages/Home-page/Home.jsx";
+import MovieDetail from "./pages/Movie-detail-page/MovieDetail.jsx";
 import SignIn from "./pages/Sign-in-page/SignIn";
+
 function App() {
   return (
     <div>
@@ -14,6 +16,10 @@ function App() {
         <Switch>
           <Route path="/" exact={true}>
             <Home />
+          </Route>
+
+          <Route path="/movie-detail/:movieCode" exact={true}>
+            <MovieDetail />
           </Route>
 
           <Route path="/admin" exact={true}>

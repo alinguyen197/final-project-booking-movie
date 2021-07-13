@@ -3,6 +3,10 @@ import { service } from "../../services/service";
 import { STATUS_CODE } from "../../util/const/settingSystem";
 import { START_LOADING, STOP_LOADING } from "../const/commonConst";
 import {
+  GET_MOVIE_DETAIL,
+  GET_MOVIE_DETAIL_SUCCESS,
+} from "../const/movieDetailConst";
+import {
   GET_MOVIE_LIST,
   GET_MOVIE_LIST_SUCCESS,
 } from "../const/movieListConst";
@@ -45,6 +49,43 @@ function* getMovieList(action) {
 export function* followGetMovieList() {
   // takeLatest gọi hàm chạy render function genetor
   yield takeLatest(GET_MOVIE_LIST, getMovieList);
+}
+
+/***
+ *
+ *  Lấy chi tiết thông tin  phim
+ */
+function* getMovieDetail(action) {
+  try {
+    // start loading
+    yield put({
+      type: START_LOADING,
+    });
+    //delay cho hiệu ứng đẹp
+    yield delay(1000);
+    let { data, status } = yield call(() => {
+      return service.getMovieDetailApi(action.payload);
+    });
+    // lưu lên store
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put({
+        type: GET_MOVIE_DETAIL_SUCCESS,
+        payload: data,
+      });
+    }
+
+    //stop loading
+    yield put({
+      type: STOP_LOADING,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export function* followGetMovieDetail() {
+  // takeLatest gọi hàm chạy render function genetor
+  yield takeLatest(GET_MOVIE_DETAIL, getMovieDetail);
 }
 
 /***

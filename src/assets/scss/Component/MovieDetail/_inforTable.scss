@@ -1,0 +1,25 @@
+.inforTable {
+  color: $white;
+  .leftInfor {
+    .title {
+      font-size: $size-16;
+      font-family: semibold;
+      display: inline-block;
+      width: 20%;
+    }
+    .content {
+      font-size: $size-14;
+      display: inline-block;
+      margin-left: 20px;
+    }
+  }
+  .rightInfor {
+    .title {
+      font-size: $size-16;
+      font-family: semibold;
+    }
+    .content {
+      font-size: $size-14;
+    }
+  }
+}

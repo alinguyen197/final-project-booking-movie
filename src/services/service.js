@@ -7,9 +7,9 @@ export class Service {
       method: "GET",
     });
   }
-  getMovieDetailApi() {
+  getMovieDetailApi(maPhim) {
     return axios({
-      url: `${DOMAIN}/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`,
+      url: `${DOMAIN}/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`,
       method: "GET",
     });
   }

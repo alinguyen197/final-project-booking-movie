@@ -13,7 +13,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-       
+        <div style={{height:60}} ></div>
         <Carousel />
         <RenderMovieList />
         <CinemaRelease/>

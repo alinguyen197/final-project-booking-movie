@@ -14,10 +14,10 @@ export default function CinemaRelease() {
   return (
     <section id="cinemarelease">
       <div className="container">
-        <div className="row ">
+        <div className="row listcinema">
           <div
-            className="col-12 col-sm-12 col-md-1 col-lg-1 col-xl-1 "
-            style={{ border: "1px solid #ebebec" }}
+            className="col-12 col-sm-12 col-md-1 col-lg-1 col-xl-1 content"
+            style={{ border: "1px solid #ebebec" } }
           >
             <ul className="nav nav-pills">
               <li className="nav-item">

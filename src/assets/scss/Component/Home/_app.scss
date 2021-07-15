@@ -4,12 +4,14 @@
   background-size: cover;
   color: $white;
   padding: 120px 0px 80px 0px;
+
   .app-main {
     .app-main-left {
       .app-text-left {
         font-size: 32px;
         font-family: bold;
       }
+
       .app-btn-left {
         color: $white;
         background-color: $hoverText;
@@ -21,14 +23,17 @@
         margin-bottom: 15px;
         font-family: medium;
       }
+
       .app-text-small-left {
         font-size: 18px;
         margin-bottom: 30px;
         font-family: medium;
       }
+
       .app-text-under {
         font-size: 15px;
         font-family: medium;
+
         a {
           text-decoration: none;
           color: $white;
@@ -36,6 +41,7 @@
         }
       }
     }
+
     .app-main-right {
       background-image: url("../../../img/mobile.png");
       height: auto;
@@ -44,6 +50,7 @@
       padding: 6px;
       margin: auto;
       overflow: hidden;
+
       .carousel-item {
         img {
           width: 100%;
@@ -65,46 +72,55 @@
       padding: 100px 0px 50px 80px;
     }
   }
+
   @include respond-to("large") {
     .app-main-left {
       padding: 100px 0px 50px 80px;
     }
   }
+
   @include respond-to("medium") {
     .app-main-left {
       text-align: center;
       padding: 0px 50px !important;
     }
   }
+
   @include respond-to("small") {
     .app-main-left {
       text-align: center;
       padding: 0px 50px !important;
     }
   }
+
   @include respond-to("phone") {
     .app-main-left {
       .app-text-left {
         font-size: $size-20 !important;
       }
+
       .app-btn-left {
         font-size: $size-16 !important;
       }
+
       .app-text-small-left {
         font-size: $size-16 !important;
       }
+
       .app-text-under {
         font-size: $size-14 !important;
       }
     }
+
     .app-main-right {
       padding: 4px !important;
+
       .carousel-item {
         img {
           width: 100%;
           border-radius: 23px !important;
         }
-      }
     }
-  }
+    }
+    }
 }

@@ -7,6 +7,8 @@ import Time from "react-time-format";
 import InforTable from "./InforTable";
 import ShowTime from "./ShowTime";
 import Comment from "./Comment";
+import Progressbar from "../../components/Circular-progressbar/Progressbar";
+import VideoModal from "../../components/Modal-video/VideoModal";
 function MovieDetail(props) {
   const dispatch = useDispatch();
   //get movieCode trên url
@@ -20,7 +22,7 @@ function MovieDetail(props) {
 
   const { movieDetail } = useSelector((state) => state.movieDetailReducer);
   console.log(movieDetail);
-  const { hinhAnh, ngayKhoiChieu, tenPhim } = movieDetail;
+  const { hinhAnh, ngayKhoiChieu, tenPhim, trailer } = movieDetail;
   const formatTime = new Date(ngayKhoiChieu);
   return (
     <section id="movieDetail">
@@ -46,10 +48,14 @@ function MovieDetail(props) {
                   <Time value={formatTime} format="DD/MM/YYYY" />
                 </span>
                 <span className="film-title">{tenPhim}</span>
-                <span className="film-time-release"></span>
+                <div className="film-time-release">
+                  <VideoModal trailer={trailer} />
+                </div>
               </div>
             </div>
-            <div className="col-2"></div>
+            <div className="col-2">
+              <Progressbar />
+            </div>
           </div>
         </div>
         <div></div>

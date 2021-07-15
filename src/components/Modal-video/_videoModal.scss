@@ -1,0 +1,15 @@
+@import "node_modules/react-modal-video/scss/modal-video.scss";
+
+.modal-video {
+  background: none !important;
+  top: 30px !important;
+}
+.btn-modal-video {
+  background: #fb4226;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+}

@@ -37,7 +37,7 @@ export default function InforTable(props) {
         </div>
         <div className="col-6">
           <div className="rightInfor">
-            <p className="title">Nội dung</p>
+            <p className="title">Nội Dung</p>
             <p className="content">{movieDetail.moTa}</p>
           </div>
         </div>

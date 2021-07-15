@@ -17,7 +17,7 @@ export default function CinemaRelease() {
         <div className="row listcinema">
           <div
             className="col-12 col-sm-12 col-md-1 col-lg-1 col-xl-1 content"
-            style={{ border: "1px solid #ebebec" } }
+            style={{ border: "1px solid #ebebec" }}
           >
             <ul className="nav nav-pills">
               <li className="nav-item">
@@ -64,19 +64,16 @@ export default function CinemaRelease() {
               </li>
             </ul>
           </div>
-          <div
-            className=" col-md-11 col-lg-11 col-xl-11 col-12 col-sm-12"
-            style={{ border: "1px solid #ebebec" }}
-          >
+          <div className=" col-md-11 col-lg-11 col-xl-11 col-12 col-sm-12 releaseRight">
             <div className="tab-content">
-              <div className="tab-pane container show active " id="bhd">
+              <div className="tab-pane  show active " id="bhd">
                 <div className="row">
-                  <div className=" col-md-4 col-lg-4 col-xl-4 col-12 col-sm-12 br ">
+                  <div className=" col-md-4 col-lg-4 col-xl-4 col-12 col-sm-12 br releaseBr ">
                     <div className="cinema-item">
                       <ul className="nav nav-pills row">
                         <li className="nav-item col-12 col-sm-12">
                           <a
-                            className="nav-link active"
+                            className="nav-link"
                             data-toggle="pill"
                             href="#bhd1"
                           >
@@ -85,15 +82,17 @@ export default function CinemaRelease() {
                                 <img src={bhdbitexco} alt="" />
                               </div>
                               <div className="col-9 cinema-infor">
-                                <p className="cinema-name">
+                                <span className="cinema-name">
                                   {" "}
                                   <span className="bhd">BHD Star</span> -
                                   Bitexco
-                                </p>
-                                <p className="cinema-address">
+                                </span>
+                                <span className="cinema-address">
                                   L3-Bitexco Icon 68, 2 Hải Triều, Quận 1
-                                </p>
-                                <p className="cinema-detail">[chi tiết]</p>
+                                </span>
+                                <span className="cinema-detail">
+                                  [chi tiết]
+                                </span>
                               </div>
                             </div>
                           </a>
@@ -109,15 +108,18 @@ export default function CinemaRelease() {
                                 <img src={bhdbitexco} alt="" />
                               </div>
                               <div className="col-9 cinema-infor">
-                                <p className="cinema-name">
+                                <span className="cinema-name">
                                   {" "}
-                                  <span className="bhd">BHD Star</span> -
-                                  Bitexco
-                                </p>
-                                <p className="cinema-address">
-                                  L3-Bitexco Icon 68, 2 Hải Triều, Quận 1
-                                </p>
-                                <p className="cinema-detail">[chi tiết]</p>
+                                  <span className="bhd">BHD Star</span> - Phạm
+                                  Hùng
+                                </span>
+                                <span className="cinema-address">
+                                  L4-Satra Phạm Hùng, C6/27 Phạm Hùng, Bình
+                                  Chánh
+                                </span>
+                                <span className="cinema-detail">
+                                  [chi tiết]
+                                </span>
                               </div>
                             </div>
                           </a>
@@ -133,15 +135,17 @@ export default function CinemaRelease() {
                                 <img src={bhdbitexco} alt="" />
                               </div>
                               <div className="col-9 cinema-infor">
-                                <p className="cinema-name">
+                                <span className="cinema-name">
                                   {" "}
-                                  <span className="bhd">BHD Star</span> -
-                                  Bitexco
-                                </p>
-                                <p className="cinema-address">
-                                  L3-Bitexco Icon 68, 2 Hải Triều, Quận 1
-                                </p>
-                                <p className="cinema-detail">[chi tiết]</p>
+                                  <span className="bhd">BHD Star</span> - Vincom
+                                  3/2
+                                </span>
+                                <span className="cinema-address">
+                                  L5-Vicom 3/2, 3C Đường 3/2, Quận 10
+                                </span>
+                                <span className="cinema-detail">
+                                  [chi tiết]
+                                </span>
                               </div>
                             </div>
                           </a>
@@ -151,10 +155,7 @@ export default function CinemaRelease() {
                   </div>
                   <div className=" col-md-8 col-lg-8 col-xl-8 col-12 col-sm-12 list-cinema ">
                     <div className="tab-content">
-                      <div
-                        className="tab-pane container fade show active"
-                        id="bhd1"
-                      >
+                      <div className="tab-pane  fade show active" id="bhd1">
                         <div className="row">
                           <div className="col-12">
                             <div className="list-flim-detail">
@@ -195,7 +196,7 @@ export default function CinemaRelease() {
                           </div>
                         </div>
                       </div>
-                      <div className="tab-pane container fade" id="bhd2">
+                      <div className="tab-pane  fade" id="bhd2">
                         <div className="row">
                           <div className="col-12">
                             <div className="list-flim-detail">
@@ -236,7 +237,7 @@ export default function CinemaRelease() {
                           </div>
                         </div>
                       </div>
-                      <div className="tab-pane container fade" id="bhd3">
+                      <div className="tab-pane  fade" id="bhd3">
                         <div className=" row">
                           <div className="col-12">
                             <div className="list-flim-detail">
@@ -281,7 +282,7 @@ export default function CinemaRelease() {
                   </div>
                 </div>
               </div>
-              <div className="tab-pane container show fade" id="cns">
+              <div className="tab-pane  show fade" id="cns">
                 <div className="row">
                   <div className=" col-md-4 col-lg-4 col-xl-4 col-12 col-sm-12 br ">
                     <div className="cinema-item">
@@ -297,15 +298,17 @@ export default function CinemaRelease() {
                                 <img src={cinemaHBT} alt="" />
                               </div>
                               <div className="col-9 cinema-infor">
-                                <p className="cinema-name">
+                                <span className="cinema-name">
                                   {" "}
                                   <span className="cns">CNS </span> - Hai Bà
                                   Trưng
-                                </p>
-                                <p className="cinema-address">
+                                </span>
+                                <span className="cinema-address">
                                   L3-Bitexco Icon 68, 2 Hải Triều, Quận 1
-                                </p>
-                                <p className="cinema-detail">[chi tiết]</p>
+                                </span>
+                                <span className="cinema-detail">
+                                  [chi tiết]
+                                </span>
                               </div>
                             </div>
                           </a>
@@ -321,14 +324,16 @@ export default function CinemaRelease() {
                                 <img src={cinemaHBT} alt="" />
                               </div>
                               <div className="col-9 cinema-infor">
-                                <p className="cinema-name">
+                                <span className="cinema-name">
                                   {" "}
                                   <span className="cns">CNS </span> - Quốc Thanh
-                                </p>
-                                <p className="cinema-address">
+                                </span>
+                                <span className="cinema-address">
                                   L3-Bitexco Icon 68, 2 Hải Triều, Quận 1
-                                </p>
-                                <p className="cinema-detail">[chi tiết]</p>
+                                </span>
+                                <span className="cinema-detail">
+                                  [chi tiết]
+                                </span>
                               </div>
                             </div>
                           </a>
@@ -338,10 +343,7 @@ export default function CinemaRelease() {
                   </div>
                   <div className=" col-md-8 col-lg-8 col-xl-8 col-12 col-sm-12 list-cinema ">
                     <div className="tab-content">
-                      <div
-                        className="tab-pane container fade show active"
-                        id="cns1"
-                      >
+                      <div className="tab-pane  fade show active" id="cns1">
                         <div className="row">
                           <div className="col-12">
                             <div className="list-flim-detail">
@@ -381,7 +383,7 @@ export default function CinemaRelease() {
                           </div>
                         </div>
                       </div>
-                      <div className="tab-pane container fade" id="cns2">
+                      <div className="tab-pane  fade" id="cns2">
                         <div className="row">
                           <div className="col-12">
                             <div className="list-flim-detail">
@@ -687,7 +689,7 @@ export default function CinemaRelease() {
                           </div>
                         </div>
                       </div>
-                      <div className="tab-pane container fade" id="cns3">
+                      <div className="tab-pane  fade" id="cns3">
                         <div className=" row">
                           <div className="col-12">
                             <div className="list-flim-detail">

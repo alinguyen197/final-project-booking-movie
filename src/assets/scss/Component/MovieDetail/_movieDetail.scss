@@ -1,7 +1,25 @@
 #movieDetail {
   .backgroundMain {
     position: relative;
-    height: 500px;
+    height: 446px;
+    .playing-trailer {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 20;
+      height: 500px;
+      width: 100%;
+      .btn-modal-video2 {
+        background: transparent;
+        border: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
     .styleBlur {
       position: relative;
       top: 0;
@@ -12,9 +30,13 @@
         // filter: blur(15px);
         //  opacity: 0.5;
         width: 100%;
-        height: 500px;
+        height: 446px;
         // margin: -11px 0 -5px -10px;
         // width: calc(100% + 5px);
+        -webkit-filter: blur(15px);
+        filter: blur(15px);
+        -webkit-clip-path: inset(0);
+        clip-path: inset(0);
       }
       .styleGradient {
         top: 0;
@@ -24,8 +46,8 @@
         position: absolute;
         background: linear-gradient(
           to top,
-          rgb(5, 15, 19),
-          rgba(5, 15, 19, 0.486)
+          rgb(10, 32, 41),
+          rgba(10, 32, 41, 0.562)
         );
       }
       .containerCustom {
@@ -34,6 +56,7 @@
       }
       .detailMainInfor {
         display: flex;
+        flex-wrap: wrap;
         position: absolute;
         align-items: center;
         top: 50%;
@@ -62,8 +85,8 @@
     }
   }
   .contentMain {
-    background: linear-gradient(to top, rgb(5, 15, 19), rgb(5, 15, 19));
-    height: 500px;
+    background: linear-gradient(to top, rgb(10, 32, 41), rgb(10, 31, 41));
+
     .containerCustom2 {
       max-width: 1040px;
       margin: 0 auto;
@@ -89,6 +112,32 @@
             }
           }
         }
+      }
+    }
+  }
+  @include respond-to("medium") {
+    .playing-trailer {
+      display: block !important;
+    }
+    .styleBlur {
+      .detailMainInfor {
+        top: 80% !important;
+        .progressbar {
+          display: none;
+        }
+        .filmPoster {
+          display: none;
+        }
+        .filmName {
+          .film-time-trailer {
+            .btn-modal-video {
+              display: none;
+            }
+          }
+        }
+      }
+      .posterLandscapeFilm {
+        filter: blur(0px) !important;
       }
     }
   }

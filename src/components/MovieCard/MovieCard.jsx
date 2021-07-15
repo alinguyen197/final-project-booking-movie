@@ -1,6 +1,7 @@
 import React from "react";
 import Time from "react-time-format";
 import { useHistory } from "react-router-dom";
+import StarRating from "./StarRating";
 export default function MovieCard(props) {
   const { value } = props;
   const history = useHistory();
@@ -36,28 +37,11 @@ export default function MovieCard(props) {
           </p>
         </div>
         <div className="rating">
-          {value.danhGia}
-          {value.danhGia < 10 ? (
-            <div className="rating-star-incr">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="far fa-star"></i>
-              <i className="far fa-star"></i>
-            </div>
-          ) : (
-            <div className="rating-star-discr">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-            </div>
-          )}
+          <StarRating value={value} />
         </div>
         <div className="moviebooking">
           <button onClick={() => handleViewDetail(value.maPhim)}>
-            VIEW DETAIL
+            MUA VÉ NGAY
           </button>
         </div>
       </div>

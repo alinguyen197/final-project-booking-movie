@@ -10,7 +10,10 @@ const userLoginReducer = (state = initialState, action) => {
     case GET_USER_LOGIN_SUCCESS:
       state.userLogin = payload;
       return { ...state };
-
+    case "LOG_OUT":
+      console.log(action);
+      state.userLogin = [];
+      return { ...state };
     default:
       return state;
   }

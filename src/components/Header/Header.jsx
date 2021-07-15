@@ -12,21 +12,58 @@ class Header extends Component {
     console.log(taiKhoanLocal);
     if (taiKhoanLocal == null) {
       return (
-        <NavLink to="/sign-in" className="accout-logout">
-          <img className="btnLogin " src={logoLogin} alt="Login" />
-          <span>Đăng nhập</span>
-        </NavLink>
+        <div className="accout">
+          <NavLink
+            to="/sign-in"
+            style={{ textDecoration: "none" }}
+            className="accout-logout"
+          >
+            <img className="btnLogin " src={logoLogin} alt="Login" />
+            <span>Đăng nhập</span>
+          </NavLink>
+        </div>
       );
     } else {
       return (
-        <NavLink to="/#" onMouseEnter={this.handleLogOut}>
-          <img className="btnLogin " src={logoLogin} alt="Login" />
-          <span className="toggle">{taiKhoanLocal}</span>
-        </NavLink>
+        <div className="accout">
+          <NavLink
+            id="logout"
+            to="/#"
+            data-toggle="dropdown"
+            style={{ textDecoration: "none" }}
+          >
+            <img className="btnLogin " src={logoLogin} alt="Login" />
+            <span className="toggle">{taiKhoanLocal}</span>
+          </NavLink>
+
+          <a className="dropdown-menu" style={{ textDecoration: "none" }}>
+            <button
+              className="dropdown-item"
+              style={{ color: "#9b9b9b" }}
+              onClick={this.handleLogOut}
+            >
+              Đăng xuất
+            </button>
+            <button
+              className="dropdown-item"
+              style={{ color: "#9b9b9b" }}
+              onClick={this.handleLogOut}
+            >
+              Thông tin cá nhân
+            </button>
+          </a>
+        </div>
       );
     }
   }
-  handleLogOut = () => {};
+
+  handleLogOut = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: "LOG_OUT",
+    });
+    localStorage.clear();
+  };
   render() {
     console.log("render header ");
     return (
@@ -51,12 +88,6 @@ class Header extends Component {
             <li>
               <NavLink to="#" className="title-menu-mobile menu">
                 {this.renderUserLogin()}
-                {/* <img
-                  className="btnLogin btnAvatarMobile"
-                  src={logoLogin}
-                  alt="user"
-                />
-                <span>Đăng Nhập</span> */}
                 <img src={arrowRight} className="icon-arrow-right" alt="user" />
               </NavLink>
             </li>
@@ -98,9 +129,13 @@ class Header extends Component {
               </NavLink>
             </li>
             <li>
-              <a className="menu titleDisplay title-menu-mobile" href="#hcm">
-                Hồ Chí Minh
-              </a>
+              <NavLink
+                to="#App"
+                className="menu titleDisplay title-menu-mobile"
+                data-scroll="wrapHomeApp"
+              >
+                Đăng xuất
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -131,7 +166,7 @@ class Header extends Component {
           </ul>
         </div>
         <div className="myaccount">
-          <div className="accout">{this.renderUserLogin()}</div>
+          {this.renderUserLogin()}
           <div className="address">
             <i className="fas fa-map-marker-alt mr-2" />
             <a href="#hcm" className="btn-dropdown" data-toggle="dropdown">
@@ -175,4 +210,5 @@ const mapStateToProps = (state) => {
     userLogin: state.userLoginReducer.userLogin,
   };
 };
+
 export default connect(mapStateToProps, null)(Header);

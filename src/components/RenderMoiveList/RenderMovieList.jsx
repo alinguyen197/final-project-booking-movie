@@ -10,14 +10,13 @@ export default function RenderMovieList() {
   console.log(movieList);
   useEffect(() => {
     dispatch({ type: GET_MOVIE_LIST });
-   
   }, []);
 
   const render = () => {
     var settings = {
       dots: false,
       infinite: false,
-      speed: 2000,
+      speed: 1000,
       slidesToShow: 4,
       slidesToScroll: 4,
       initialSlide: 0,
@@ -85,7 +84,7 @@ export default function RenderMovieList() {
                 </Slider>
               </div>
               <div className="tab-pane container fade" id="menu1">
-                  <Slider {...settings}>
+                <Slider {...settings}>
                   {movieList.map((value, index) => {
                     return (
                       <div key={index}>

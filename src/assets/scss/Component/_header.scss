@@ -88,7 +88,7 @@
           border-radius: 14px;
           margin-right: 10px;
         }
-        &::after {
+        &:nth-child(1):after {
           display: table;
           content: "";
           top: -1px;

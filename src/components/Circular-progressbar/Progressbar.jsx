@@ -2,8 +2,9 @@ import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-export default function Progressbar() {
-  const percentage = 5.5;
+export default function Progressbar(props) {
+  const percentText = props.danhGia;
+  const percentValue = props.danhGia * 10;
 
   return (
     <div
@@ -13,10 +14,11 @@ export default function Progressbar() {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
         borderRadius: "50%",
       }}
+      className="progressbar"
     >
       <CircularProgressbar
-        value={55}
-        text={`${percentage}`}
+        value={percentValue}
+        text={`${percentText}`}
         styles={buildStyles({
           pathColor: `rgb(126, 211, 32)`,
           textColor: "white",

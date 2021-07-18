@@ -1,5 +1,5 @@
 import React from "react";
-import PaginationDashboard from "./PaginationDashboard";
+import PaginationUser from "./PaginationUser";
 
 export default function Dashboard() {
   return (
@@ -9,7 +9,7 @@ export default function Dashboard() {
           <div className="row">
             <div className="col-sm-6">
               <h2>
-                QUẢN LÝ <b>PHIM</b>
+                QUẢN LÝ <b>NGƯỜI DÙNG</b>
               </h2>
             </div>
             <div className="col-sm-6">
@@ -25,13 +25,13 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <PaginationDashboard />
+      <PaginationUser />
       <div id="addEmployeeModal" className="modal fade">
         <div className="modal-dialog">
           <div className="modal-content">
             <form>
               <div className="modal-header">
-                <h4 className="modal-title">Thêm Phim</h4>
+                <h4 className="modal-title">Thêm người dùng</h4>
                 <button
                   type="button"
                   className="close"
@@ -43,31 +43,27 @@ export default function Dashboard() {
               </div>
               <div className="modal-body">
                 <div className="form-group">
-                  <label>Mã Phim</label>
+                  <label>Tài Khoản</label>
                   <input type="text" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Tên phim</label>
+                  <label>Họ tên</label>
                   <input type="email" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Trailer</label>
+                  <label>Email</label>
                   <input type="text" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Hình Ảnh</label>
-                  <input
-                    type="file"
-                    class="form-control-file"
-                    id="exampleFormControlFile1"
-                  />
+                  <label>Số điện thoại</label>
+                  <input type="number" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Mô Tả</label>
-                  <input type="text" className="form-control" required />
+                  <label>Mật Khẩu</label>
+                  <input type="password" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Mã Nhóm</label>
+                  <label> Mã Loại Người Dùng</label>
                   <input type="text" className="form-control" required />
                 </div>
               </div>

@@ -22,6 +22,14 @@ export class Service {
       data: userLogin,
     });
   }
+
+  //Lay danh sach nguoi dung
+  getUserListApi() {
+    return axios({
+      url: `${DOMAIN}/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`,
+      method: "GET",
+    });
+  }
 }
 
 export const service = new Service();

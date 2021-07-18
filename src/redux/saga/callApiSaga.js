@@ -15,6 +15,7 @@ import {
   GET_USER_LOGIN,
 } from "../const/userLoginConst";
 
+import { GET_USER_LIST_SUCCESS, GET_USER_LIST } from "../const/userListConst";
 /**
  *
  * Hàm gọi api lấy tất cả danh sách phim
@@ -136,4 +137,36 @@ function* getUserLogin(action) {
 export function* followGetUserLogin() {
   // takeLatest gọi hàm chạy render function genetor
   yield takeLatest(GET_USER_LOGIN, getUserLogin);
+}
+/**
+ * Lấy danh sách người dùng
+ */
+function* getUserList(action) {
+  try {
+    // start loading
+    yield put({
+      type: START_LOADING,
+    });
+    //delay cho hiệu ứng đẹp
+    yield delay(1000);
+    let { data, status } = yield call(service.getUserListApi);
+
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put({
+        type: GET_USER_LIST_SUCCESS,
+        payload: data,
+      });
+    }
+    //stop loading
+    yield put({
+      type: STOP_LOADING,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export function* followGetUserList() {
+  // takeLatest gọi hàm chạy render function genetor
+  yield takeLatest(GET_USER_LIST, getUserList);
 }

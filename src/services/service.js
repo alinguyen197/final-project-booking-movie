@@ -22,6 +22,22 @@ export class Service {
       data: userLogin,
     });
   }
+
+  //Get Cinema List By Brand
+  getCinemaListBrandApi() {
+    return axios({
+      url: `${DOMAIN}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`,
+      method: "GET",
+    });
+  }
+
+  // Get ShowTime by MovieCode in Movie detail page
+  getShowTimeByMoiveCodeApi(movieCode) {
+    return axios({
+      url: `${DOMAIN}/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieCode}`,
+      method: "GET",
+    });
+  }
 }
 
 export const service = new Service();

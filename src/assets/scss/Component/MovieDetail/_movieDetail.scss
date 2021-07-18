@@ -123,15 +123,41 @@
       .detailMainInfor {
         top: 80% !important;
         .progressbar {
-          display: none;
+          display: none !important;
         }
         .filmPoster {
-          display: none;
+          display: none !important;
         }
         .filmName {
           .film-time-trailer {
             .btn-modal-video {
               display: none;
+            }
+          }
+        }
+      }
+      .posterLandscapeFilm {
+        filter: blur(0px) !important;
+      }
+    }
+  }
+  @include respond-to("large") {
+    .playing-trailer {
+      display: block !important;
+    }
+    .styleBlur {
+      .detailMainInfor {
+        top: 80% !important;
+        .progressbar {
+          display: none !important;
+        }
+        .filmPoster {
+          display: none !important;
+        }
+        .filmName {
+          .film-time-trailer {
+            .btn-modal-video {
+              display: none !important;
             }
           }
         }

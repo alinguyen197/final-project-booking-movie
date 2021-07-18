@@ -11,9 +11,9 @@ const userLoginReducer = (state = initialState, action) => {
       state.userLogin = payload;
       return { ...state };
     case "LOG_OUT":
-      console.log(action);
       state.userLogin = [];
       return { ...state };
+
     default:
       return state;
   }

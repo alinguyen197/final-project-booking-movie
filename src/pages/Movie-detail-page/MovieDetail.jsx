@@ -10,6 +10,7 @@ import Comment from "./Comment";
 import Progressbar from "../../components/Circular-progressbar/Progressbar";
 import VideoModal from "../../components/Modal-video/VideoModal";
 import ModalVideo2 from "../../components/Modal-video/MovieCard2";
+
 function MovieDetail(props) {
   const dispatch = useDispatch();
   //get movieCode trên url
@@ -22,7 +23,6 @@ function MovieDetail(props) {
   }, []);
 
   const { movieDetail } = useSelector((state) => state.movieDetailReducer);
-  console.log(movieDetail);
   const { hinhAnh, ngayKhoiChieu, tenPhim, trailer, danhGia } = movieDetail;
   const formatTime = new Date(ngayKhoiChieu);
   return (
@@ -86,28 +86,31 @@ function MovieDetail(props) {
                   <a
                     className="nav-link active"
                     data-toggle="pill"
-                    href="#home"
+                    href="#infor"
                   >
                     Thông Tin
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" data-toggle="pill" href="#menu1">
+                  <a className="nav-link" data-toggle="pill" href="#comment">
                     Đánh Giá
                   </a>
                 </li>
               </ul>
               {/* Tab panes */}
               <div className="tab-content">
-                <div className="tab-pane container active" id="home">
+                <div className="tab-pane container active" id="infor">
                   <InforTable movieDetail={movieDetail} />
                 </div>
-                <div className="tab-pane container fade" id="menu1">
+                <div className="tab-pane container fade" id="comment">
                   <Comment />
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <ShowTime movieCode={movieCode} />
         </div>
       </div>
 

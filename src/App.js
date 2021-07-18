@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Header from "./components/Header/Header.jsx";
 import LoadingComponent from "./components/Loading/LoadingComponent.jsx";
+import Guard from "./HOC/Guard.jsx";
 import Admin from "./pages/Admin-page/Admin.jsx";
 import Home from "./pages/Home-page/Home.jsx";
 import MovieDetail from "./pages/Movie-detail-page/MovieDetail.jsx";
@@ -23,7 +24,9 @@ function App() {
           </Route>
 
           <Route path="/admin" exact={true}>
-            <Admin />
+            <Guard>
+              <Admin />
+            </Guard>
           </Route>
 
           <Route path="/sign-in">

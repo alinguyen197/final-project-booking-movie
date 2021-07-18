@@ -1,9 +1,17 @@
-import { takeLatest, call, put, delay } from "redux-saga/effects";
+import { takeLatest, call, put, delay, take } from "redux-saga/effects";
 import { service } from "../../services/service";
 import { STATUS_CODE } from "../../util/const/settingSystem";
+import {
+  GET_CINEMA_BRAND,
+  GET_CINEMA_BRAND_SUCCESS,
+  GET_CINEMA_LIST_BY_BRAND,
+  GET_CINEMA_LIST_BY_BRAND_SUCCESS,
+} from "../const/cinemaConst";
 import { START_LOADING, STOP_LOADING } from "../const/commonConst";
 import {
   GET_MOVIE_DETAIL,
+  GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE,
+  GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE_SUCCESS,
   GET_MOVIE_DETAIL_SUCCESS,
 } from "../const/movieDetailConst";
 import {
@@ -124,7 +132,7 @@ function* getUserLogin(action) {
       type: STOP_LOADING,
     });
     alert("Đăng nhập thành công !!");
-    action.history.push("/");
+    action.history.goBack("/");
   } catch (err) {
     alert("Tài Khoản & Mật khẩu không chính xác !!!");
     yield put({
@@ -136,4 +144,52 @@ function* getUserLogin(action) {
 export function* followGetUserLogin() {
   // takeLatest gọi hàm chạy render function genetor
   yield takeLatest(GET_USER_LOGIN, getUserLogin);
+}
+
+/**
+ * Lấy danh sách  rạp theo Brand
+ */
+function* getCinemaListByBrand(action) {
+  console.log(action);
+  try {
+    let { status, data } = yield call(service.getCinemaListBrandApi);
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put({
+        type: GET_CINEMA_LIST_BY_BRAND_SUCCESS,
+        payload: data,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+export function* followGetCinemaListByBrand() {
+  yield takeLatest(GET_CINEMA_LIST_BY_BRAND, getCinemaListByBrand);
+}
+
+/**
+ *
+ * Lấy lịch chiếu trong movie detail
+ */
+function* getShowTimeByMovieCode(action) {
+  console.log(action);
+  try {
+    let { status, data } = yield call(() => {
+      return service.getShowTimeByMoiveCodeApi(action.payload);
+    });
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put({
+        type: GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE_SUCCESS,
+        payload: data,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+export function* followGetShowTimeByMovieCode() {
+  yield takeLatest(
+    GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE,
+    getShowTimeByMovieCode
+  );
 }

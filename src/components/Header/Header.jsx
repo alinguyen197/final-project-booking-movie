@@ -3,19 +3,19 @@ import logo from "../../assets/img/web-logo.png";
 import logoLogin from "../../assets/img/avatar.png";
 import menuOption from "../../assets/img/menu-options.png";
 import arrowRight from "../../assets/img/next-session.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+
 class Header extends Component {
   renderUserLogin() {
     // const { taiKhoan, isValid } = this.props.userLogin;
     const taiKhoanLocal = JSON.parse(localStorage.getItem("taiKhoan"));
-    console.log(taiKhoanLocal);
     if (taiKhoanLocal == null) {
       return (
         <div className="accout">
           <NavLink
             to="/sign-in"
-            style={{ textDecoration: "none" }}
+            // style={{ textDecoration: "none" }}
             className="accout-logout"
           >
             <img className="btnLogin " src={logoLogin} alt="Login" />
@@ -28,9 +28,9 @@ class Header extends Component {
         <div className="accout">
           <NavLink
             id="logout"
-            to="/#"
+            to="#"
             data-toggle="dropdown"
-            style={{ textDecoration: "none" }}
+            // style={{ textDecoration: "none" }}
           >
             <img className="btnLogin " src={logoLogin} alt="Login" />
             <span className="toggle">{taiKhoanLocal}</span>
@@ -65,7 +65,6 @@ class Header extends Component {
     localStorage.clear();
   };
   render() {
-    console.log("render header ");
     return (
       <nav className="navbar navbar-expand-sm  ">
         <NavLink className="navbar-brand" to="/">

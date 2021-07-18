@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Comment() {
-  return <div></div>;
+  return <div style={{ height: "30vh" }}>LOZZZ</div>;
 }

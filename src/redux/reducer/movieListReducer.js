@@ -10,6 +10,7 @@ export const movieListReducer = (state = initialState, action) => {
     case GET_MOVIE_LIST_SUCCESS:
       state.movieList = payload;
       return { ...state };
+
     default:
       return state;
   }

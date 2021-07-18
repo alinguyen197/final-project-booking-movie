@@ -9,6 +9,7 @@
   box-shadow: 0px 0px 10px rgb(128, 128, 128, 0.4);
   font-size: 14px;
   .navbar-brand {
+    flex-grow: 7;
     img {
       height: 50px;
       width: 50px;
@@ -69,7 +70,7 @@
     }
   }
   .navbar-collapse {
-    flex-grow: 0;
+    flex-grow: 5;
   }
   .myaccount {
     display: inline-flex;

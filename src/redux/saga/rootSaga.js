@@ -6,5 +6,7 @@ export function* rootSaga() {
     callApiSaga.followGetMovieList(),
     callApiSaga.followGetUserLogin(),
     callApiSaga.followGetMovieDetail(),
+    callApiSaga.followGetCinemaListByBrand(),
+    callApiSaga.followGetShowTimeByMovieCode(),
   ]);
 }

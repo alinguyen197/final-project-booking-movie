@@ -17,5 +17,8 @@
 @import "./Component/MovieDetail/inforTable.scss";
 //Trang đăng nhập
 @import "./Layout/signIn";
+
 //Trang admin
 @import "./Component/Admin/admin";
+@import "./Component/Admin/dashboard";
+@import "./Component/Admin/paginationDashboard"

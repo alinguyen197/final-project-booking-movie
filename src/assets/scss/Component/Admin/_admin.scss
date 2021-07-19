@@ -58,8 +58,8 @@
     .admin-menu-right {
 
       width: calc(100% - 300px);
-      background-color: #eeeeee;
-      height: 100vh;
+
+
       left: 200px;
       float: right;
 
@@ -90,16 +90,18 @@
           }
         }
 
-        
+
 
         .user {
           position: relative;
-       
+
           flex-direction: row;
-          p{
+
+          p {
             display: inline;
             margin-right: 10px;
           }
+
           img {
             min-width: 50px;
             border-radius: 50%;
@@ -112,9 +114,9 @@
             object-fit: cover;
           }
         }
-        
+
       }
-     
+
     }
 
 

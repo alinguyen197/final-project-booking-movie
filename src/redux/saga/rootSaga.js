@@ -1,5 +1,5 @@
 import * as callApiSaga from "./callApiSaga";
-import { all } from "redux-saga/effects";
+import { all, call } from "redux-saga/effects";
 export function* rootSaga() {
   // all theo dõi data , cập nhật data
   yield all([
@@ -8,5 +8,6 @@ export function* rootSaga() {
     callApiSaga.followGetMovieDetail(),
     callApiSaga.followGetCinemaListByBrand(),
     callApiSaga.followGetShowTimeByMovieCode(),
+    callApiSaga.followGetUserList(),
   ]);
 }

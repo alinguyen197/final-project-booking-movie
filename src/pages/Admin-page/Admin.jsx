@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../assets/img/web-logo.png";
 
 import Dashboard from "./Dashboard";
-
+import User from "./User";
 export default function Admin() {
   return (
     <section id="admin">
@@ -29,7 +29,7 @@ export default function Admin() {
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="#userMovie">
                 <span className="icon">
                   <i class="fas fa-people-carry"></i>
                 </span>
@@ -91,6 +91,7 @@ export default function Admin() {
           </div>
 
           <Dashboard />
+          {/* <User /> */}
         </div>
       </div>
     </section>

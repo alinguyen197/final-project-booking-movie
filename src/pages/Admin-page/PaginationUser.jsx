@@ -1,35 +1,33 @@
 import React, { useEffect, useState } from "react";
-import Time from "react-time-format";
+// import Time from "react-time-format";
 import { useSelector, useDispatch } from "react-redux";
-import { GET_MOVIE_LIST } from "../../redux/const/movieListConst";
+import { GET_USER_LIST } from "../../redux/const/userListConst";
 
 // import { useSelector, useDispatch } from "react-redux";
-// import { GET_MOVIE_LIST } from "../../redux/const/movieListConst";
 
-export default function PaginationDashboard() {
+export default function PaginationUser() {
   let [state, setState] = useState({
-    currentPage: 2,
-    itemPerPage: 5,
+    currentUser: 1,
+    itemPerUser: 5,
   });
   const dispatch = useDispatch();
-  const { movieList } = useSelector((state) => state.movieListReducer);
-  // const currentList = movieList.slice(0, 10);
+  const { userList } = useSelector((state) => state.userListReducer);
 
-  const totalPage = Math.floor(movieList.length / state.itemPerPage);
-  const CurrentList = movieList.slice(
-    (state.currentPage - 1) * state.itemPerPage,
-    state.itemPerPage * state.currentPage
+  const totalUser = Math.floor(userList.length / state.itemPerUser);
+  const CurrentUser = userList.slice(
+    (state.currentUser - 1) * state.itemPerUser,
+    state.itemPerUser * state.currentUser
   );
-  const handlePage = (page) => {
+  const handleUser = (user) => {
     setState({
       ...state,
-      currentPage: page,
+      currentUser: user,
     });
 
     console.log(state);
   };
   useEffect(() => {
-    dispatch({ type: GET_MOVIE_LIST });
+    dispatch({ type: GET_USER_LIST });
   }, []);
   console.log("render");
 
@@ -44,24 +42,20 @@ export default function PaginationDashboard() {
                 <label htmlFor="selectAll" />
               </span>
             </th>
-            <th scope="col">Mã Phim</th>
-            <th scope="col">Tên Phim</th>
-            <th scope="col">Hinh Ảnh</th>
-            <th scope="col">Mô Tả</th>
-            <th scope="col">Mã Nhóm</th>
+            <th scope="col">Tài Khoản</th>
+            <th scope="col">Họ tên</th>
+            <th scope="col">Email</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col">Mật Khẩu </th>
             <th scope="col" type>
-              Ngày khỏi chiếu
+              Mã Loại Người Dùng
             </th>
             <th scope="col">Thao tác</th>
           </tr>
         </thead>
 
         <tbody>
-          {CurrentList.map((value, index) => {
-            let timeMovie = value.ngayKhoiChieu;
-            let formatTime = new Date(timeMovie);
-            let moTaPhim = value.moTa.slice(0, 40) + "...";
-            let nameMovie = value.tenPhim.slice(0, 20) + "...";
+          {CurrentUser.map((value, index) => {
             return (
               <tr key={index} className="renderTable">
                 <td>
@@ -75,23 +69,13 @@ export default function PaginationDashboard() {
                     <label htmlFor="checkbox1" />
                   </span>
                 </td>
-                <td>{value.maPhim}</td>
-                <td className="tenPhim">{nameMovie}</td>
-                <td>
-                  {" "}
-                  <img
-                    className="card-img-top"
-                    style={{ width: "50px", height: "50px" }}
-                    src={value.hinhAnh}
-                    alt=""
-                  />
-                </td>
-                <td className="moTa">{moTaPhim}</td>
-                <td>{value.maNhom}</td>
-                <td>
-                  {" "}
-                  <Time value={formatTime} format="DD/MM/YY" />
-                </td>
+                <td>{value.taiKhoan}</td>
+                <td>{value.hoTen}</td>
+
+                <td>{value.email}</td>
+                <td>{value.soDt}</td>
+                <td>{value.matKhau}</td>
+                <td>{value.maLoaiNguoiDung}</td>
                 <td>
                   <a
                     href="#editEmployeeModal"
@@ -115,16 +99,16 @@ export default function PaginationDashboard() {
         </tbody>
       </table>
       <nav aria-label="Page navigation example">
-        <ul class="pagination addMoviePagination">
+        <ul class="pagination">
           <li class="page-item">
             <a class="page-link" href="#">
               Previous
             </a>
           </li>
-          {[...Array(totalPage)].map((x, i) => {
+          {[...Array(totalUser)].map((x, i) => {
             return (
               <li class="page-item" key={i}>
-                <a class="page-link" href="#" onClick={() => handlePage(i)}>
+                <a class="page-link" href="#" onClick={() => handleUser(i)}>
                   {i}
                 </a>
               </li>
@@ -143,7 +127,7 @@ export default function PaginationDashboard() {
           <div className="modal-content">
             <form>
               <div className="modal-header">
-                <h4 className="modal-title">Thêm Phim</h4>
+                <h4 className="modal-title">Thêm người dùng</h4>
                 <button
                   type="button"
                   className="close"
@@ -155,31 +139,27 @@ export default function PaginationDashboard() {
               </div>
               <div className="modal-body">
                 <div className="form-group">
-                  <label>Mã Phim</label>
+                  <label>Tài Khoản</label>
                   <input type="text" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Tên phim</label>
+                  <label>Họ tên</label>
                   <input type="email" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Trailer</label>
+                  <label>Email</label>
                   <input type="text" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Hình Ảnh</label>
-                  <input
-                    type="file"
-                    class="form-control-file"
-                    id="exampleFormControlFile1"
-                  />
+                  <label>Số điện thoại</label>
+                  <input type="number" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Mô Tả</label>
-                  <input type="text" className="form-control" required />
+                  <label>Mật Khẩu</label>
+                  <input type="password" className="form-control" required />
                 </div>
                 <div className="form-group">
-                  <label>Mã Nhóm</label>
+                  <label> Mã Loại Người Dùng</label>
                   <input type="text" className="form-control" required />
                 </div>
               </div>

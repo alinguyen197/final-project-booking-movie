@@ -1,0 +1,51 @@
+.table {
+
+
+    .shortcut {
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: center;
+
+
+    }
+
+    .tenPhim {
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+    }
+
+    .moTa {
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .card-img-top {
+        text-align: center;
+        justify-content: center;
+    }
+
+
+}
+
+.addMoviePagination {
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+
+    .page-link {
+        color: #27a9e3 !important;
+        border-color: #27a9e3;
+
+        &:hover {
+            border-color: #27a9e3 !important;
+        }
+
+    }
+}

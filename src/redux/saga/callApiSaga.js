@@ -169,7 +169,7 @@ export function* followGetCinemaListByBrand() {
 
 /**
  *
- * Lấy lịch chiếu trong movie detail
+ * Lấy lịch chiếu trong movie detail by movieCode
  */
 function* getShowTimeByMovieCode(action) {
   console.log(action);

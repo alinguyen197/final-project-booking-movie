@@ -25,7 +25,7 @@ export default function CinemaRelease() {
                 return (
                   <li className="nav-item" key={index}>
                     <a
-                      className="nav-link "
+                      className={`nav-link ${index === 0 ? "active" : ""}`}
                       data-toggle="pill"
                       href={`#${cinema.maHeThongRap}`}
                     >
@@ -58,7 +58,9 @@ export default function CinemaRelease() {
                                   key={index}
                                 >
                                   <a
-                                    className="nav-link"
+                                    className={`nav-link ${
+                                      index === 0 ? "active" : ""
+                                    }`}
                                     data-toggle="pill"
                                     // href="#bhd1"
                                     href={`#movie${cumRap.maCumRap}`}

@@ -23,7 +23,7 @@ export class Service {
     });
   }
 
-  //Get Cinema List By Brand
+  //Get Cinema List By Brand in CinemaRelease
   getCinemaListBrandApi() {
     return axios({
       url: `${DOMAIN}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`,

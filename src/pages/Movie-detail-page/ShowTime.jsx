@@ -57,9 +57,11 @@ export default function ShowTime(props) {
                           <ul className="nav nav-pills row">
                             {cumRap.cumRapChieu.map((chiTietRap, index) => {
                               return (
-                                <li className="nav-item col-12 col-sm-12">
+                                <li className="nav-item col-12 col-sm-12 ">
                                   <a
-                                    className="nav-link"
+                                    className={`nav-link ${
+                                      index === 0 ? "active" : ""
+                                    } `}
                                     data-toggle="pill"
                                     href={`#${chiTietRap.maCumRap}`}
                                   >
@@ -124,8 +126,8 @@ export default function ShowTime(props) {
                                                   {showTimeMovieDetail.tenPhim}
                                                 </p>
                                                 <p className="cinema-address">
-                                                  {phim.thoiLuong} -
-                                                  {phim.tenRap}
+                                                  Thời lượng : {phim.thoiLuong}{" "}
+                                                  - {phim.tenRap}
                                                 </p>
                                               </div>
 
@@ -137,7 +139,13 @@ export default function ShowTime(props) {
                                                         phim.ngayChieuGioChieu
                                                       }
                                                       format="DD/MM/YY - hh:mm"
-                                                    />
+                                                      onClick={() => {
+                                                        console.log(
+                                                          phim.maLichChieu
+                                                        );
+                                                      }}
+                                                    ></Time>
+                                                    <span></span>
                                                   </span>
                                                 </a>
                                               </div>

@@ -3,8 +3,10 @@ import bhdbitexco from "../../assets/img/ListCinemaRelease/bhdbitexco.png";
 import { useSelector, useDispatch } from "react-redux";
 import { GET_CINEMA_LIST_BY_BRAND } from "../../redux/const/cinemaConst";
 import Time from "react-time-format";
+import { useHistory } from "react-router";
 
 export default function CinemaRelease() {
+  const history = useHistory();
   let { cinemaListByBrand } = useSelector((state) => state.cinemaReducer);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -12,6 +14,14 @@ export default function CinemaRelease() {
       type: GET_CINEMA_LIST_BY_BRAND,
     });
   }, []);
+  const handleBookingTicket = (maLichChieu) => {
+    const checkUserLogin = JSON.parse(localStorage.getItem("taiKhoan"));
+    if (checkUserLogin === null) {
+      history.push("/sign-in");
+    } else {
+      history.push(`/booking/${maLichChieu}`);
+    }
+  };
   return (
     <section id="cinemarelease">
       <div className="container">
@@ -112,7 +122,7 @@ export default function CinemaRelease() {
                                           <div className="list-flim-detail-infor">
                                             <img src={phim.hinhAnh} alt="" />
                                             <div className="list-flim-detail-infor-name">
-                                              <span className="list-flim-detail-infor-name-type">
+                                              <span className="list-flim-detail-infor-name-type mr-2">
                                                 2D
                                               </span>
                                               <p className="list-flim-detail-infor-movie-name">
@@ -129,7 +139,14 @@ export default function CinemaRelease() {
                                               {phim.lstLichChieuTheoPhim.map(
                                                 (lichChieu, index) => {
                                                   return (
-                                                    <a href>
+                                                    <a
+                                                      href=""
+                                                      onClick={() =>
+                                                        handleBookingTicket(
+                                                          lichChieu.maLichChieu
+                                                        )
+                                                      }
+                                                    >
                                                       <span>
                                                         <Time
                                                           value={

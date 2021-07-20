@@ -3,6 +3,7 @@ import Header from "./components/Header/Header.jsx";
 import LoadingComponent from "./components/Loading/LoadingComponent.jsx";
 import Guard from "./HOC/Guard.jsx";
 import Admin from "./pages/Admin-page/Admin.jsx";
+import Booking from "./pages/Booking-page/Booking.jsx";
 import Home from "./pages/Home-page/Home.jsx";
 import MovieDetail from "./pages/Movie-detail-page/MovieDetail.jsx";
 import SignIn from "./pages/Sign-in-page/SignIn";
@@ -21,6 +22,10 @@ function App() {
 
           <Route path="/movie-detail/:movieCode" exact={true}>
             <MovieDetail />
+          </Route>
+
+          <Route path="/booking/:bookingCode" exact={true}>
+            <Booking />
           </Route>
 
           <Route path="/admin" exact={true}>

@@ -45,6 +45,30 @@ export class Service {
       method: "GET",
     });
   }
+
+  // Lấy dánh sách phòng vé để show ra danh sách ghê trong trang booking
+  getListBookingChairApi(bookingCode) {
+    return axios({
+      url: `${DOMAIN}/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${bookingCode}`,
+      method: "GET",
+    });
+  }
+
+  // Đặt vé xem phim
+  postBookingMovieTicketApi(bookingCode, listChoiceChair, taiKhoan, token) {
+    return axios({
+      url: `${DOMAIN}/QuanLyDatVe/DatVe`,
+      method: "POST",
+      data: {
+        maLichChieu: bookingCode,
+        danhSachVe: listChoiceChair,
+        taiKhoanNguoiDung: taiKhoan,
+      },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
 }
 
 export const service = new Service();

@@ -3,7 +3,7 @@ import logo from "../../assets/img/web-logo.png";
 import logoLogin from "../../assets/img/avatar.png";
 import menuOption from "../../assets/img/menu-options.png";
 import arrowRight from "../../assets/img/next-session.png";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Header extends Component {

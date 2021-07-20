@@ -9,5 +9,7 @@ export function* rootSaga() {
     callApiSaga.followGetCinemaListByBrand(),
     callApiSaga.followGetShowTimeByMovieCode(),
     callApiSaga.followGetUserList(),
+    callApiSaga.followGetBookingListChair(),
+    callApiSaga.followPostBookingMovieTicket(),
   ]);
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Time from "react-time-format";
 import { useSelector, useDispatch } from "react-redux";
-import { GET_MOVIE_LIST } from "../../redux/const/movieListConst";
+import { GET_MOVIE_LIST } from "../../../redux/const/movieListConst";
 
 // import { useSelector, useDispatch } from "react-redux";
 // import { GET_MOVIE_LIST } from "../../redux/const/movieListConst";
@@ -25,13 +25,10 @@ export default function PaginationDashboard() {
       ...state,
       currentPage: page,
     });
-
-    console.log(state);
   };
   useEffect(() => {
     dispatch({ type: GET_MOVIE_LIST });
   }, []);
-  console.log("render");
 
   return (
     <div>
@@ -46,7 +43,7 @@ export default function PaginationDashboard() {
             </th>
             <th scope="col">Mã Phim</th>
             <th scope="col">Tên Phim</th>
-            <th scope="col">Hinh Ảnh</th>
+            <th scope="col">Hình Ảnh</th>
             <th scope="col">Mô Tả</th>
             <th scope="col">Mã Nhóm</th>
             <th scope="col" type>
@@ -60,8 +57,14 @@ export default function PaginationDashboard() {
           {CurrentList.map((value, index) => {
             let timeMovie = value.ngayKhoiChieu;
             let formatTime = new Date(timeMovie);
-            let moTaPhim = value.moTa.slice(0, 40) + "...";
-            let nameMovie = value.tenPhim.slice(0, 20) + "...";
+            let moTaPhim = value.moTa.slice(0, 32);
+            let nameMovie = value.tenPhim.slice(0, 25);
+            if (nameMovie.length >= 25) {
+              nameMovie = nameMovie + "...";
+            }
+            if (moTaPhim.length >= 32) {
+              nameMovie = nameMovie + "...";
+            }
             return (
               <tr key={index} className="renderTable">
                 <td>
@@ -98,7 +101,7 @@ export default function PaginationDashboard() {
                     classname="edit"
                     data-toggle="modal"
                   >
-                    <i class="fa fa-list" aria-hidden="true"></i>
+                    <i class="fa fa-edit"></i>
                   </a>
 
                   <a
@@ -143,7 +146,7 @@ export default function PaginationDashboard() {
           <div className="modal-content">
             <form>
               <div className="modal-header">
-                <h4 className="modal-title">Thêm Phim</h4>
+                <h4 className="modal-title">Sửa Phim</h4>
                 <button
                   type="button"
                   className="close"

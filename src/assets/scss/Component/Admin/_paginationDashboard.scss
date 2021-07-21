@@ -1,5 +1,6 @@
 .table {
-
+    background-color: #edf3f9;
+    border: #186183;
 
     .shortcut {
         width: 200px;
@@ -8,22 +9,25 @@
         text-overflow: ellipsis;
         text-align: center;
 
+    }
 
+    .renderTable {
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: center;
     }
 
     .tenPhim {
-        width: 200px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        text-align: left;
 
     }
 
+
     .moTa {
-        width: 200px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        text-align: left;
+
     }
 
     .card-img-top {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import Time from "react-time-format";
 import { useSelector, useDispatch } from "react-redux";
-import { GET_USER_LIST } from "../../redux/const/userListConst";
+import { GET_USER_LIST } from "../../../redux/const/userListConst";
 
 // import { useSelector, useDispatch } from "react-redux";
 
@@ -127,7 +127,7 @@ export default function PaginationUser() {
           <div className="modal-content">
             <form>
               <div className="modal-header">
-                <h4 className="modal-title">Thêm người dùng</h4>
+                <h4 className="modal-title">Sửa người dùng</h4>
                 <button
                   type="button"
                   className="close"
@@ -186,7 +186,7 @@ export default function PaginationUser() {
           <div className="modal-content">
             <form>
               <div className="modal-header">
-                <h4 className="modal-title">Xoá Movie</h4>
+                <h4 className="modal-title">Xoá người dùng</h4>
                 <button
                   type="button"
                   className="close"
@@ -197,7 +197,7 @@ export default function PaginationUser() {
                 </button>
               </div>
               <div className="modal-body">
-                <p>Bạn có chắc muốn xóa Movie này không?</p>
+                <p>Bạn có chắc muốn xóa người dùng này không?</p>
                 <p className="text-warning">
                   <small>Hành động này không thể hoàn tác.</small>
                 </p>

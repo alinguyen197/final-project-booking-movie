@@ -1,9 +1,7 @@
-import { takeLatest, call, put, delay, take } from "redux-saga/effects";
+import { takeLatest, call, put, delay } from "redux-saga/effects";
 import { service } from "../../services/service";
 import { STATUS_CODE } from "../../util/const/settingSystem";
 import {
-  GET_CINEMA_BRAND,
-  GET_CINEMA_BRAND_SUCCESS,
   GET_CINEMA_LIST_BY_BRAND,
   GET_CINEMA_LIST_BY_BRAND_SUCCESS,
 } from "../const/cinemaConst";
@@ -24,6 +22,12 @@ import {
 } from "../const/userLoginConst";
 
 import { GET_USER_LIST_SUCCESS, GET_USER_LIST } from "../const/userListConst";
+import {
+  BOOKING_MOVIE_TICKET,
+  BOOKING_MOVIE_TICKET_SUCCESS,
+  GET_BOOKING_LIST_CHAIR,
+  GET_BOOKING_LIST_CHAIR_SUCCESS,
+} from "../const/bookingConst";
 
 /**
  *
@@ -133,7 +137,7 @@ function* getUserLogin(action) {
       type: STOP_LOADING,
     });
     alert("Đăng nhập thành công !!");
-    action.history.goBack("/");
+    action.history.goBack();
   } catch (err) {
     alert("Tài Khoản & Mật khẩu không chính xác !!!");
     yield put({
@@ -170,7 +174,7 @@ export function* followGetCinemaListByBrand() {
 
 /**
  *
- * Lấy lịch chiếu trong movie detail
+ * Lấy lịch chiếu trong movie detail by movieCode
  */
 function* getShowTimeByMovieCode(action) {
   console.log(action);
@@ -226,4 +230,82 @@ function* getUserList(action) {
 export function* followGetUserList() {
   // takeLatest gọi hàm chạy render function genetor
   yield takeLatest(GET_USER_LIST, getUserList);
+}
+
+/**
+ * Lấy danh sách ghế từ mã lịch chiếu
+ *
+ */
+function* getBookingListChair(action) {
+  try {
+    // start loading
+    yield put({
+      type: START_LOADING,
+    });
+    //delay cho hiệu ứng đẹp
+    yield delay(1000);
+    let { status, data } = yield call(() => {
+      return service.getListBookingChairApi(action.payload);
+    });
+
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put({
+        type: GET_BOOKING_LIST_CHAIR_SUCCESS,
+        payload: data,
+      });
+    }
+    //stop loading
+    yield put({
+      type: STOP_LOADING,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export function* followGetBookingListChair() {
+  yield takeLatest(GET_BOOKING_LIST_CHAIR, getBookingListChair);
+}
+
+/**
+ * Đặt vé xem phim
+ */
+function* postBookingMovieTicket(action) {
+  console.log(action);
+  try {
+    // start loading
+    yield put({
+      type: START_LOADING,
+    });
+    //delay cho hiệu ứng đẹp
+    yield delay(1000);
+    const taiKhoan = JSON.parse(localStorage.getItem("taiKhoan"));
+    const token = JSON.parse(localStorage.getItem("token"));
+    let { status, data } = yield call(() => {
+      return service.postBookingMovieTicketApi(
+        action.bookingCode,
+        action.listChairDangChon,
+        taiKhoan,
+        token
+      );
+    });
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put({
+        type: BOOKING_MOVIE_TICKET_SUCCESS,
+        payload: action.listChairDangChon,
+      });
+    }
+    alert(data);
+    action.history.goBack("/");
+    //stop loading
+    yield put({
+      type: STOP_LOADING,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export function* followPostBookingMovieTicket() {
+  yield takeLatest(BOOKING_MOVIE_TICKET, postBookingMovieTicket);
 }

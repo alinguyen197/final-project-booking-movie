@@ -8,9 +8,6 @@ ol,
 ul {
   margin: 0 !important;
 }
-// .container {
-//   max-width: 940px !important;
-//   float: none !important;
-//   margin: auto !important;
-//   clear: both !important;
-// }
+body {
+  scroll-behavior: smooth;
+}

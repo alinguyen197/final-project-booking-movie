@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import ModalVideo from "react-modal-video";
 import "./_videoModal.scss";
 export default function VideoModal(props) {

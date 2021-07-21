@@ -23,7 +23,7 @@ export class Service {
     });
   }
 
-  //Get Cinema List By Brand
+  //Get Cinema List By Brand in CinemaRelease
   getCinemaListBrandApi() {
     return axios({
       url: `${DOMAIN}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`,
@@ -43,6 +43,30 @@ export class Service {
     return axios({
       url: `${DOMAIN}/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`,
       method: "GET",
+    });
+  }
+
+  // Lấy dánh sách phòng vé để show ra danh sách ghê trong trang booking
+  getListBookingChairApi(bookingCode) {
+    return axios({
+      url: `${DOMAIN}/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${bookingCode}`,
+      method: "GET",
+    });
+  }
+
+  // Đặt vé xem phim
+  postBookingMovieTicketApi(bookingCode, listChoiceChair, taiKhoan, token) {
+    return axios({
+      url: `${DOMAIN}/QuanLyDatVe/DatVe`,
+      method: "POST",
+      data: {
+        maLichChieu: bookingCode,
+        danhSachVe: listChoiceChair,
+        taiKhoanNguoiDung: taiKhoan,
+      },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
   }
 }

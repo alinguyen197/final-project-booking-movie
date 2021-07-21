@@ -3,7 +3,7 @@ import logo from "../../assets/img/web-logo.png";
 import logoLogin from "../../assets/img/avatar.png";
 import menuOption from "../../assets/img/menu-options.png";
 import arrowRight from "../../assets/img/next-session.png";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Header extends Component {
@@ -93,7 +93,7 @@ class Header extends Component {
 
             <li>
               <NavLink
-                to="#showtime"
+                to="#rendermovielist"
                 className="menu titleDisplay title-menu-mobile"
                 data-scroll="homeMovies"
               >
@@ -143,7 +143,7 @@ class Header extends Component {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ">
             <li className="nav-item ">
-              <NavLink className="nav-link" to="#">
+              <NavLink className="nav-link" to="#rendermovielist">
                 Lịch chiếu
               </NavLink>
             </li>

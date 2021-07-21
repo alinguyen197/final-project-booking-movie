@@ -1,0 +1,203 @@
+#booking-page {
+  background-image: url("../../../img/bgCinemaBooking.jpeg");
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  background-position: center;
+  width: 100%;
+  .overlay {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+      to bottom,
+      rgb(0, 0, 0),
+      rgba(62, 62, 68, 0.829)
+    );
+    .mid {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .bookingChair {
+        background-color: white;
+        padding: 10px;
+        position: relative;
+        height: 450px;
+        border-radius: 6px;
+        .screen {
+          background: $hoverText;
+          width: 90%;
+          font-family: medium;
+          margin: 0 auto;
+          border-radius: 6px;
+          font-size: 10px;
+          color: white;
+          box-shadow: 0px 12px 15px grey;
+        }
+        .note {
+          margin-top: 30px;
+          p {
+            font-size: 10px;
+            display: inline-block;
+            height: 20px;
+            line-height: 10px;
+            color: $account;
+          }
+
+          .note-signal-disable,
+          .note-signal-available,
+          .note-signal-booking {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+            margin-right: 4px;
+          }
+          .note-signal-disable {
+            background: $account;
+          }
+          .note-signal-available {
+            background: $hoverText;
+          }
+          .note-signal-booking {
+            background: #3f6783;
+          }
+        }
+        .listchair {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          margin-top: 30px;
+          text-align: center;
+          width: 425px;
+          .choice {
+            background: #3f6783 !important;
+            border: none;
+            font-family: bold;
+            font-size: 8px;
+            height: 25px;
+            width: 25px;
+            border-radius: 6px;
+            margin: 0px 1px;
+            background-color: $hoverText;
+            color: white;
+            outline: none;
+          }
+          .chair {
+            outline: none;
+            border: none;
+            font-family: bold;
+            font-size: 8px;
+            height: 25px;
+            width: 25px;
+            border-radius: 6px;
+            margin: 0px 1px;
+            background-color: $hoverText;
+            color: white;
+            &:disabled {
+              background-color: $colorText;
+            }
+          }
+        }
+      }
+      .infor {
+        background: $white;
+        height: 230px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        .infor-left {
+          float: left;
+          width: 40%;
+          padding: 10px 10px;
+          img {
+            width: 100%;
+            border-radius: 6px;
+          }
+        }
+        .infor-right {
+          float: left;
+          width: 60%;
+          padding: 10px 10px;
+
+          .title {
+            font-size: 18px;
+            font-family: semibold;
+            color: $hoverText;
+          }
+          .time {
+            color: grey;
+            font-size: 10px;
+          }
+          .cinemaname {
+            font-size: 14px;
+            font-family: semibold;
+            color: $hoverText;
+          }
+          .address {
+            color: grey;
+            font-size: 10px;
+          }
+        }
+      }
+      .bill {
+        padding: 10px;
+        background-color: $white;
+        border-radius: 6px;
+        p {
+          display: inline-block;
+          line-height: 25px;
+          height: 50px;
+          overflow-x: hidden;
+          overflow-y: auto;
+          .bill-content {
+            float: right;
+          }
+          .chair {
+            font-size: 16px;
+          }
+          .total {
+            font-size: 24px;
+          }
+          .bill-title {
+            color: $hoverText;
+            font-family: semibold;
+            font-size: $size-18;
+          }
+        }
+        .bill-btn-disable {
+          background: $account;
+          border: none;
+          border-radius: 6px;
+          padding: 10px 15px;
+          color: $white;
+          font-size: 16px;
+          font-family: bold;
+        }
+        .bill-btn {
+          background: $hoverText;
+          border: none;
+          border-radius: 6px;
+          padding: 10px 15px;
+          color: $white;
+          font-size: 16px;
+          font-family: bold;
+        }
+      }
+    }
+  }
+  @include respond-to("large") {
+    .infor {
+      margin-top: 10px;
+      height: 200px !important;
+      .infor-left {
+        width: 30% !important;
+      }
+    }
+  }
+}

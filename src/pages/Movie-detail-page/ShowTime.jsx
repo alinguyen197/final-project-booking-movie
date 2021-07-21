@@ -3,9 +3,19 @@ import bhdbitexco from "../../assets/img/ListCinemaRelease/bhdbitexco.png";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE } from "../../redux/const/movieDetailConst";
 import Time from "react-time-format";
-export default function ShowTime(props) {
-  const dispatch = useDispatch();
+import { useHistory, Redirect, Prompt } from "react-router-dom";
 
+export default function ShowTime(props) {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const handleBookingTicket = (bookingCode) => {
+    const checkUserLogin = JSON.parse(localStorage.getItem("taiKhoan"));
+    if (checkUserLogin == null) {
+      history.push("/sign-in");
+    } else {
+      history.push(`/booking/${bookingCode}`);
+    }
+  };
   useEffect(() => {
     dispatch({
       type: GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE,
@@ -57,9 +67,11 @@ export default function ShowTime(props) {
                           <ul className="nav nav-pills row">
                             {cumRap.cumRapChieu.map((chiTietRap, index) => {
                               return (
-                                <li className="nav-item col-12 col-sm-12">
+                                <li className="nav-item col-12 col-sm-12 ">
                                   <a
-                                    className="nav-link"
+                                    className={`nav-link ${
+                                      index === 0 ? "active" : ""
+                                    } `}
                                     data-toggle="pill"
                                     href={`#${chiTietRap.maCumRap}`}
                                   >
@@ -124,8 +136,8 @@ export default function ShowTime(props) {
                                                   {showTimeMovieDetail.tenPhim}
                                                 </p>
                                                 <p className="cinema-address">
-                                                  {phim.thoiLuong} -
-                                                  {phim.tenRap}
+                                                  Thời lượng : {phim.thoiLuong}{" "}
+                                                  - {phim.tenRap}
                                                 </p>
                                               </div>
 
@@ -137,7 +149,13 @@ export default function ShowTime(props) {
                                                         phim.ngayChieuGioChieu
                                                       }
                                                       format="DD/MM/YY - hh:mm"
-                                                    />
+                                                      onClick={() =>
+                                                        handleBookingTicket(
+                                                          phim.maLichChieu
+                                                        )
+                                                      }
+                                                    ></Time>
+                                                    <span></span>
                                                   </span>
                                                 </a>
                                               </div>

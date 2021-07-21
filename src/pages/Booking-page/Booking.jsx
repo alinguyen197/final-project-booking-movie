@@ -40,13 +40,19 @@ export default function Booking() {
     });
     return total;
   };
+  console.log(state.listChair);
   const handleSubmit = (bookingCode, listChairDangChon, history) => {
-    dispatch({
-      type: BOOKING_MOVIE_TICKET,
-      bookingCode,
-      listChairDangChon,
-      history,
-    });
+    console.log(listChairDangChon);
+    if (listChairDangChon.length == 0) {
+      alert("Vui long chon ghe !!");
+    } else {
+      dispatch({
+        type: BOOKING_MOVIE_TICKET,
+        bookingCode,
+        listChairDangChon,
+        history,
+      });
+    }
   };
 
   return (

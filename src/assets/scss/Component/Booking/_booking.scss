@@ -150,6 +150,7 @@
         background-color: $white;
         border-radius: 6px;
         p {
+          display: inline-block;
           line-height: 25px;
           height: 50px;
           overflow-x: hidden;
@@ -168,6 +169,15 @@
             font-family: semibold;
             font-size: $size-18;
           }
+        }
+        .bill-btn-disable {
+          background: $account;
+          border: none;
+          border-radius: 6px;
+          padding: 10px 15px;
+          color: $white;
+          font-size: 16px;
+          font-family: bold;
         }
         .bill-btn {
           background: $hoverText;

@@ -1,22 +1,32 @@
 import React from "react";
 import logo from "../../assets/img/web-logo.png";
 
-import Dashboard from "./Dashboard";
-import User from "./User";
+import Dashboard from "./Dashboard/Dashboard";
+import User from "./User/User";
 export default function Admin() {
+  const handleToggle = () => {
+    let toggle = document.querySelector(".toggle");
+    let navigation = document.querySelector(".navigation");
+    let main = document.querySelector(".main");
+    toggle.classList.toggle("active");
+    navigation.classList.toggle("active");
+    main.classList.toggle("active");
+  };
   return (
     <section id="admin">
       <div style={{ height: 60 }}></div>
       <div className="admin-menu">
-        <div className="admin-menu-left">
+        <div className="navigation">
           <ul>
             <li>
               <a href="">
                 <span className="icon">
-                  <img src={logo} alt="" />
+                  <img src={logo} alt="" className="imageIcon" />
                 </span>
                 <span className="title">
-                  <h2>Tix Admin</h2>
+                  <h6>
+                    <b> TIX </b> A d m i n
+                  </h6>
                 </span>
               </a>
             </li>
@@ -29,7 +39,7 @@ export default function Admin() {
               </a>
             </li>
             <li>
-              <a href="#userMovie">
+              <a href="">
                 <span className="icon">
                   <i class="fas fa-people-carry"></i>
                 </span>
@@ -78,9 +88,9 @@ export default function Admin() {
             </li>
           </ul>
         </div>
-        <div className="admin-menu-right">
+        <div className="main">
           <div className="topbar">
-            <div className="toggle">
+            <div className="toggle" onClick={() => handleToggle()}>
               <i class="fa fa-bars" aria-hidden="true"></i>
             </div>
 

@@ -15,27 +15,60 @@ export default function Admin() {
   return (
     <section id="admin">
       <div style={{ height: 60 }}></div>
-      <div className="row">
-        <div col="col-3">
+      <div className="admin-menu">
+        <div className="navigation">
           <ul className="nav nav-pills">
-            <li className="nav-item">
-              <a className="nav-link active" data-toggle="pill" href="#home">
-                Movie Management
+            <li>
+              <a href="">
+                <span className="icon">
+                  <img src={logo} alt="" className="imageIcon" />
+                </span>
+                <span className="title">
+                  <h6>
+                    <b> TIX </b> A d m i n
+                  </h6>
+                </span>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" data-toggle="pill" href="#menu1">
-                User Management
+              <a
+                className="nav-link active"
+                data-toggle="pill"
+                href="#movieManagement"
+              >
+                <span className="icon">
+                  <i class="fa fa-film"></i>
+                </span>
+                <span className="title"> Movie Management</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" data-toggle="pill" href="#userManagement">
+                <span className="icon">
+                  <i class="fa fa-users"></i>
+                </span>
+                <span className="title"> User Management</span>
               </a>
             </li>
           </ul>
         </div>
-        <div col="col-9">
+        <div className="main">
           <div className="tab-content">
-            <div className="tab-pane container active" id="home">
+            <div className="topbar">
+              <div className="toggle" onClick={() => handleToggle()}>
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </div>
+
+              <div className="user">
+                <p>Xin chào</p>
+                <img src={logo} alt="" />
+              </div>
+            </div>
+
+            <div className="tab-pane  active" id="movieManagement">
               <Dashboard />
             </div>
-            <div className="tab-pane container fade" id="menu1">
+            <div className="tab-pane fade" id="userManagement">
               <User />
             </div>
           </div>

@@ -99,7 +99,7 @@ export default function PaginationUser() {
         </tbody>
       </table>
       <nav aria-label="Page navigation example">
-        <ul class="pagination">
+        <ul class="pagination addMoviePagination">
           <li class="page-item">
             <a class="page-link" href="#">
               Previous

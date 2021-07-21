@@ -63,7 +63,7 @@ export default function PaginationDashboard() {
               nameMovie = nameMovie + "...";
             }
             if (moTaPhim.length >= 32) {
-              nameMovie = nameMovie + "...";
+              moTaPhim = moTaPhim + "...";
             }
             return (
               <tr key={index} className="renderTable">

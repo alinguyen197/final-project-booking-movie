@@ -1,6 +1,6 @@
 import React from "react";
 import PaginationDashboard from "./PaginationDashboard";
-// import AddMovie from "../Dashboard/AddMovie";
+import AddMovie from "../Dashboard/AddMovie";
 export default function Dashboard() {
   return (
     <div className="contentAdmin">
@@ -31,8 +31,9 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
       <PaginationDashboard />
-      {/* <AddMovie /> */}
+      <AddMovie />
     </div>
   );
 }

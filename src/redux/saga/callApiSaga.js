@@ -28,6 +28,7 @@ import {
   GET_BOOKING_LIST_CHAIR,
   GET_BOOKING_LIST_CHAIR_SUCCESS,
 } from "../const/bookingConst";
+import { POST_MOVIE } from "../const/adminMovieManagementConst";
 
 /**
  *
@@ -58,7 +59,6 @@ function* getMovieList(action) {
     console.log(err);
   }
 }
-
 export function* followGetMovieList() {
   // takeLatest gọi hàm chạy render function genetor
   yield takeLatest(GET_MOVIE_LIST, getMovieList);
@@ -95,7 +95,6 @@ function* getMovieDetail(action) {
     console.log(err);
   }
 }
-
 export function* followGetMovieDetail() {
   // takeLatest gọi hàm chạy render function genetor
   yield takeLatest(GET_MOVIE_DETAIL, getMovieDetail);
@@ -145,7 +144,6 @@ function* getUserLogin(action) {
     });
   }
 }
-
 export function* followGetUserLogin() {
   // takeLatest gọi hàm chạy render function genetor
   yield takeLatest(GET_USER_LOGIN, getUserLogin);
@@ -226,7 +224,6 @@ function* getUserList(action) {
     console.log(err);
   }
 }
-
 export function* followGetUserList() {
   // takeLatest gọi hàm chạy render function genetor
   yield takeLatest(GET_USER_LIST, getUserList);
@@ -262,7 +259,6 @@ function* getBookingListChair(action) {
     console.log(err);
   }
 }
-
 export function* followGetBookingListChair() {
   yield takeLatest(GET_BOOKING_LIST_CHAIR, getBookingListChair);
 }
@@ -305,7 +301,29 @@ function* postBookingMovieTicket(action) {
     console.log(err);
   }
 }
-
 export function* followPostBookingMovieTicket() {
   yield takeLatest(BOOKING_MOVIE_TICKET, postBookingMovieTicket);
+}
+
+/**
+ *  Thêm phim
+ */
+function* postMovie(action) {
+  console.log(action);
+  try {
+    let { status, data } = yield call(() => {
+      return service.postMoiveApi(action.payload);
+    });
+    console.log(data);
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put({
+        type: GET_MOVIE_LIST,
+      });
+    }
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+export function* followPostMovie() {
+  yield takeLatest(POST_MOVIE, postMovie);
 }

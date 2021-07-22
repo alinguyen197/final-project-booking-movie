@@ -1,169 +1,272 @@
-// import axios from "axios";
-import React, { Component } from "react";
-import { connect } from "react-redux";
-class AddMovie extends Component {
-  state = {
+import React, { useState } from "react";
+import swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+import { POST_MOVIE } from "../../../redux/const/adminMovieManagementConst";
+export default function AddMovie() {
+  const dispatch = useDispatch();
+  let [values, setValues] = useState({
     maPhim: "",
     tenPhim: "",
+    biDanh: "",
     trailer: "",
     hinhAnh: {},
     moTa: "",
+    maNhom: "GP01",
+    ngayKhoiChieu: "",
+    danhGia: "",
+  });
+  let [errors, setErrors] = useState({
+    maPhim: "",
+    tenPhim: "",
+    biDanh: "",
+    trailer: "",
+    hinhAnh: "",
+    moTa: "",
     maNhom: "",
     ngayKhoiChieu: "",
+    danhGia: "",
+  });
+
+  const handleChange = (event) => {
+    let { name, value, type } = event.target;
+    let newValues = { ...values };
+    if (name === "hinhAnh") {
+      newValues[name] = event.target.files[0];
+    } else {
+      if (name === "tenPhim") {
+        newValues.biDanh = value;
+      }
+      newValues[name] = value;
+    }
+    setValues(newValues);
+
+    let newErrors = { ...errors };
+
+    if (value.trim() === "") {
+      newErrors[name] = "Vui lòng nhập liệu !";
+    } else {
+      newErrors[name] = "";
+    }
+    if (name === "danhGia") {
+      const reg = /^([1-9]|10)$/;
+      if (!reg.test(value)) {
+        newErrors[name] = "Đánh giá phải nhập số";
+      } else {
+        newErrors[name] = "";
+      }
+    }
+    if (name === "ngayKhoiChieu") {
+      const regex =
+        /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+      if (!regex.test(value)) {
+        newErrors[name] = "Định dạng phải là dd/MM/yyyy";
+      } else {
+        newErrors[name] = "";
+      }
+    }
+    if (name === "hinhAnh ") {
+      if (newValues.hinhAnh == {}) {
+        newErrors[name] = "Vui lòng chọn hình ảnh !!";
+      } else {
+        newErrors[name] = "";
+      }
+    }
+
+    setErrors(newErrors);
   };
 
-  handleChange = (e) => {
-    let tagInput = e.target;
-    let { name, value } = tagInput;
-    this.setState(
-      {
-        [name]: value,
-      },
-      () => {
-        console.log(this.state);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values);
+    let isValid = true;
+    let err = "";
+    let correct = "";
+    for (var key in values) {
+      if (values[key] === "") {
+        err += `<p>${key} không hợp lệ  !</p>`;
+        isValid = false;
       }
-    );
+      correct = "Đăng nhập thành công ";
+    }
+    for (var key in errors) {
+      if (errors[key] !== "") {
+        err += `<p>${key} không hợp lệ  !</p>`;
+        isValid = false;
+      }
+    }
+
+    if (!isValid) {
+      // alert("Dữ liệu chưa hợp lệ");
+      swal.fire({
+        title: "Error !",
+        html: err,
+        icon: "error", // error,warning,question
+        confirmButtonText: "YES",
+      });
+      return;
+    }
+    //form_data ko consoke.log đc , muốn coi phải .get("tenPhim")
+    const form_data = new FormData();
+    for (var key in values) {
+      form_data.append(key, values[key]);
+    }
+
+    dispatch({
+      type: POST_MOVIE,
+      payload: form_data,
+    });
+    document.getElementById("closeModal").click();
+    // alert("Diễu liệu hợp lệ");
+    swal.fire({
+      title: "Success !",
+      html: correct,
+      icon: "success", // error,warning,question
+      confirmButtonText: "YES",
+    });
   };
-  // handleChange = (e) => {
-  //   let target = e.target;
-  //   if (target.name === "hinhAnh") {
-  //     this.setState({ hinhAnh: e.target.files[0] }, () => {
-  //       console.log(this.state);
-  //     });
-  //   } else {
-  //     this.setState({ [e.target.name]: e.target.value }, () => {
-  //       console.log(this.state);
-  //     });
-  //   }
-  // };
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   let form_data = new FormData();
-  //   for (let key in this.state) {
-  //     console.log(key, this.state[key]);
-  //   }
-  //   e.preventDefault();
-  //   axios({
-  //     url: "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhimUploadHinh",
-  //     method: "POST",
-  //     data: form_data,
-  //   })
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-  render() {
-    return (
-      <div id="addEmployeeModal" className="modal fade">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <form>
-              <div className="modal-header">
-                <h4 className="modal-title">Thêm Phim</h4>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-hidden="true"
-                >
-                  ×
-                </button>
-              </div>
-              <div className="modal-body">
-                <div className="form-group">
-                  <label>Mã Phim</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="maPhim"
-                    value={this.state.maPhim}
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Tên phim</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    name="tenPhim"
-                    value={this.state.tenPhim}
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Trailer</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="hinhAnh"
-                    value={this.state.trailer}
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Hình Ảnh</label>
-                  <input
-                    type="file"
-                    class="form-control-file"
-                    id="exampleFormControlFile1"
-                    name="hinhAnh"
-                    value={this.state.hinhAnh}
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Mô Tả</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="moTa"
-                    value={this.state.moTa}
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Mã Nhóm</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="maNhom"
-                    value={this.state.maNhom}
-                    onChange={this.handleChange}
-                  />
-                </div>
-              </div>
-              <div className="modal-footer">
+  return (
+    <div id="addEmployeeModal" className="modal fade">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <form onSubmit={handleSubmit}>
+            <div className="modal-header">
+              <h4 className="modal-title">Thêm Phim</h4>
+              <button
+                id="closeModal"
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-hidden="true"
+              >
+                ×
+              </button>
+            </div>
+            <div className="modal-body">
+              <div className="form-group">
+                <label>Mã Phim</label>
                 <input
-                  type="button"
-                  className="btn btn-default"
-                  data-dismiss="modal"
-                  defaultValue="Cancel"
+                  type="text"
+                  className="form-control"
+                  name="maPhim"
+                  value={values.maPhim}
+                  onChange={handleChange}
                 />
-                <input
-                  type="submit"
-                  className="btn btn-success"
-                  defaultValue="Add"
-                />
+                <span className="text-danger">{errors.maPhim}</span>
               </div>
-            </form>
-          </div>
+              <div className="form-group">
+                <label>Tên phim</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="tenPhim"
+                  value={values.tenPhim}
+                  onChange={handleChange}
+                />
+                <span className="text-danger">{errors.tenPhim}</span>
+              </div>
+              <div className="form-group">
+                <label>Bí Danh</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="biDanh"
+                  onChange={handleChange}
+                  value={values.biDanh}
+                />
+                <span className="text-danger">{errors.biDanh}</span>
+              </div>
+              <div className="form-group">
+                <label>Trailer</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="trailer"
+                  onChange={handleChange}
+                  value={values.trailer}
+                />
+                <span className="text-danger">{errors.trailer}</span>
+              </div>
+              <div className="form-group">
+                <label>Hình Ảnh</label>
+                <input
+                  type="file"
+                  class="form-control-file"
+                  name="hinhAnh"
+                  required
+                  onChange={handleChange}
+                />
+                <span className="text-danger">{errors.hinhAnh}</span>
+              </div>
+              <div className="form-group">
+                <label>Mô Tả</label>
+                <textarea
+                  name="moTa"
+                  rows="4"
+                  cols="50"
+                  className="form-control"
+                  name="moTa"
+                  onChange={handleChange}
+                  value={values.moTa}
+                ></textarea>
+
+                <span className="text-danger">{errors.moTa}</span>
+              </div>
+              <div className="form-group">
+                <label>Mã Nhóm</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="maNhom"
+                  value="GP01"
+                  onChange={handleChange}
+                />
+                <span className="text-danger">{errors.maNhom}</span>
+              </div>
+
+              <div className="form-group">
+                <label>Ngày Khởi Chiếu</label>
+                <input
+                  type="text"
+                  placeholder="dd/MM/yyyy"
+                  className="form-control"
+                  name="ngayKhoiChieu"
+                  value={values.ngayKhoiChieu}
+                  onChange={handleChange}
+                />
+                <span className="text-danger">{errors.ngayKhoiChieu}</span>
+              </div>
+              <div className="form-group">
+                <label>Đánh Giá (1-10)</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="danhGia"
+                  value={values.danhGia}
+                  onChange={handleChange}
+                />
+                <span className="text-danger">{errors.danhGia}</span>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-default"
+                data-dismiss="modal"
+              >
+                CANCEL
+              </button>
+
+              <button
+                type="submit"
+                className="btn btn-success"
+                onSubmit={handleSubmit}
+              >
+                ADD
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    themMovie: (movie) => {
-      const action = {
-        type: "THEM_MOVIE",
-        movie,
-      };
-      dispatch(action);
-    },
-  };
-};
-export default connect(null, mapDispatchToProps)(AddMovie);

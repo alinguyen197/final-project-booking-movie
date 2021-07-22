@@ -69,6 +69,15 @@ export class Service {
       },
     });
   }
+
+  // Thêm phim
+  postMoiveApi(form_data) {
+    return axios({
+      url: `${DOMAIN}/QuanLyPhim/ThemPhimUploadHinh`,
+      method: "POST",
+      data: form_data,
+    });
+  }
 }
 
 export const service = new Service();

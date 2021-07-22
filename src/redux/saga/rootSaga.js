@@ -11,5 +11,6 @@ export function* rootSaga() {
     callApiSaga.followGetUserList(),
     callApiSaga.followGetBookingListChair(),
     callApiSaga.followPostBookingMovieTicket(),
+    callApiSaga.followPostMovie(),
   ]);
 }

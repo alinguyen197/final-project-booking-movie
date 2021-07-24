@@ -29,7 +29,6 @@ export default function PaginationUser() {
   useEffect(() => {
     dispatch({ type: GET_USER_LIST });
   }, []);
-  console.log("render");
 
   return (
     <div>
@@ -79,7 +78,7 @@ export default function PaginationUser() {
                 <td>
                   <a
                     href="#editEmployeeModal"
-                    classname="edit"
+                    className="edit"
                     data-toggle="modal"
                   >
                     <i class="fa fa-list" aria-hidden="true"></i>
@@ -90,7 +89,7 @@ export default function PaginationUser() {
                     className="delete"
                     data-toggle="modal"
                   >
-                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <i className="fa fa-trash" aria-hidden="true"></i>
                   </a>
                 </td>
               </tr>
@@ -99,24 +98,24 @@ export default function PaginationUser() {
         </tbody>
       </table>
       <nav aria-label="Page navigation example">
-        <ul class="pagination addMoviePagination">
-          <li class="page-item">
-            <a class="page-link" href="#">
+        <ul className="pagination addMoviePagination">
+          <li className="page-item">
+            <a className="page-link" href="#">
               Previous
             </a>
           </li>
           {[...Array(totalUser)].map((x, i) => {
             return (
-              <li class="page-item" key={i}>
-                <a class="page-link" href="#" onClick={() => handleUser(i)}>
+              <li className="page-item" key={i}>
+                <a className="page-link" href="#" onClick={() => handleUser(i)}>
                   {i}
                 </a>
               </li>
             );
           })}
 
-          <li class="page-item">
-            <a class="page-link" href="#">
+          <li className="page-item">
+            <a className="page-link" href="#">
               Next
             </a>
           </li>

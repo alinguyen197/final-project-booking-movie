@@ -1,3 +1,4 @@
+import { GET_MOVIE_LIST_PAGINATION_SUCCESS } from "../const/adminMovieManagementConst";
 import { GET_MOVIE_LIST_SUCCESS } from "../const/movieListConst";
 
 const initialState = {
@@ -10,7 +11,6 @@ export const movieListReducer = (state = initialState, action) => {
     case GET_MOVIE_LIST_SUCCESS:
       state.movieList = payload;
       return { ...state };
-
     default:
       return state;
   }

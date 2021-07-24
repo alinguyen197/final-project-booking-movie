@@ -70,12 +70,11 @@ export class Service {
     });
   }
 
-  // Thêm phim
-  postMoiveApi(form_data) {
+  // Lấy danh sách phim phân trang
+  getMovieListPagination(paramsString) {
     return axios({
-      url: `${DOMAIN}/QuanLyPhim/ThemPhimUploadHinh`,
-      method: "POST",
-      data: form_data,
+      url: `${DOMAIN}/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP01&${paramsString}`,
+      method: "GET",
     });
   }
 }

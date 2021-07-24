@@ -1,13 +1,12 @@
 import React from "react";
 import PaginationDashboard from "./PaginationDashboard";
-import AddMovie from "../Dashboard/AddMovie";
 export default function Dashboard() {
   return (
     <div className="contentAdmin">
       <div className="search">
         <label>
           <input type="text" placeholder="Nhập vào mã phim hoặc tên phim" />
-          <i class="fa fa-search" aria-hidden="true"></i>
+          <i className="fa fa-search" aria-hidden="true"></i>
         </label>
       </div>
       <div className="table-wrapper">
@@ -24,7 +23,7 @@ export default function Dashboard() {
                 className="btn btn-success"
                 data-toggle="modal"
               >
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                <i className="fa fa-plus-circle" aria-hidden="true"></i>
                 <span>THÊM MỚI</span>
               </a>
             </div>
@@ -33,7 +32,6 @@ export default function Dashboard() {
       </div>
 
       <PaginationDashboard />
-      <AddMovie />
     </div>
   );
 }

@@ -37,7 +37,7 @@ export default function Admin() {
                 href="#movieManagement"
               >
                 <span className="icon">
-                  <i class="fa fa-film"></i>
+                  <i className="fa fa-film"></i>
                 </span>
                 <span className="title"> Movie Management</span>
               </a>
@@ -45,7 +45,7 @@ export default function Admin() {
             <li className="nav-item">
               <a className="nav-link" data-toggle="pill" href="#userManagement">
                 <span className="icon">
-                  <i class="fa fa-users"></i>
+                  <i className="fa fa-users"></i>
                 </span>
                 <span className="title"> User Management</span>
               </a>
@@ -56,7 +56,7 @@ export default function Admin() {
           <div className="tab-content">
             <div className="topbar">
               <div className="toggle" onClick={() => handleToggle()}>
-                <i class="fa fa-bars" aria-hidden="true"></i>
+                <i className="fa fa-bars" aria-hidden="true"></i>
               </div>
 
               <div className="user">

@@ -28,7 +28,12 @@ import {
   GET_BOOKING_LIST_CHAIR,
   GET_BOOKING_LIST_CHAIR_SUCCESS,
 } from "../const/bookingConst";
-import { POST_MOVIE } from "../const/adminMovieManagementConst";
+import {
+  DELETE_MOVIE,
+  GET_MOVIE_LIST_PAGINATION,
+  GET_MOVIE_LIST_PAGINATION_SUCCESS,
+  POST_MOVIE,
+} from "../const/adminMovieManagementConst";
 
 /**
  *
@@ -303,27 +308,4 @@ function* postBookingMovieTicket(action) {
 }
 export function* followPostBookingMovieTicket() {
   yield takeLatest(BOOKING_MOVIE_TICKET, postBookingMovieTicket);
-}
-
-/**
- *  Thêm phim
- */
-function* postMovie(action) {
-  console.log(action);
-  try {
-    let { status, data } = yield call(() => {
-      return service.postMoiveApi(action.payload);
-    });
-    console.log(data);
-    if (status === STATUS_CODE.SUCCESS) {
-      yield put({
-        type: GET_MOVIE_LIST,
-      });
-    }
-  } catch (err) {
-    console.log(err.response);
-  }
-}
-export function* followPostMovie() {
-  yield takeLatest(POST_MOVIE, postMovie);
 }

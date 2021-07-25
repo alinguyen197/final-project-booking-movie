@@ -1,27 +1,27 @@
 import React from "react";
 
-export default function ButtonPagination(props) {
-  const { onPageChange, pagination } = props;
+export default function ButtonPaginationUser(props) {
+  const { onUserChange, paginationUser } = props;
   // currentPage số  trang hiện tại
   // count bao nhiu item trên mỗi trang
   // totalCount tổng số item
   //totalPages là tổng số trang (tổng số item / số item trên mỗi trang)
   // pagination đc truyền từ api
-  const { currentPage, count, totalCount, totalPages } = pagination;
+  const { currentUser, count, totalCount, totalUsers } = paginationUser;
   //math,ceil => 5,1 => 6
   // const totalItemMovie = Math.ceil(totalCount / count);
-  const handlePageChange = (newPage) => {
-    if (pagination) {
-      onPageChange(newPage);
+  const handleUserChange = (newPage) => {
+    if (paginationUser) {
+      onUserChange(newPage);
     }
   };
   // Logic for displaying page numbers
-  const pageNumbers = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
+  const userNumbers = [];
+  for (let i = 1; i <= totalUsers; i++) {
+    userNumbers.push(i);
   }
 
-  const renderPageNumbers = pageNumbers
+  const renderUserNumbers = userNumbers
     .filter((item) => item <= 5)
     .map((number) => {
       return (
@@ -29,7 +29,7 @@ export default function ButtonPagination(props) {
           className="btn btn-primary mr-2"
           key={number}
           id={number}
-          onClick={() => handlePageChange(number)}
+          onClick={() => handleUserChange(number)}
         >
           {number}
         </button>
@@ -38,8 +38,8 @@ export default function ButtonPagination(props) {
   return (
     <div className="text-center mb-5">
       <button
-        disabled={currentPage <= 1}
-        onClick={() => handlePageChange(currentPage - 1)}
+        disabled={currentUser <= 1}
+        onClick={() => handleUserChange(currentUser - 1)}
         className="btn btn-primary mr-2"
       >
         Pre
@@ -58,11 +58,11 @@ export default function ButtonPagination(props) {
           </button>
         );
       })} */}
-      {renderPageNumbers}
+      {renderUserNumbers}
 
       <button
-        disabled={currentPage >= totalPages}
-        onClick={() => handlePageChange(currentPage + 1)}
+        disabled={currentUser >= totalUsers}
+        onClick={() => handleUserChange(currentUser + 1)}
         className="btn btn-primary"
       >
         Next

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import PostFilterForm from "./PostFilterForm";
 import queryString from "query-string";
 import { DOMAIN } from "../../util/const/settingSystem";
-import axios from "axios";
-import { post } from "jquery";
+
 export default function CarouselBookingForm() {
   const [postList, setPostList] = useState({
     title_like: "",
@@ -34,12 +33,27 @@ export default function CarouselBookingForm() {
     getSearchMovieApi();
   }, []);
 
+  // tạo state
+  // lấy dữ liệu từ thẻ input
+  // lưu value của thẻ input vào state
+  //hàm submit dispatch payload : state.value
+  // useSelector lấy data show ra màn hinh
+  // trước khi show table là phải kiểm tra , có data thì show , không thì ẩn
   return (
     <div className="carousel-booking">
       <div className="row">
         <div className="col-10">
           <div className="booking-form-film">
             <PostFilterForm onSubmit={handleFilterChange} />
+            <div className="form-group">
+              <input
+                onChange
+                type="text"
+                className="form-control"
+                id="usr"
+                placeholder="Tìm phim...."
+              />
+            </div>
           </div>
         </div>
         <div className="col-2">

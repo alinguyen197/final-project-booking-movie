@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import swal from "sweetalert2";
-import { useDispatch, useSelector } from "react-redux";
 
-export default function AddMovie(props) {
-  const { addMoviePagination } = props;
-  const dispatch = useDispatch();
+export default function EditMovie(props) {
+  const { movieEdit, handleUpdateFilm } = props;
   let [values, setValues] = useState({
     maPhim: "",
     tenPhim: "",
@@ -12,7 +10,7 @@ export default function AddMovie(props) {
     trailer: "",
     hinhAnh: {},
     moTa: "",
-    maNhom: "GP01",
+    maNhom: "",
     ngayKhoiChieu: "",
     danhGia: "",
   });
@@ -66,7 +64,7 @@ export default function AddMovie(props) {
       }
     }
     if (name === "hinhAnh ") {
-      if (newValues.hinhAnh === {}) {
+      if (newValues.hinhAnh == {}) {
         newErrors[name] = "Vui lòng chọn hình ảnh !!";
       } else {
         newErrors[name] = "";
@@ -75,78 +73,68 @@ export default function AddMovie(props) {
 
     setErrors(newErrors);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    const data = {
+      maPhim: document.getElementById("idMaPhim").value,
+      tenPhim: document.getElementById("idTenPhim").value,
+      biDanh: document.getElementById("idBiDanh").value,
+      trailer: document.getElementById("idTrailer").value,
+      hinhAnh: document.getElementById("idHinhAnh").files[0],
+      moTa: document.getElementById("idMoTa").value,
+      maNhom: document.getElementById("idMaNhom").value,
+      ngayKhoiChieu: document.getElementById("idNgayKhoiChieu").value,
+      danhGia: document.getElementById("idDanhGia").value,
+    };
+    console.log(data);
     let isValid = true;
-    let err = "";
-    let correct = "";
-    for (var key in values) {
-      if (values[key] === "") {
-        err += `<p>${key} không hợp lệ  !</p>`;
+    let errContent = "";
+    let corretContent = "";
+    for (let key in data) {
+      if (data[key] == "") {
         isValid = false;
       }
-      correct = "Đăng nhập thành công ";
+      corretContent = "Đăng nhập thành công !";
     }
-    for (var key in errors) {
+    for (let key in errors) {
       if (errors[key] !== "") {
-        err += `<p>${key} không hợp lệ  !</p>`;
+        errContent += `<p>${key} không được để trống !</p>`;
         isValid = false;
       }
     }
 
     if (!isValid) {
-      // alert("Dữ liệu chưa hợp lệ");
       swal.fire({
         title: "Error !",
-        html: err,
+        html: errContent,
         icon: "error", // error,warning,question
         confirmButtonText: "YES",
       });
       return;
     }
-    //form_data ko consoke.log đc , muốn coi phải .get("tenPhim")
-    const form_data = new FormData();
-    for (var key in values) {
-      form_data.append(key, values[key]);
+    let form_data = new FormData();
+
+    for (let key in data) {
+      form_data.append(key, data[key]);
     }
-
-    addMoviePagination(form_data);
-
-    // alert("Diễu liệu hợp lệ");
+    handleUpdateFilm(form_data);
+    document.getElementById("closeModalEdit").click();
     swal.fire({
       title: "Success !",
-      html: correct,
+      html: corretContent,
       icon: "success", // error,warning,question
       confirmButtonText: "YES",
     });
-
-    // Reset form vì lúc này form ko phải nhập tay mà từ state nên phải cho cái object này về trỗng
-    const resetValues = { ...values };
-    for (let key in resetValues) {
-      if (key === "hinhAnh") {
-        resetValues[key] = {};
-      }
-      // vì GP01 nó set mặc định nên loại nó ra
-      if (key !== "maNhom") {
-        resetValues[key] = "";
-      }
-    }
-
-    setValues(resetValues);
-    document.getElementById("closeModalAdd").click();
-    document.getElementById("addform").reset(); // reset hình ảnh
   };
-
   return (
-    <div id="addEmployeeModal" className="modal fade">
+    <div id="editEmployeeModal" className="modal fade">
       <div className="modal-dialog">
         <div className="modal-content">
-          <form id="addform" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="modal-header">
-              <h4 className="modal-title">Thêm Phim</h4>
+              <h4 className="modal-title">Sửa Phim</h4>
               <button
-                id="closeModalAdd"
+                id="closeModalEdit"
                 type="button"
                 className="close"
                 data-dismiss="modal"
@@ -159,10 +147,11 @@ export default function AddMovie(props) {
               <div className="form-group">
                 <label>Mã Phim</label>
                 <input
+                  id="idMaPhim"
                   type="text"
                   className="form-control"
                   name="maPhim"
-                  value={values.maPhim}
+                  defaultValue={movieEdit.maPhim}
                   onChange={handleChange}
                 />
                 <span className="text-danger">{errors.maPhim}</span>
@@ -170,10 +159,11 @@ export default function AddMovie(props) {
               <div className="form-group">
                 <label>Tên phim</label>
                 <input
+                  id="idTenPhim"
                   type="text"
                   className="form-control"
                   name="tenPhim"
-                  value={values.tenPhim}
+                  defaultValue={movieEdit.tenPhim}
                   onChange={handleChange}
                 />
                 <span className="text-danger">{errors.tenPhim}</span>
@@ -181,28 +171,31 @@ export default function AddMovie(props) {
               <div className="form-group">
                 <label>Bí Danh</label>
                 <input
+                  id="idBiDanh"
                   type="text"
                   className="form-control"
                   name="biDanh"
                   onChange={handleChange}
-                  value={values.biDanh}
+                  defaultValue={movieEdit.biDanh}
                 />
                 <span className="text-danger">{errors.biDanh}</span>
               </div>
               <div className="form-group">
                 <label>Trailer</label>
                 <input
+                  id="idTrailer"
                   type="text"
                   className="form-control"
                   name="trailer"
                   onChange={handleChange}
-                  value={values.trailer}
+                  defaultValue={movieEdit.trailer}
                 />
                 <span className="text-danger">{errors.trailer}</span>
               </div>
               <div className="form-group">
                 <label>Hình Ảnh</label>
                 <input
+                  id="idHinhAnh"
                   type="file"
                   class="form-control-file"
                   name="hinhAnh"
@@ -214,13 +207,14 @@ export default function AddMovie(props) {
               <div className="form-group">
                 <label>Mô Tả</label>
                 <textarea
+                  id="idMoTa"
                   name="moTa"
                   rows="4"
                   cols="50"
                   className="form-control"
                   name="moTa"
                   onChange={handleChange}
-                  value={values.moTa}
+                  defaultValue={movieEdit.moTa}
                 ></textarea>
 
                 <span className="text-danger">{errors.moTa}</span>
@@ -228,6 +222,7 @@ export default function AddMovie(props) {
               <div className="form-group">
                 <label>Mã Nhóm</label>
                 <input
+                  id="idMaNhom"
                   type="text"
                   className="form-control"
                   name="maNhom"
@@ -240,11 +235,12 @@ export default function AddMovie(props) {
               <div className="form-group">
                 <label>Ngày Khởi Chiếu</label>
                 <input
+                  id="idNgayKhoiChieu"
                   type="text"
                   placeholder="dd/MM/yyyy"
                   className="form-control"
                   name="ngayKhoiChieu"
-                  value={values.ngayKhoiChieu}
+                  defaultValue={movieEdit.ngayKhoiChieu}
                   onChange={handleChange}
                 />
                 <span className="text-danger">{errors.ngayKhoiChieu}</span>
@@ -252,10 +248,11 @@ export default function AddMovie(props) {
               <div className="form-group">
                 <label>Đánh Giá (1-10)</label>
                 <input
+                  id="idDanhGia"
                   type="text"
                   className="form-control"
                   name="danhGia"
-                  value={values.danhGia}
+                  defaultValue={movieEdit.danhGia}
                   onChange={handleChange}
                 />
                 <span className="text-danger">{errors.danhGia}</span>
@@ -275,7 +272,7 @@ export default function AddMovie(props) {
                 className="btn btn-success"
                 onSubmit={handleSubmit}
               >
-                ADD
+                UPDATE
               </button>
             </div>
           </form>

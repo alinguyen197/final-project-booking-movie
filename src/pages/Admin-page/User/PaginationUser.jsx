@@ -1,35 +1,119 @@
 import React, { useEffect, useState } from "react";
-// import Time from "react-time-format";
 import { useSelector, useDispatch } from "react-redux";
-import { GET_USER_LIST } from "../../../redux/const/userListConst";
+import axios from "axios";
+import $ from "jquery";
+import ButtonPaginationUser from "./ButtonPaginationUser";
+import { retry } from "redux-saga/effects";
+import queryString from "query-string";
+import { DOMAIN } from "../../../util/const/settingSystem";
+import AddUser from "../User/AddUser";
 
-// import { useSelector, useDispatch } from "react-redux";
+import EditUser from "./EditUser";
 
 export default function PaginationUser() {
-  let [state, setState] = useState({
-    currentUser: 1,
-    itemPerUser: 5,
+  $(".delete").tooltip({ delay: 0 });
+  $(".edit").tooltip({ delay: 0 });
+  const [user, setUser] = useState([]);
+
+  const [userEdit, setUserEdit] = useState({
+    taiKhoan: "",
+    hoTen: "",
+    email: "",
+    soDt: "",
+
+    matKhau: "",
+    maLoaiNguoiDung: "",
   });
-  const dispatch = useDispatch();
-  const { userList } = useSelector((state) => state.userListReducer);
 
-  const totalUser = Math.floor(userList.length / state.itemPerUser);
-  const CurrentUser = userList.slice(
-    (state.currentUser - 1) * state.itemPerUser,
-    state.itemPerUser * state.currentUser
-  );
-  const handleUser = (user) => {
-    setState({
-      ...state,
-      currentUser: user,
+  const [paginationUser, setPaginationUser] = useState({
+    currentUser: 1,
+    count: 10,
+    totalUsers: 8,
+    totalCount: 1,
+  });
+  const [filter, setFilter] = useState({
+    soTrang: 1,
+    soPhanTuTrenTrang: 10,
+  });
+
+  const handleUserChange = (newUser) => {
+    console.log("newUser: ", newUser);
+    setFilter({
+      ...filter,
+      soTrang: newUser,
     });
+  };
+  const getListUserPagination = async () => {
+    //  soTrang=1&soPhanTuTrenTrang=10
+    const paramsString = queryString.stringify(filter);
+    let { data } = await axios({
+      url: `${DOMAIN}/QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?MaNhom=GP01${paramsString}`,
+      method: "GET",
+    });
+    setUser(data);
+    setPaginationUser(data);
+  };
 
-    console.log(state);
+  const addUserPagination = async (form_data) => {
+    let { status, data } = await axios({
+      url: `${DOMAIN}/QuanLyNguoiDung/ThemNguoiDung`,
+      method: "POST",
+      data: form_data,
+    });
+    if (status === 200) {
+      getListUserPagination();
+    }
+  };
+
+  const handleEditUser = async (user) => {
+    setUserEdit({
+      taiKhoan: user.taiKhoan,
+      hoTen: user.hoTen,
+      email: user.email,
+      soDt: user.soDt,
+
+      matKhau: user.matKhau,
+      maLoaiNguoiDung: user.maLoaiNguoiDung,
+    });
+  };
+
+  const handleDeleteUser = async (taiKhoan) => {
+    if (window.confirm("Bạn có chắc muốn xoá ?")) {
+      const token = JSON.parse(localStorage.getItem("token"));
+      let { status, data } = await axios({
+        url: `${DOMAIN}/QuanLyNguoiDung/XoaNguoiDung?MaPhim=${taiKhoan}`,
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (status === 200) {
+        getListUserPagination();
+      }
+    } else {
+    }
+  };
+
+  const handleUpdateUser = async (form_data) => {
+    if (form_data) {
+      const token = JSON.parse(localStorage.getItem("token"));
+      let { status, data } = await axios({
+        url: `${DOMAIN}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+        method: "POST",
+        data: form_data,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (status === 200) {
+        getListUserPagination();
+      }
+    }
   };
   useEffect(() => {
-    dispatch({ type: GET_USER_LIST });
-  }, []);
-  console.log("render");
+    //khai báo biến bất đồng bộ async await sẽ trả về data không cần .then() .catch nữa
+    getListUserPagination();
+  }, [filter]);
 
   return (
     <div>
@@ -55,7 +139,7 @@ export default function PaginationUser() {
         </thead>
 
         <tbody>
-          {CurrentUser.map((value, index) => {
+          {user.map((value, index) => {
             return (
               <tr key={index} className="renderTable">
                 <td>
@@ -79,18 +163,23 @@ export default function PaginationUser() {
                 <td>
                   <a
                     href="#editEmployeeModal"
-                    classname="edit"
+                    data-toggle="tooltip"
+                    title="Edit Movie"
+                    className="edit"
                     data-toggle="modal"
+                    onClick={() => handleEditUser(value)}
                   >
-                    <i class="fa fa-list" aria-hidden="true"></i>
+                    <i className="fa fa-edit"></i>
                   </a>
-
                   <a
-                    href="#deleteEmployeeModal"
+                    data-toggle="tooltip"
+                    title="Delete Movie"
+                    href="#"
                     className="delete"
-                    data-toggle="modal"
+                    // data-toggle="modal"
+                    onClick={() => handleDeleteUser(value.taiKhoan)}
                   >
-                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <i className="fa fa-trash" aria-hidden="true"></i>
                   </a>
                 </td>
               </tr>
@@ -98,127 +187,13 @@ export default function PaginationUser() {
           })}
         </tbody>
       </table>
-      <nav aria-label="Page navigation example">
-        <ul class="pagination addMoviePagination">
-          <li class="page-item">
-            <a class="page-link" href="#">
-              Previous
-            </a>
-          </li>
-          {[...Array(totalUser)].map((x, i) => {
-            return (
-              <li class="page-item" key={i}>
-                <a class="page-link" href="#" onClick={() => handleUser(i)}>
-                  {i}
-                </a>
-              </li>
-            );
-          })}
 
-          <li class="page-item">
-            <a class="page-link" href="#">
-              Next
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div id="editEmployeeModal" className="modal fade">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <form>
-              <div className="modal-header">
-                <h4 className="modal-title">Sửa người dùng</h4>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-hidden="true"
-                >
-                  ×
-                </button>
-              </div>
-              <div className="modal-body">
-                <div className="form-group">
-                  <label>Tài Khoản</label>
-                  <input type="text" className="form-control" required />
-                </div>
-                <div className="form-group">
-                  <label>Họ tên</label>
-                  <input type="email" className="form-control" required />
-                </div>
-                <div className="form-group">
-                  <label>Email</label>
-                  <input type="text" className="form-control" required />
-                </div>
-                <div className="form-group">
-                  <label>Số điện thoại</label>
-                  <input type="number" className="form-control" required />
-                </div>
-                <div className="form-group">
-                  <label>Mật Khẩu</label>
-                  <input type="password" className="form-control" required />
-                </div>
-                <div className="form-group">
-                  <label> Mã Loại Người Dùng</label>
-                  <input type="text" className="form-control" required />
-                </div>
-              </div>
-              <div className="modal-footer">
-                <input
-                  type="button"
-                  className="btn btn-default"
-                  data-dismiss="modal"
-                  defaultValue="Cancel"
-                />
-                <input
-                  type="submit"
-                  className="btn btn-info"
-                  defaultValue="Save"
-                />
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div id="deleteEmployeeModal" className="modal fade">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <form>
-              <div className="modal-header">
-                <h4 className="modal-title">Xoá người dùng</h4>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-hidden="true"
-                >
-                  ×
-                </button>
-              </div>
-              <div className="modal-body">
-                <p>Bạn có chắc muốn xóa người dùng này không?</p>
-                <p className="text-warning">
-                  <small>Hành động này không thể hoàn tác.</small>
-                </p>
-              </div>
-              <div className="modal-footer">
-                <input
-                  type="button"
-                  className="btn btn-default"
-                  data-dismiss="modal"
-                  defaultValue="Cancel"
-                />
-                <input
-                  type="submit"
-                  className="btn btn-danger"
-                  defaultValue="Delete"
-                />
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+      <ButtonPaginationUser
+        paginationUser={paginationUser}
+        onUserChange={handleUserChange}
+      />
+      <AddUser addUserPagination={addUserPagination} />
+      <EditUser userEdit={userEdit} handleUpdateUser={handleUpdateUser} />
     </div>
   );
 }

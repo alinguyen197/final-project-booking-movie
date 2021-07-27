@@ -3,7 +3,7 @@ import logo from "../../assets/img/web-logo.png";
 import logoLogin from "../../assets/img/avatar.png";
 import menuOption from "../../assets/img/menu-options.png";
 import arrowRight from "../../assets/img/next-session.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Header extends Component {
@@ -13,14 +13,14 @@ class Header extends Component {
     if (taiKhoanLocal == null) {
       return (
         <div className="accout">
-          <NavLink
+          <Link
             to="/sign-in"
             // style={{ textDecoration: "none" }}
             className="accout-logout"
           >
             <img className="btnLogin " src={logoLogin} alt="Login" />
             <span>Đăng nhập</span>
-          </NavLink>
+          </Link>
         </div>
       );
     } else {
@@ -36,7 +36,7 @@ class Header extends Component {
             <span className="toggle">{taiKhoanLocal}</span>
           </NavLink>
 
-          <a className="dropdown-menu" style={{ textDecoration: "none" }}>
+          <div className="dropdown-menu" style={{ textDecoration: "none" }}>
             <button
               className="dropdown-item"
               style={{ color: "#9b9b9b" }}
@@ -44,14 +44,11 @@ class Header extends Component {
             >
               Đăng xuất
             </button>
-            <button
-              className="dropdown-item"
-              style={{ color: "#9b9b9b" }}
-              onClick={this.handleLogOut}
-            >
-              Thông tin cá nhân
+
+            <button className="dropdown-item" style={{ color: "#9b9b9b" }}>
+              <Link to="/user-profile"> Thông tin cá nhân</Link>
             </button>
-          </a>
+          </div>
         </div>
       );
     }

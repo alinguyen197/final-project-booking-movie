@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import swal from "sweetalert2";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function AddUser(props) {
   const { addUserPagination } = props;
@@ -10,8 +10,8 @@ export default function AddUser(props) {
     hoTen: "",
     email: "",
     soDt: "",
-
     matKhau: "",
+    maNhom: "",
     maLoaiNguoiDung: "",
   });
   let [errors, setErrors] = useState({
@@ -19,8 +19,8 @@ export default function AddUser(props) {
     hoTen: "",
     email: "",
     soDt: "",
-
     matKhau: "",
+    maNhom: "",
     maLoaiNguoiDung: "",
   });
 
@@ -34,7 +34,6 @@ export default function AddUser(props) {
     newValues[name] = value;
 
     setValues(newValues);
-
     let newErrors = { ...errors };
 
     if (value.trim() === "") {
@@ -43,9 +42,10 @@ export default function AddUser(props) {
       newErrors[name] = "";
     }
     if (name === "soDt") {
-      const reg = /^([1-9]|10)$/;
+      const reg =
+        /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/;
       if (!reg.test(value)) {
-        newErrors[name] = "Định dạng không phù hợp";
+        newErrors[name] = "Số điện thoại không hợp lệ";
       } else {
         newErrors[name] = "";
       }
@@ -83,7 +83,7 @@ export default function AddUser(props) {
         err += `<p>${key} không hợp lệ  !</p>`;
         isValid = false;
       }
-      correct = "Đăng nhập thành công ";
+      correct = "Thêm người dùng thành công ";
     }
     for (var key in errors) {
       if (errors[key] !== "") {
@@ -101,12 +101,8 @@ export default function AddUser(props) {
       });
       return;
     }
-    let form_data = new FormData();
 
-    for (var key in values) {
-      form_data.append(key, values[key]);
-    }
-    addUserPagination(form_data);
+    addUserPagination(values);
 
     // alert("Diễu liệu hợp lệ");
     swal.fire({
@@ -115,25 +111,13 @@ export default function AddUser(props) {
       icon: "success", // error,warning,question
       confirmButtonText: "YES",
     });
-
-    // Reset form vì lúc này form ko phải nhập tay mà từ state nên phải cho cái object này về trỗng
-    const resetValues = { ...values };
-    for (let key in resetValues) {
-      if (key === "matKhau") {
-        resetValues[key] = {};
-      }
-    }
-
-    setValues(resetValues);
-    document.getElementById("closeModalAdd").click();
-    document.getElementById("addform").reset(); // reset hình ảnh
   };
 
   return (
-    <div id="addEmployeeModal" className="modal fade">
+    <div id="addEmployeeModalUser" className="modal fade">
       <div className="modal-dialog">
         <div className="modal-content">
-          <form onSubmit={handleSubmitUser}>
+          <form id="addform" onSubmit={handleSubmitUser}>
             <div className="modal-header">
               <h4 className="modal-title">Thêm Người Dùng</h4>
               <button
@@ -194,17 +178,29 @@ export default function AddUser(props) {
 
               <div className="form-group">
                 <label>Mật khẩu</label>
-                <textarea
+                <input
                   type="password"
                   className="form-control"
                   name="matKhau"
                   onChange={handleChangeUser}
                   value={values.matKhau}
-                ></textarea>
+                ></input>
 
                 <span className="text-danger">{errors.matKhau}</span>
               </div>
 
+              <div className="form-group">
+                <label>Mã Nhóm</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="maNhom"
+                  onChange={handleChangeUser}
+                  value={values.maNhom}
+                ></input>
+
+                <span className="text-danger">{errors.maNhom}</span>
+              </div>
               <div className="form-group">
                 <label>Mã loại người dùng</label>
                 <select
@@ -213,11 +209,10 @@ export default function AddUser(props) {
                   className="form-control"
                   name="maLoaiNguoiDung"
                   onChange={handleChangeUser}
-                  value={values.maLoaiNguoiDung}
                 >
-                  <option selected>Vui lòng chọn mã loại người dùng</option>
-                  <option value="1">Khách hàng</option>
-                  <option value="2">Quản trị</option>
+                  <option selected>Chọn mã loại người dùng</option>
+                  <option value="KhachHang">Khách hàng</option>
+                  <option value="QuanTri">Quản trị</option>
                 </select>
                 <span className="text-danger">{errors.maLoaiNguoiDung}</span>
               </div>

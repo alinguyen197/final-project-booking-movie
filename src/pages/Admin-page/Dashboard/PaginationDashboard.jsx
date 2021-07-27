@@ -9,7 +9,7 @@ import { DOMAIN } from "../../../util/const/settingSystem";
 import AddMovie from "../Dashboard/AddMovie";
 import Time from "react-time-format";
 import EditMovie from "./EditMovie";
-import swal from "sweetalert2";
+// import swal from "sweetalert2";
 
 export default function PaginationDashboard(props) {
   $(".delete").tooltip({ delay: 0 });

@@ -3,13 +3,14 @@ import swal from "sweetalert2";
 
 export default function EditUser(props) {
   const { userEdit, handleUpdateUser } = props;
+
   let [values, setValues] = useState({
     taiKhoan: "",
     hoTen: "",
     email: "",
     soDt: "",
-
     matKhau: "",
+    maNhom: "",
     maLoaiNguoiDung: "",
   });
   let [errors, setErrors] = useState({
@@ -17,19 +18,14 @@ export default function EditUser(props) {
     hoTen: "",
     email: "",
     soDt: "",
-
     matKhau: "",
+    maNhom: "",
     maLoaiNguoiDung: "",
   });
 
   const handleChangeUser = (event) => {
     let { name, value, type } = event.target;
     let newValues = { ...values };
-
-    if (name === "taiKhoan") {
-      newValues.taiKhoan = value;
-    }
-    newValues[name] = value;
 
     setValues(newValues);
 
@@ -70,26 +66,27 @@ export default function EditUser(props) {
 
     setErrors(newErrors);
   };
+
   const handleSubmitUser = (e) => {
     e.preventDefault();
     const data = {
-      taiKhoan: document.getElementById("idTaiKhoan").value,
-      hoTen: document.getElementById("idHoTen").value,
-      email: document.getElementById("idEmail").value,
-      soDt: document.getElementById("idSoDt").value,
-
-      matKhau: document.getElementById("idMatKhau").value,
-      maLoaiNguoiDung: document.getElementById("idMaLoaiNguoiDung").value,
+      taiKhoan: document.getElementById("TaiKhoan").value,
+      hoTen: document.getElementById("HoTen").value,
+      email: document.getElementById("Email").value,
+      soDt: document.getElementById("SoDt").value,
+      matKhau: document.getElementById("MatKhau").value,
+      maNhom: document.getElementById("MaNhom").value,
+      maLoaiNguoiDung: document.getElementById("MaLoaiNguoiDung").value,
     };
-
+    console.log(data);
     let isValid = true;
     let errContent = "";
     let corretContent = "";
     for (let key in data) {
-      if (data[key] == "") {
+      if (data[key] === "") {
         isValid = false;
       }
-      corretContent = "Đăng nhập thành công !";
+      corretContent = "Sửa người dùng thành công !";
     }
     for (let key in errors) {
       if (errors[key] !== "") {
@@ -107,12 +104,8 @@ export default function EditUser(props) {
       });
       return;
     }
-    let form_data = new FormData();
 
-    for (let key in data) {
-      form_data.append(key, data[key]);
-    }
-    handleUpdateUser(form_data);
+    handleUpdateUser(data);
     document.getElementById("closeModalEdit").click();
     swal.fire({
       title: "Success !",
@@ -122,7 +115,7 @@ export default function EditUser(props) {
     });
   };
   return (
-    <div id="editEmployeeModal" className="modal fade">
+    <div id="editEmployeeModalUser" className="modal fade">
       <div className="modal-dialog">
         <div className="modal-content">
           <form onSubmit={handleSubmitUser}>
@@ -142,7 +135,7 @@ export default function EditUser(props) {
               <div className="form-group">
                 <label>Tài khoản</label>
                 <input
-                  id="idTaiKhoan"
+                  id="TaiKhoan"
                   type="text"
                   className="form-control"
                   name="taiKhoan"
@@ -154,7 +147,7 @@ export default function EditUser(props) {
               <div className="form-group">
                 <label>Họ tên</label>
                 <input
-                  id="idHoTen"
+                  id="HoTen"
                   type="text"
                   className="form-control"
                   name="hoTen"
@@ -166,7 +159,7 @@ export default function EditUser(props) {
               <div className="form-group">
                 <label>Email</label>
                 <input
-                  id="idEmail"
+                  id="Email"
                   type="text"
                   className="form-control"
                   name="email"
@@ -178,7 +171,7 @@ export default function EditUser(props) {
               <div className="form-group">
                 <label>Số điện thoại</label>
                 <input
-                  id="idSoDt"
+                  id="SoDt"
                   type="number"
                   className="form-control"
                   name="soDt"
@@ -190,16 +183,29 @@ export default function EditUser(props) {
 
               <div className="form-group">
                 <label>Mật khẩu</label>
-                <textarea
-                  id="idmatKhau"
-                  type="password"
+                <input
+                  id="MatKhau"
+                  type="text"
                   className="form-control"
                   name="matKhau"
                   onChange={handleChangeUser}
                   defaultValue={userEdit.matKhau}
-                ></textarea>
+                ></input>
 
                 <span className="text-danger">{errors.matKhau}</span>
+              </div>
+              <div className="form-group">
+                <label>Mã Nhóm</label>
+                <input
+                  type="text"
+                  id="MaNhom"
+                  className="form-control"
+                  name="maNhom"
+                  onChange={handleChangeUser}
+                  defaultValue={userEdit.maNhom}
+                ></input>
+
+                <span className="text-danger">{errors.maNhom}</span>
               </div>
 
               <div className="form-group">
@@ -207,15 +213,14 @@ export default function EditUser(props) {
                 <select
                   class="form-select"
                   aria-label="Default select example"
-                  id="idMaLoaiNguoiDung"
+                  id="MaLoaiNguoiDung"
                   className="form-control"
                   name="maLoaiNguoiDung"
                   onChange={handleChangeUser}
                   defaultValue={userEdit.maLoaiNguoiDung}
                 >
-                  <option selected>Vui lòng chọn mã loại người dùng</option>
-                  <option value="1">Khách hàng</option>
-                  <option value="2">Quản trị</option>
+                  <option value="KhachHang">Khách hàng</option>
+                  <option value="QuanTri">Quản trị</option>
                 </select>
                 <span className="text-danger">{errors.maLoaiNguoiDung}</span>
               </div>

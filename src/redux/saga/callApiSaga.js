@@ -140,7 +140,7 @@ function* getUserLogin(action) {
     yield put({
       type: STOP_LOADING,
     });
-    alert("Đăng nhập thành công !!");
+
     action.history.goBack();
   } catch (err) {
     alert("Tài Khoản & Mật khẩu không chính xác !!!");

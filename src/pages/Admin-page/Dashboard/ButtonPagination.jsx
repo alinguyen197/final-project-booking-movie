@@ -26,7 +26,7 @@ export default function ButtonPagination(props) {
     .map((number) => {
       return (
         <button
-          className="btn btn-primary mr-2"
+          className="btn mr-2 page-link "
           key={number}
           id={number}
           onClick={() => handlePageChange(number)}
@@ -36,11 +36,11 @@ export default function ButtonPagination(props) {
       );
     });
   return (
-    <div className="text-center mb-5">
+    <div className="text-center mb-5 addPagination">
       <button
         disabled={currentPage <= 1}
         onClick={() => handlePageChange(currentPage - 1)}
-        className="btn btn-primary mr-2"
+        className="btn mr-2 page-link "
       >
         Pre
       </button>
@@ -63,7 +63,7 @@ export default function ButtonPagination(props) {
       <button
         disabled={currentPage >= totalPages}
         onClick={() => handlePageChange(currentPage + 1)}
-        className="btn btn-primary"
+        className="btn mr-2 page-link "
       >
         Next
       </button>

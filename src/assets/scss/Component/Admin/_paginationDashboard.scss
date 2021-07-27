@@ -38,18 +38,33 @@
 
 }
 
-.addMoviePagination {
+.addPagination {
     text-align: center;
     justify-content: center;
     padding-bottom: 1rem;
+    display: flex;
+
 
     .page-link {
+
         color: #27a9e3 !important;
         border-color: #27a9e3;
 
         &:hover {
             border-color: #27a9e3 !important;
         }
+
+
+
+    }
+
+    .btn.disabled,
+    .btn:disabled {
+        opacity: 0.3;
+    }
+
+    &:hover {
+        border-color: none;
 
     }
 }

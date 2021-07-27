@@ -1,4 +1,3 @@
-import { GET_MOVIE_LIST_PAGINATION_SUCCESS } from "../const/adminMovieManagementConst";
 import { GET_MOVIE_LIST_SUCCESS } from "../const/movieListConst";
 
 const initialState = {

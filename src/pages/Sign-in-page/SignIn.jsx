@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "../../assets/img/logo-sign-in.png";
 import { connect } from "react-redux";
 import { GET_USER_LOGIN } from "../../redux/const/userLoginConst";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 class SignIn extends Component {
   state = {
     values: {
@@ -115,9 +115,9 @@ class SignIn extends Component {
                 </button>
               )}
             </form>
-            <a href="#Register" className="text-white float-right">
+            <Link className="text-white float-right" to="/sign-up">
               Register
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -8,7 +8,7 @@ import Home from "./pages/Home-page/Home.jsx";
 import MovieDetail from "./pages/Movie-detail-page/MovieDetail.jsx";
 import SignIn from "./pages/Sign-in-page/SignIn";
 import UserProfile from "./pages/UserProfile-page/UserProfile.jsx";
-
+import SignUp from "./pages/Sign-out-page/SignUp.jsx";
 function App() {
   return (
     <div>
@@ -41,6 +41,9 @@ function App() {
 
           <Route path="/sign-in">
             <SignIn />
+          </Route>
+          <Route path="/sign-up">
+            <SignUp />
           </Route>
 
           {/* Page Not Found */}

@@ -6,6 +6,7 @@ import { movieDetailReducer } from "./movieDetailReducer";
 import { cinemaReducer } from "./cinemaReducer";
 import { userListReducer } from "./userListReducer";
 import { bookingReducer } from "./bookingReducer";
+import historyUserProfileReducer from "./historyUserProfileReducer";
 export const rootReducer = combineReducers({
   movieListReducer,
   commonReducer,
@@ -14,4 +15,5 @@ export const rootReducer = combineReducers({
   cinemaReducer,
   userListReducer,
   bookingReducer,
+  historyUserProfileReducer,
 });

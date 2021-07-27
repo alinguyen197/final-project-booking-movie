@@ -5,6 +5,7 @@ import menuOption from "../../assets/img/menu-options.png";
 import arrowRight from "../../assets/img/next-session.png";
 import { NavLink, Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 
 class Header extends Component {
   renderUserLogin() {
@@ -60,6 +61,7 @@ class Header extends Component {
       type: "LOG_OUT",
     });
     localStorage.clear();
+    this.props.history.push("/");
   };
   render() {
     return (
@@ -207,4 +209,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(Header);
+export default withRouter(connect(mapStateToProps, null)(Header));

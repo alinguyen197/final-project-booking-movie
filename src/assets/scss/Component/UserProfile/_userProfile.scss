@@ -1,0 +1,39 @@
+#user-profile {
+  .user-profile-left {
+    .user-img {
+      width: 50%;
+      margin: 0 auto;
+    }
+    .user-name {
+      margin: 15px 0px;
+      p {
+        margin-bottom: 0px;
+      }
+    }
+    .user-nav {
+      display: block;
+      text-align: center;
+      li {
+        margin-bottom: 10px;
+        button {
+          background-color: #6a6f7c;
+          border: none;
+          border-radius: 8px;
+          padding: 5px 0px;
+          width: 50%;
+          font-size: 12px;
+          text-decoration: none;
+          color: $white;
+          outline: none;
+        }
+      }
+    }
+  }
+  .user-profile-right {
+    .scroll-ticket {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: 350px;
+    }
+  }
+}

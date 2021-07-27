@@ -67,7 +67,7 @@ export default function Dashboard(props) {
   };
 
   const addMoviePagination = async (form_data) => {
-    let { status, data } = await axios({
+    let { status } = await axios({
       url: `${DOMAIN}/QuanLyPhim/ThemPhimUploadHinh`,
       method: "POST",
       data: form_data,
@@ -166,12 +166,12 @@ export default function Dashboard(props) {
         <table className="table table-striped">
           <thead>
             <tr className="shortcut">
-              <th>
+              {/* <th>
                 <span className="custom-checkbox">
                   <input type="checkbox" id="selectAll" />
                   <label htmlFor="selectAll" />
                 </span>
-              </th>
+              </th> */}
               <th scope="col">Mã Phim</th>
               <th scope="col">Tên Phim</th>
               <th scope="col">Hình Ảnh</th>
@@ -187,7 +187,7 @@ export default function Dashboard(props) {
             {movie.items?.map((value, index) => {
               return (
                 <tr key={index} className="renderTable">
-                  <td>
+                  {/* <td>
                     <span className="custom-checkbox">
                       <input
                         type="checkbox"
@@ -197,7 +197,7 @@ export default function Dashboard(props) {
                       />
                       <label htmlFor="checkbox1" />
                     </span>
-                  </td>
+                  </td> */}
                   <td>{value.maPhim}</td>
                   <td className="tenPhim">{value.tenPhim}</td>
                   <td>

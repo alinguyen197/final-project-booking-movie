@@ -7,6 +7,7 @@ import {
   GET_BOOKING_LIST_CHAIR,
 } from "../../redux/const/bookingConst";
 import { useHistory } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 export default function Booking() {
   const [state, setState] = useState({
     listChair: [],
@@ -159,6 +160,7 @@ export default function Booking() {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

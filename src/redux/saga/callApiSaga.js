@@ -29,11 +29,10 @@ import {
   GET_BOOKING_LIST_CHAIR_SUCCESS,
 } from "../const/bookingConst";
 import {
-  DELETE_MOVIE,
-  GET_MOVIE_LIST_PAGINATION,
-  GET_MOVIE_LIST_PAGINATION_SUCCESS,
-  POST_MOVIE,
-} from "../const/adminMovieManagementConst";
+  CHANGE_PASSWORD_USER,
+  POST_HISTORY_OF_USER_PROFILE,
+  POST_HISTORY_OF_USER_PROFILE_SUCCESS,
+} from "../const/historyUserProfileConst";
 
 /**
  *
@@ -308,4 +307,55 @@ function* postBookingMovieTicket(action) {
 }
 export function* followPostBookingMovieTicket() {
   yield takeLatest(BOOKING_MOVIE_TICKET, postBookingMovieTicket);
+}
+
+/**
+ * Lấy thông tin ngừoi dùng và lịch sử đặt vé
+ */
+function* postHistoryOfUserProfile(action) {
+  try {
+    // start loading
+    yield put({
+      type: START_LOADING,
+    });
+    //delay cho hiệu ứng đẹp
+    yield delay(1000);
+    let { status, data } = yield call(() => {
+      return service.postHistoryOfUserProfileApi(action.payload);
+    });
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put({
+        type: POST_HISTORY_OF_USER_PROFILE_SUCCESS,
+        payload: data,
+      });
+    }
+    //stop loading
+    yield put({
+      type: STOP_LOADING,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+export function* followPostHistoryOfUserProfile() {
+  yield takeLatest(POST_HISTORY_OF_USER_PROFILE, postHistoryOfUserProfile);
+}
+
+/**
+ * Đổi mật khẩu người dùng ngoài trang Client
+ *
+ */
+function* putUpdatePassWord(action) {
+  console.log(action);
+  try {
+    const token = JSON.parse(localStorage.getItem("token"));
+    let { status, data } = yield call(() => {
+      return service.putUpdatePassWordApi(action.payload, token);
+    });
+  } catch (err) {
+    console.log(err.response);
+  }
+}
+export function* followPutUpdatePassWord() {
+  yield takeLatest(CHANGE_PASSWORD_USER, putUpdatePassWord);
 }

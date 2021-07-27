@@ -17,10 +17,14 @@
 @import "./Component/MovieDetail/inforTable.scss";
 //Trang đăng nhập
 @import "./Layout/signIn";
-
+@import "./Layout/singUp";
 //Trang admin
 @import "./Component/Admin/admin";
 @import "./Component/Admin/dashboard";
 @import "./Component/Admin/paginationDashboard";
 //Trang booking
 @import "./Component/Booking/booking";
+
+// Trang user profile
+@import "./Component/UserProfile/userProfile";
+@import "./Component/UserProfile/_historyTicket.scss";

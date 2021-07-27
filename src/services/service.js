@@ -77,6 +77,28 @@ export class Service {
       method: "GET",
     });
   }
+
+  // lấy thông tin người dùng và lịch sử đặt vé
+  postHistoryOfUserProfileApi(taiKhoan) {
+    return axios({
+      url: `${DOMAIN}/QuanLyNguoiDung/ThongTinTaiKhoan`,
+      method: "POST",
+      data: {
+        taiKhoan,
+      },
+    });
+  }
+
+  putUpdatePassWordApi(user, token) {
+    return axios({
+      url: `${DOMAIN}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+      method: "PUT",
+      data: user,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
 }
 
 export const service = new Service();

@@ -1,7 +1,4 @@
-import {
-  GET_CINEMA_BRAND_SUCCESS,
-  GET_CINEMA_LIST_BY_BRAND_SUCCESS,
-} from "../const/cinemaConst";
+import { GET_CINEMA_LIST_BY_BRAND_SUCCESS } from "../const/cinemaConst";
 
 const initialState = {
   cinemaListByBrand: [],

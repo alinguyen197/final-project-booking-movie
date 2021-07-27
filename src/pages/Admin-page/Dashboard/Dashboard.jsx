@@ -211,7 +211,7 @@ export default function Dashboard(props) {
                   <td className="moTa">
                     {value.moTa.length > 40
                       ? value.moTa.slice(0, 40) + "..."
-                      : ""}
+                      : value.moTa}
                   </td>
                   <td>{value.maNhom}</td>
                   <td>

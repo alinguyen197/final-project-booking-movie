@@ -86,12 +86,12 @@ export default function EditMovie(props) {
       ngayKhoiChieu: document.getElementById("idNgayKhoiChieu").value,
       danhGia: document.getElementById("idDanhGia").value,
     };
-    console.log(data);
+
     let isValid = true;
     let errContent = "";
     let corretContent = "";
     for (let key in data) {
-      if (data[key] == "") {
+      if (data[key] === "") {
         isValid = false;
       }
       corretContent = "Đăng nhập thành công !";

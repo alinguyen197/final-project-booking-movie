@@ -75,7 +75,11 @@ export default function Booking() {
                         </p>
                         <p>
                           <span className="note-signal-available"></span>
-                          Ghế trống
+                          Ghế Thường
+                        </p>
+                        <p>
+                          <span className="note-signal-vip"></span>
+                          Ghế Vip
                         </p>
                         <p>
                           <span className="note-signal-booking"></span>
@@ -89,7 +93,13 @@ export default function Booking() {
                           <button
                             disabled={chair.daDat}
                             onClick={() => handleChoiceChair(chair.maGhe)}
-                            className={chair.dangChon ? "choice" : "chair"}
+                            className={
+                              chair.dangChon
+                                ? "choice"
+                                : chair.loaiGhe === "Thuong"
+                                ? "chair"
+                                : "chairVip"
+                            }
                           >
                             {chair.tenGhe}
                           </button>

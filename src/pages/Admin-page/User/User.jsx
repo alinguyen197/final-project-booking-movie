@@ -163,12 +163,6 @@ export default function User(props) {
         <table className="table table-striped">
           <thead>
             <tr className="shortcut">
-              <th>
-                <span className="custom-checkbox">
-                  <input type="checkbox" id="selectAll" />
-                  <label htmlFor="selectAll" />
-                </span>
-              </th>
               <th scope="col">Tài Khoản</th>
               <th scope="col">Họ tên</th>
               <th scope="col">Email</th>
@@ -186,17 +180,6 @@ export default function User(props) {
             {user.items?.map((value, index) => {
               return (
                 <tr key={index} className="renderTable">
-                  <td>
-                    <span className="custom-checkbox">
-                      <input
-                        type="checkbox"
-                        id="checkbox1"
-                        name="options[]"
-                        defaultValue={1}
-                      />
-                      <label htmlFor="checkbox1" />
-                    </span>
-                  </td>
                   <td>{value.taiKhoan}</td>
                   <td>{value.hoTen}</td>
 

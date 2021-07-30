@@ -81,18 +81,22 @@ function MovieDetail(props) {
           <div className="contentMain-inner">
             <div>
               {/* Nav pills */}
-              <ul className="nav nav-pills">
-                <li className="nav-item">
+              <ul className="nav nav-pills contentMain-nav">
+                <li className="nav-item contentMain-item ">
                   <a
-                    className="nav-link active"
+                    className="nav-link contentMain-link active "
                     data-toggle="pill"
                     href="#infor"
                   >
                     Thông Tin
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" data-toggle="pill" href="#comment">
+                <li className="nav-item contentMain-item">
+                  <a
+                    className="nav-link contentMain-link"
+                    data-toggle="pill"
+                    href="#comment"
+                  >
                     Đánh Giá
                   </a>
                 </li>
@@ -101,6 +105,7 @@ function MovieDetail(props) {
               <div className="tab-content">
                 <div className="tab-pane container active" id="infor">
                   <InforTable movieDetail={movieDetail} />
+                  <ShowTime movieCode={movieCode} />
                 </div>
                 <div className="tab-pane container fade" id="comment">
                   <Comment />
@@ -109,9 +114,7 @@ function MovieDetail(props) {
             </div>
           </div>
         </div>
-        <div>
-          <ShowTime movieCode={movieCode} />
-        </div>
+        <div>{/* <ShowTime movieCode={movieCode} /> */}</div>
       </div>
 
       <Footer />

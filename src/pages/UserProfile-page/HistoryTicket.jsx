@@ -5,6 +5,7 @@ import Time from "react-time-format";
 
 export default function HistoryTicket(props) {
   const { tenPhim, maVe, ngayDat, danhSachGhe, giaVe } = props.ticket;
+  console.log(props.ticket);
 
   return (
     <div id="historyTicket">
@@ -24,7 +25,7 @@ export default function HistoryTicket(props) {
                 ADD: {danhSachGhe[0].tenHeThongRap}
               </p>
               <p className="ticket-type">MOVIE 2D</p>
-              <p className="ticket-code ">No: {maVe}</p>
+              <p className="ticket-code ">No: {maVe} </p>
             </div>
           </div>
           <div className="col-4">
@@ -57,7 +58,8 @@ export default function HistoryTicket(props) {
                 })}
               </div>
               <p>
-                Price: <span className="seat-price">{giaVe}</span>
+                Price:
+                <span className="seat-price">{giaVe * danhSachGhe.length}</span>
               </p>
             </div>
           </div>

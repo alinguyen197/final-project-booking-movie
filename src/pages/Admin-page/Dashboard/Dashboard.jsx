@@ -8,14 +8,26 @@ import AddMovie from "../Dashboard/AddMovie";
 import Time from "react-time-format";
 import EditMovie from "./EditMovie";
 import InputSearch from "./InputSearch";
+import { useDispatch } from "react-redux";
+import CreateShowTime from "./Create-Show-Time-Calendar/CreateShowTime";
 
 export default function Dashboard(props) {
-  $(".delete").tooltip({ delay: 0 });
-  $(".edit").tooltip({ delay: 0 });
-  $(".create").tooltip({ delay: 0 });
+  $('[data-toggle="tooltip"]').tooltip({
+    trigger: "hover",
+  });
+  $(".create").click(function () {
+    $('[data-toggle="tooltip"]').tooltip("hide");
+  });
+  $(".delete").click(function () {
+    $('[data-toggle="tooltip"]').tooltip("hide");
+  });
+  $(".edit").click(function () {
+    $('[data-toggle="tooltip"]').tooltip("hide");
+  });
 
+  const dispatch = useDispatch();
   const [movie, setMovie] = useState([]);
-
+  const [movieCode, setMovieCode] = useState();
   const [movieEdit, setMovieEdit] = useState({
     maPhim: "",
     tenPhim: "",
@@ -41,7 +53,6 @@ export default function Dashboard(props) {
   });
 
   const handlePageChange = (newPage) => {
-    console.log("newPage: ", newPage);
     setFilter({
       ...filter,
       soTrang: newPage,
@@ -132,11 +143,15 @@ export default function Dashboard(props) {
       tenPhim: search.search,
     });
   };
+
+  const handleCreateShowTime = (maPhim) => {
+    setMovieCode(maPhim);
+  };
+
   useEffect(() => {
     //khai báo biến bất đồng bộ async await sẽ trả về data không cần .then() .catch nữa
     getListMoviePagination();
   }, [filter]);
-
   return (
     <div className="contentAdmin">
       <InputSearch onSubmit={handlSearch} />
@@ -166,12 +181,6 @@ export default function Dashboard(props) {
         <table className="table table-striped">
           <thead>
             <tr className="shortcut">
-              {/* <th>
-                <span className="custom-checkbox">
-                  <input type="checkbox" id="selectAll" />
-                  <label htmlFor="selectAll" />
-                </span>
-              </th> */}
               <th scope="col">Mã Phim</th>
               <th scope="col">Tên Phim</th>
               <th scope="col">Hình Ảnh</th>
@@ -187,17 +196,6 @@ export default function Dashboard(props) {
             {movie.items?.map((value, index) => {
               return (
                 <tr key={index} className="renderTable">
-                  {/* <td>
-                    <span className="custom-checkbox">
-                      <input
-                        type="checkbox"
-                        id="checkbox1"
-                        name="options[]"
-                        defaultValue={1}
-                      />
-                      <label htmlFor="checkbox1" />
-                    </span>
-                  </td> */}
                   <td>{value.maPhim}</td>
                   <td className="tenPhim">{value.tenPhim}</td>
                   <td>
@@ -219,10 +217,9 @@ export default function Dashboard(props) {
                   </td>
                   <td>
                     <a
-                      className="create"
-                      href="#addShowTime"
-                      data-toggle="tooltip"
-                      title="Create Show Time"
+                      data-toggle="modal"
+                      data-target="#myModal"
+                      onClick={() => handleCreateShowTime(value.maPhim)}
                     >
                       <i className="far fa-calendar-plus"></i>
                     </a>
@@ -239,7 +236,6 @@ export default function Dashboard(props) {
                     <a
                       data-toggle="tooltip"
                       title="Delete Movie"
-                      href="#"
                       className="delete"
                       // data-toggle="modal"
                       onClick={() => handleDeleteFilm(value.maPhim)}
@@ -252,12 +248,14 @@ export default function Dashboard(props) {
             })}
           </tbody>
         </table>
+
         <ButtonPagination
           pagination={pagination}
           onPageChange={handlePageChange}
         />
         <AddMovie addMoviePagination={addMoviePagination} />
         <EditMovie movieEdit={movieEdit} handleUpdateFilm={handleUpdateFilm} />
+        <CreateShowTime movieCode={movieCode} />
       </div>
     </div>
   );

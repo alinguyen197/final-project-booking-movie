@@ -21,20 +21,18 @@ export default function ButtonPagination(props) {
     pageNumbers.push(i);
   }
 
-  const renderPageNumbers = pageNumbers
-    .filter((item) => item <= 5)
-    .map((number) => {
-      return (
-        <button
-          className="btn mr-2 page-link "
-          key={number}
-          id={number}
-          onClick={() => handlePageChange(number)}
-        >
-          {number}
-        </button>
-      );
-    });
+  const renderPageNumbers = pageNumbers.map((number) => {
+    return (
+      <button
+        className="btn mr-2 page-link "
+        key={number}
+        id={number}
+        onClick={() => handlePageChange(number)}
+      >
+        {number}
+      </button>
+    );
+  });
   return (
     <div className="text-center mb-5 addPagination">
       <button

@@ -1,7 +1,7 @@
 #movieDetail {
   .backgroundMain {
     position: relative;
-    height: 446px;
+    height: 445px;
     .playing-trailer {
       display: none;
       position: absolute;
@@ -14,6 +14,7 @@
       .btn-modal-video2 {
         background: transparent;
         border: none;
+
         position: absolute;
         top: 50%;
         left: 50%;
@@ -30,7 +31,7 @@
         // filter: blur(15px);
         //  opacity: 0.5;
         width: 100%;
-        height: 446px;
+        height: 445px;
         // margin: -11px 0 -5px -10px;
         // width: calc(100% + 5px);
         -webkit-filter: blur(15px);
@@ -91,17 +92,17 @@
       max-width: 1040px;
       margin: 0 auto;
       .contentMain-inner {
-        .nav {
+        .contentMain-nav {
           justify-content: center;
           margin-bottom: 40px !important;
-          .nav-item {
+          .contentMain-item {
             margin-right: 20px;
-            .nav-link.active {
+            .contentMain-link.active {
               background-color: transparent;
               color: $hoverText;
               transform: scale(1.2);
             }
-            .nav-link {
+            .contentMain-link {
               color: $white;
               font-family: semibold;
               font-size: $size-20;

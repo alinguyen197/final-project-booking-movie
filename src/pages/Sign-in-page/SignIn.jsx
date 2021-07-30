@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import logo from "../../assets/img/logo-sign-in.png";
 import { connect } from "react-redux";
-import { GET_USER_LOGIN } from "../../redux/const/userLoginConst";
+import {
+  GET_USER_LOGIN,
+  SUCCESS_MESSAGE,
+} from "../../redux/const/userLoginConst";
 import { Link, withRouter } from "react-router-dom";
+import Swal from "sweetalert2";
 class SignIn extends Component {
   state = {
     values: {
@@ -16,12 +20,13 @@ class SignIn extends Component {
     valid: false,
   };
   handelChangeLogin = (e) => {
+    this.props.success_change();
     let { value, name } = e.target;
     let errMessage = "";
 
     // validation onChange trước khi cập nhật giá trị
     if (value.trim() === "") {
-      errMessage = " Vui lòng nhập tài khoản & mật khẩu !!!";
+      errMessage = "Vui lòng nhập !";
     } else {
       errMessage = "";
     }
@@ -55,10 +60,10 @@ class SignIn extends Component {
   };
   submitLogin = (event) => {
     event.preventDefault();
-    console.log("submit", this.state.values);
     this.props.userLogin(this.state.values, this.props.history);
   };
   render() {
+    const { err_message } = this.props;
     return (
       <section className="sign-in">
         <div className="sign-in-inner">
@@ -77,7 +82,7 @@ class SignIn extends Component {
                   value={this.state.values.taiKhoan}
                   onChange={this.handelChangeLogin}
                 />
-                <span className="text-danger mt-2">
+                <span className=" mt-5" style={{ color: "red", fontSize: 18 }}>
                   {this.state.errors.taiKhoan}
                 </span>
               </div>
@@ -92,10 +97,14 @@ class SignIn extends Component {
                   value={this.state.values.matKhau}
                   onChange={this.handelChangeLogin}
                 />
-                <span className="text-danger mt-2">
+                <span className=" mt-5" style={{ color: "red", fontSize: 18 }}>
                   {this.state.errors.matKhau}
                 </span>
               </div>
+              <p style={{ color: "red", fontSize: 18 }}>
+                {err_message == "" ? null : err_message}
+              </p>
+
               {this.state.valid ? (
                 <button
                   type="submit"
@@ -124,7 +133,11 @@ class SignIn extends Component {
     );
   }
 }
-
+const mapStateToProps = (state) => {
+  return {
+    err_message: state.userLoginReducer.err_message,
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     userLogin: (user, history) => {
@@ -134,7 +147,12 @@ const mapDispatchToProps = (dispatch) => {
         history,
       });
     },
+    success_change: () => {
+      dispatch({
+        type: SUCCESS_MESSAGE,
+      });
+    },
   };
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(SignIn));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));

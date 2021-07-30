@@ -18,15 +18,16 @@
       rgba(62, 62, 68, 0.829)
     );
     .mid {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      padding-top: 50px;
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
       .bookingChair {
         background-color: white;
         padding: 10px;
         position: relative;
-        height: 450px;
+        height: 600px;
         border-radius: 6px;
         .screen {
           background: $hoverText;
@@ -49,6 +50,7 @@
           }
 
           .note-signal-disable,
+          .note-signal-vip,
           .note-signal-available,
           .note-signal-booking {
             height: 15px;
@@ -65,7 +67,10 @@
             background: $hoverText;
           }
           .note-signal-booking {
-            background: #3f6783;
+            background: #317fb7;
+          }
+          .note-signal-vip {
+            background: #00ac4d;
           }
         }
         .listchair {
@@ -75,9 +80,25 @@
           transform: translate(-50%, -50%);
           margin-top: 30px;
           text-align: center;
-          width: 425px;
+          width: 300px;
+          .chairVip {
+            background: #00ac4d !important;
+            border: none;
+            font-family: bold;
+            font-size: 8px;
+            height: 25px;
+            width: 25px;
+            border-radius: 6px;
+            margin: 0px 1px;
+            background-color: $hoverText;
+            color: white;
+            outline: none;
+            &:disabled {
+              background-color: $colorText !important;
+            }
+          }
           .choice {
-            background: #3f6783 !important;
+            background: #317fb7 !important;
             border: none;
             font-family: bold;
             font-size: 8px;
@@ -152,7 +173,7 @@
         p {
           display: inline-block;
           line-height: 25px;
-          height: 50px;
+
           overflow-x: hidden;
           overflow-y: auto;
           .bill-content {
@@ -191,13 +212,57 @@
       }
     }
   }
-  @include respond-to("large") {
-    .infor {
-      margin-top: 10px;
-      height: 200px !important;
-      .infor-left {
-        width: 30% !important;
+  @include respond-to("extra-large") {
+    height: 80vh !important;
+    .overlay {
+      height: 80vh !important;
+      .infor {
+        margin-top: 10px;
+        .infor-left {
+          img {
+            width: 48% !important;
+          }
+        }
       }
+    }
+  }
+  @include respond-to("large") {
+    height: 100vh !important;
+    .overlay {
+      height: 100vh !important;
+      .infor {
+        margin-top: 10px;
+        height: 200px !important;
+        .infor-left {
+          width: 30% !important;
+        }
+      }
+    }
+  }
+
+  @include respond-to("medium") {
+    height: 100vh !important;
+    .overlay {
+      height: 100vh !important;
+      .infor {
+        .infor-left {
+          img {
+            width: 77% !important;
+          }
+        }
+      }
+    }
+  }
+  @include respond-to("small") {
+    height: 150vh !important;
+    .overlay {
+      height: 150vh !important;
+    }
+  }
+  @include respond-to("phone") {
+    height: 130vh !important;
+    .overlay {
+      height: 130vh !important;
     }
   }
 }

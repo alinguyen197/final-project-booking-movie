@@ -66,12 +66,14 @@ class Header extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-sm  ">
-        <NavLink className="navbar-brand" to="/">
-          <img src={logo} alt="logo" />
-        </NavLink>
+        <div style={{ marginRight: 150 }}>
+          <Link className="navbar-brand" to="/">
+            <img src={logo} alt="logo" />
+          </Link>
+        </div>
 
         {/* Navbar-Drop-Down */}
-        <div id="sideMenu">
+        <div id="sideMenu" style={{}}>
           <button
             className="dropdown-toggle"
             type="button"
@@ -83,13 +85,24 @@ class Header extends Component {
             <img src={menuOption} alt="" />
           </button>
           <ul className="dropdown-menu dropdown-menu-right">
-            <li>
-              <NavLink to="#" className="title-menu-mobile menu">
-                {this.renderUserLogin()}
-                <img src={arrowRight} className="icon-arrow-right" alt="user" />
-              </NavLink>
+            <li style={{ marginBottom: 50 }}>
+              <img src={arrowRight} className="icon-arrow-right" alt="user" />
             </li>
 
+            <li>
+              <Link to="#" className="title-menu-mobile menu">
+                {this.renderUserLogin()}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/user-profile"
+                className="menu titleDisplay title-menu-mobile"
+                data-scroll="wrapHomeApp"
+              >
+                Thông tin cá nhân
+              </Link>
+            </li>
             <li>
               <NavLink
                 to="#rendermovielist"
@@ -127,13 +140,14 @@ class Header extends Component {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="#App"
+              <Link
+                to="#"
                 className="menu titleDisplay title-menu-mobile"
                 data-scroll="wrapHomeApp"
+                onClick={this.handleLogOut}
               >
                 Đăng xuất
-              </NavLink>
+              </Link>
             </li>
           </ul>
         </div>

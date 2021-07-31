@@ -1,11 +1,11 @@
-.sign-in-inner {
+.sign-up-inner {
   background-image: url("../../img/bg2.jpeg");
   background-size: 70%;
   height: 100vh;
   font-family: medium;
   color: $white;
 
-  .sign-in-from {
+  .sign-up-from {
     position: absolute;
     z-index: 10;
     top: 50%;
@@ -15,8 +15,6 @@
         rgba(20, 50, 93, 0.9),
         rgba(8, 22, 48, 0.9));
     padding: 30px 20px;
-    width: 450px;
-    height: 400px;
 
     img {
       width: 50%;
@@ -30,18 +28,63 @@
     }
   }
 
+  .input_fix {
+    display: inline;
+    position: relative;
+    padding-left: 40px;
+
+  }
+
+  .icon_register {
+    position: absolute;
+
+    .fa {
+      color: black;
+      text-align: center;
+      padding: 5px;
+    }
+  }
+
+
+  span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+
+    top: 55%;
+    left: 0;
+    z-index: 1;
+  }
+
+
+
+
   // responsive
   @include respond-to("small") {
-    .sign-in-from {
+    .sign-up-from {
       width: 100%;
 
     }
   }
 
   @include respond-to("phone") {
-    .sign-in-from {
-      width: 100%;
 
+
+    .sign-up-inner {
+
+
+      .sign-up-from {
+        width: 100% !important;
+
+      }
     }
+
   }
 }

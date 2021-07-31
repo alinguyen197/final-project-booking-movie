@@ -9,9 +9,9 @@ class App extends Component {
   render() {
     return (
       <section id="App" className="app">
-        <div className="app-main container">
-          <div className="row">
-            <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xs-6">
+        <div className="container">
+          <div className="row app-main ">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xs-6 appLeft">
               <div className="app-main-left">
                 <p className="app-text-left">Ứng dụng tiện lợi dành cho</p>
                 <p className="app-text-left">người yêu điện ảnh</p>
@@ -28,7 +28,7 @@ class App extends Component {
                 </p>
               </div>
             </div>
-            <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xs-6">
+            <div className="col-12 col-sm-12 col-md-12 col-lg-6 col-xs-6 appRight">
               <div className="app-main-right">
                 <div
                   id="carouselExampleControls"

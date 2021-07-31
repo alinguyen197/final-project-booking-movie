@@ -13,5 +13,6 @@ export function* rootSaga() {
     callApiSaga.followPostBookingMovieTicket(),
     callApiSaga.followPostHistoryOfUserProfile(),
     callApiSaga.followPutUpdatePassWord(),
+    callApiSaga.followGetUserRegister(),
   ]);
 }

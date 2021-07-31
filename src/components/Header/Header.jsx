@@ -21,6 +21,7 @@ class Header extends Component {
           >
             <img className="btnLogin " src={logoLogin} alt="Login" />
             <span>Đăng nhập</span>
+            <img src={arrowRight} className="icon-arrow-right" alt="user" />
           </Link>
         </div>
       );
@@ -86,7 +87,6 @@ class Header extends Component {
             <li>
               <NavLink to="#" className="title-menu-mobile menu">
                 {this.renderUserLogin()}
-                <img src={arrowRight} className="icon-arrow-right" alt="user" />
               </NavLink>
             </li>
 
@@ -181,20 +181,78 @@ class Header extends Component {
               <a className="dropdown-item" href="#dt">
                 Đồng Tháp
               </a>
-              <a className="dropdown-item" href="#dt">
-                Đồng Tháp
+
+              <a className="dropdown-item" href="#hn">
+                Hà Nội
               </a>
-              <a className="dropdown-item" href="#dt">
-                Đồng Tháp
+              <a className="dropdown-item" href="#dn">
+                Đà Nẵng
               </a>
-              <a className="dropdown-item" href="#dt">
-                Đồng Tháp
+              <a className="dropdown-item" href="#hp">
+                Hải Phòng
               </a>
-              <a className="dropdown-item" href="#dt">
-                Đồng Tháp
+              <a className="dropdown-item" href="##">
+                Biên Hòa
               </a>
-              <a className="dropdown-item" href="#dt">
-                Đồng Tháp
+              <a className="dropdown-item" href="##">
+                Nha Trang
+              </a>
+              <a className="dropdown-item" href="##">
+                Bình Dương
+              </a>
+              <a className="dropdown-item" href="##">
+                Phan Thiết
+              </a>
+              <a className="dropdown-item" href="##">
+                Hạ Long
+              </a>
+              <a className="dropdown-item" href="##">
+                Cần Thơ
+              </a>
+              <a className="dropdown-item" href="##">
+                Vũng Tàu
+              </a>
+              <a className="dropdown-item" href="##">
+                Quy Nhơn
+              </a>
+              <a className="dropdown-item" href="##">
+                Huế
+              </a>
+              <a className="dropdown-item" href="##">
+                Long Xuyên
+              </a>
+              <a className="dropdown-item" href="##">
+                Thái Nguyên
+              </a>
+              <a className="dropdown-item" href="##">
+                Bắc Giang
+              </a>
+              <a className="dropdown-item" href="##">
+                Bến Tre
+              </a>
+              <a className="dropdown-item" href="##">
+                Ninh Bình
+              </a>
+              <a className="dropdown-item" href="##">
+                Vinh
+              </a>
+              <a className="dropdown-item" href="##">
+                Bảo Lộc
+              </a>
+              <a className="dropdown-item" href="##">
+                Đà Lạt
+              </a>
+              <a className="dropdown-item" href="##">
+                Buôn Mê Thuộc
+              </a>
+              <a className="dropdown-item" href="##">
+                Vĩnh Long
+              </a>
+              <a className="dropdown-item" href="##">
+                Yên Bái
+              </a>
+              <a className="dropdown-item" href="##">
+                Bắc Ninh
               </a>
             </div>
           </div>

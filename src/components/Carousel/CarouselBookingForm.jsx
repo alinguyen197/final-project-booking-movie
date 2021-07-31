@@ -45,15 +45,6 @@ export default function CarouselBookingForm() {
         <div className="col-10">
           <div className="booking-form-film">
             <PostFilterForm onSubmit={handleFilterChange} />
-            <div className="form-group">
-              <input
-                onChange
-                type="text"
-                className="form-control"
-                id="usr"
-                placeholder="Tìm phim...."
-              />
-            </div>
           </div>
         </div>
         <div className="col-2">

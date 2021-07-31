@@ -85,20 +85,22 @@ class UpdateUserProfile extends Component {
             />
             <span className="text-danger">{this.state.err}</span>
           </div>
-          <button
-            type="submit"
-            style={{
-              padding: "5px 15px",
-              outline: "none",
-              backgroundColor: "#6666",
-              borderRadius: 8,
-              border: "none",
-              color: "white",
-            }}
-            onClick={this.handleSubmit}
-          >
-            Xác nhận
-          </button>
+          <div className="Submitchangepassword">
+            <button
+              type="submit"
+              style={{
+                padding: "5px 15px",
+                outline: "none",
+                backgroundColor: "#6666",
+                borderRadius: 8,
+                border: "none",
+                color: "white",
+              }}
+              onClick={this.handleSubmit}
+            >
+              Xác nhận
+            </button>
+          </div>
         </form>
       </div>
     );

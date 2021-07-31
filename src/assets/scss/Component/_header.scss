@@ -8,13 +8,16 @@
   justify-content: space-between !important;
   box-shadow: 0px 0px 10px rgb(128, 128, 128, 0.4);
   font-size: 14px;
+
   .navbar-brand {
     flex-grow: 7;
+
     img {
       height: 50px;
       width: 50px;
     }
   }
+
   #sideMenu {
     .dropdown-menu-right {
       font-family: medium;
@@ -29,49 +32,65 @@
       z-index: 10;
       background-color: $white;
       padding-left: 30px;
+
       li {
         margin: 10px 0px 30px 0px;
+
         .title-menu-mobile {
           color: $black;
         }
       }
+
       .btnLogin {
         height: 35px;
         width: 35px;
         border-radius: 18px;
         margin-right: 10px;
       }
+
       .icon-arrow-right {
-        height: 25px;
-        width: 25px;
-        float: right;
+        height: 20px;
+        width: 20px;
+        margin-left: 20px;
+        margin-bottom: 5px;
       }
     }
   }
+
   .dropdown-toggle {
     border: none;
     outline: none;
     background-color: transparent;
     cursor: pointer;
+
     &::after {
       border: none;
     }
+
     img {
       height: 25px;
       width: 25px;
     }
   }
+
   .navbar-nav {
     .nav-link {
       color: $black !important;
+
       &:hover {
         color: $hoverText !important;
       }
     }
   }
+
+  .icon-arrow-right {
+    display: none;
+  }
+
   .navbar-collapse {
     flex-grow: 5;
   }
+
   .myaccount {
     display: inline-flex;
     align-items: center;
@@ -80,15 +99,18 @@
     .accout {
       margin-right: 25px;
       position: relative;
+
       a {
         cursor: pointer;
         color: $account;
+
         img {
           height: 25px;
           width: 25px;
           border-radius: 14px;
           margin-right: 10px;
         }
+
         &:nth-child(1):after {
           display: table;
           content: "";
@@ -99,14 +121,17 @@
           height: 27px;
           width: 3px;
         }
+
         &:hover {
           color: $account;
         }
       }
     }
+
     .address {
       position: relative;
       color: $account;
+
       .dropdown-menu {
         font-size: 14px;
         top: 166%;
@@ -115,6 +140,7 @@
         height: 200px;
         overflow: auto;
       }
+
       .btn-dropdown {
         cursor: pointer;
         text-decoration: none;
@@ -122,25 +148,39 @@
       }
     }
   }
+
   @include respond-to-min-width("extra-large") {
     .dropdown-toggle {
       display: none;
     }
+
   }
+
   @include respond-to("extra-large") {
     .dropdown-toggle {
       display: none;
     }
+
+    .icon-arrow-right {
+      display: none;
+    }
   }
+
   @include respond-to("large") {
     .dropdown-toggle {
       display: none;
     }
+
+    .icon-arrow-right {
+      display: none;
+    }
   }
+
   @include respond-to("small") {
     .dropdown-toggle {
       display: block;
     }
+
 
     .navbar-brand {
       img {
@@ -148,9 +188,11 @@
         width: 40px;
       }
     }
+
     .myaccount {
       display: none;
     }
+
     .navbar-toggler {
       img {
         height: 20px;

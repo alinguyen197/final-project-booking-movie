@@ -135,23 +135,28 @@ export default function Booking() {
                     </div>
                   </div>
                   <div className="bill">
-                    <p>
-                      <span className="bill-title">Ghế đang đặt :</span>
-                      {state.listChair?.map((chair, index) => {
-                        return (
-                          <span key={index} className=" bill-content chair">
-                            {chair.tenGhe}
-                            {" ,"}
-                          </span>
-                        );
-                      })}
-                    </p>
-                    <p>
-                      <span className="bill-title">Tổng tiền :</span>
+                    <div>
+                      <p>
+                        <span className="bill-title">Ghế đang đặt :</span>
+                        {state.listChair?.map((chair, index) => {
+                          return (
+                            <span key={index} className=" bill-content chair">
+                              {chair.tenGhe}
+                              {" ,"}
+                            </span>
+                          );
+                        })}
+                      </p>
+                      <p>
+                        <span className="bill-title">Tổng tiền :</span>
 
-                      <span className=" bill-content total">{tinhTien()}</span>
-                    </p>
-                    <div style={{ width: "100%" }}>
+                        <span className=" bill-content total">
+                          {tinhTien()}
+                        </span>
+                      </p>
+                    </div>
+
+                    <div>
                       <button
                         type="submit"
                         className="bill-btn"

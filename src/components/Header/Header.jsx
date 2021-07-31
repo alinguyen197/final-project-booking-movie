@@ -105,9 +105,12 @@ class Header extends Component {
             </li>
             <li>
               <NavLink
-                to="#rendermovielist"
+                to=""
                 className="menu titleDisplay title-menu-mobile"
                 data-scroll="homeMovies"
+                onClick={() => {
+                  document.getElementById("rendermovielist").scrollIntoView();
+                }}
               >
                 Lịch Chiếu
               </NavLink>
@@ -116,25 +119,34 @@ class Header extends Component {
               <NavLink
                 ui-sref="main.cinemaMobile"
                 className="menu titleDisplay title-menu-mobile"
-                to="#cinemarelease"
+                to=""
+                onClick={() => {
+                  document.getElementById("cinemarelease").scrollIntoView();
+                }}
               >
                 Cụm rạp
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="#magazine"
+                to=""
                 className="menu titleDisplay title-menu-mobile"
                 data-scroll="homeNews"
+                onClick={() => {
+                  document.getElementById("news").scrollIntoView();
+                }}
               >
                 Tin Tức
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="#App"
+                to=""
                 className="menu titleDisplay title-menu-mobile"
                 data-scroll="wrapHomeApp"
+                onClick={() => {
+                  document.getElementById("App").scrollIntoView();
+                }}
               >
                 Ứng dụng
               </NavLink>
@@ -156,22 +168,46 @@ class Header extends Component {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ">
             <li className="nav-item ">
-              <NavLink className="nav-link" to="#rendermovielist">
+              <NavLink
+                className="nav-link"
+                to=""
+                onClick={() => {
+                  document.getElementById("rendermovielist").scrollIntoView();
+                }}
+              >
                 Lịch chiếu
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#">
+              <NavLink
+                className="nav-link"
+                to=""
+                onClick={() => {
+                  document.getElementById("cinemarelease").scrollIntoView();
+                }}
+              >
                 Cụm rạp
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#">
+              <NavLink
+                className="nav-link"
+                to=""
+                onClick={() => {
+                  document.getElementById("news").scrollIntoView();
+                }}
+              >
                 Tin tức
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#">
+              <NavLink
+                className="nav-link"
+                to=""
+                onClick={() => {
+                  document.getElementById("App").scrollIntoView();
+                }}
+              >
                 Ứng dụng
               </NavLink>
             </li>

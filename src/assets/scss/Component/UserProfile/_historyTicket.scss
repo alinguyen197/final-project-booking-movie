@@ -1,9 +1,11 @@
 #historyTicket {
   margin-bottom: 10px;
+
   .ticket {
     border: 1px solid #6666;
     border-radius: 8px;
     padding: 10px;
+
     .ticket-content {
       .ticket-title {
         font-family: bold;
@@ -14,24 +16,29 @@
         margin: 0 auto;
         margin-bottom: 10px;
       }
+
       .ticket-movie-name {
         margin: 0px;
         font-family: bold;
       }
+
       .ticket-movie-date {
         font-size: 10px;
         margin: 0px;
       }
+
       .ticket-movie-address {
         margin: 0px;
         font-size: 10px;
       }
+
       .ticket-type {
         font-size: 30px;
         color: #ef1f7b;
         font-family: bold;
         margin: 0px;
       }
+
       .ticket-code {
         font-size: thin;
         font-size: 10px;
@@ -40,24 +47,57 @@
 
     .ticket-seat {
       margin-top: 20px;
+
       .ticket-seat-title {
         font-size: 12px;
         font-family: medium;
       }
+
       p {
         margin: 0px;
         font-size: 12px;
         font-family: medium;
       }
+
       .seat-type {
         font-size: 18px;
         font-family: semibold;
         color: #ef1f7b;
       }
+
       .seat-price {
         font-size: 16px;
         font-family: semibold;
       }
     }
   }
+
+
+
+}
+
+
+@include respond-to("phone") {
+  .ticket-content {
+    .ticket-title {
+      font-size: 14px !important;
+    }
+
+    .ticket-movie-name {
+      font-size: 12px !important;
+    }
+
+    .ticket-type {
+      font-size: 14px !important;
+    }
+  }
+
+  .ticket-seat {
+    .seat-type {
+      font-size: 14px !important;
+    }
+
+  }
+
+
 }

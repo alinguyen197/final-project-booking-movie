@@ -99,6 +99,13 @@ export class Service {
       },
     });
   }
+  getUserRegisterApi(userRegister) {
+    return axios({
+      url: `${DOMAIN}/QuanLyNguoiDung/DangKy`,
+      method: "POST",
+      data: userRegister,
+    });
+  }
 }
 
 export const service = new Service();

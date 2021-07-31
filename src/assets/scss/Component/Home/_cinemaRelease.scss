@@ -171,6 +171,8 @@
   }
 
   .cinema-infor {
+    left: 10px;
+
     .cinema-name {
       display: block;
       font-family: medium;
@@ -209,9 +211,10 @@
 
   .list-flim-detail-showtime {
     width: 100%;
-    height: 70px;
+    height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+
     span {
       &:hover {
         color: #fb4226;
@@ -223,7 +226,8 @@
     }
 
     a {
-      width: calc(25% - 10px);
+      width: 25%;
+      margin: 10px;
       float: left;
       font-family: medium;
       font-size: 14px;
@@ -244,6 +248,7 @@
   .list-flim-detail-infor {
     cursor: pointer;
     height: 140px;
+
     img {
       width: 60px;
       height: 60px;
@@ -257,6 +262,7 @@
     position: relative;
     padding: 20px;
     width: 100%;
+    height: 250px;
 
     &::after {
       content: "";
@@ -300,10 +306,10 @@
   .list-cinema {
     overflow-y: auto;
     overflow-x: hidden;
-    height: 705px;
+    height: 700px;
   }
 
-  @include respond-to("large") {
+  @include respond-to("extra-large") {
     .row {
       margin-left: 0 !important;
       margin-right: 0 !important;
@@ -313,9 +319,16 @@
     .col-12 {
       padding: 0px !important;
     }
+
+    .logo-cinema {
+      width: 50px;
+      height: 50px;
+      padding-right: 10px;
+    }
   }
 
   @include respond-to("medium") {
+
     .container,
     .container-fluid,
     .container-lg,
@@ -327,6 +340,10 @@
       //   padding-left: 0 !important;
       //   margin-right: 0px !important;
       //   margin-left: 0 !important;
+    }
+
+    #cinemarelease .nav-link {
+      padding: 0 !important;
     }
 
     .cinema-banner {
@@ -351,7 +368,7 @@
     }
 
     .cinema-infor {
-      left: 10px;
+      left: 20px;
     }
 
     .list-cinema {
@@ -362,6 +379,8 @@
       font-size: 14px !important;
       text-overflow: ellipsis;
       white-space: nowrap;
+      overflow: hidden;
+
     }
 
     .cinema-address {
@@ -369,7 +388,7 @@
     }
 
     .list-flim-detail {
-      height: 400px !important;
+      height: 300px !important;
     }
 
     .list-flim-detail-type {
@@ -378,8 +397,13 @@
       margin: 5px;
     }
 
+    .list-flim-detail-showtime {
+      height: 100%;
+
+    }
+
     .list-flim-detail-showtime a {
-      width: 50% !important;
+      width: 40% !important;
     }
 
     .list-flim-detail-infor-name {
@@ -391,38 +415,62 @@
   }
 
   @include respond-to("small") {
+    .cinema-item {
+      height: 300px;
+    }
+
     .list-cinema {
       width: calc(100% - 40% - 92px);
+      height: 300px;
     }
 
     .cinema-address {
-      font-size: 12px !important;
+      font-size: 10px !important;
     }
 
     .list-flim-detail {
       height: 300px !important;
+
+
+
+      .list-flim-detail-showtime {
+        height: 100%;
+        width: 100%;
+
+        span {
+          font-size: 12px !important;
+        }
+
+        a {
+          width: 40% !important;
+
+        }
+      }
+
+      .list-flim-detail-infor-name {
+        float: left;
+        width: 75% !important;
+        padding-left: 30px;
+        font-size: 12px !important;
+      }
+
+      .list-cinema .list-flim-detail-type {
+        position: relative;
+      }
     }
 
-    .list-flim-detail-showtime a {
-      width: 50% !important;
+    .nav {
+      justify-content: center;
+
+      .nav-item {
+        left: 0;
+      }
     }
 
-    .list-flim-detail-infor-name {
-      float: left;
-      width: 75% !important;
-      padding-left: 30px;
-      font-size: 14px !important;
-    }
-
-    .list-cinema .list-flim-detail-type {
-      position: relative;
-    }
   }
 
   @include respond-to("phone") {
-    .list-flim-detail-showtime {
-      display: flex;
-    }
+
 
     .releaseRight {
       border-top: 1px solid #ffff;

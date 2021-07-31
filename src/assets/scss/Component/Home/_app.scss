@@ -8,7 +8,7 @@
   .app-main {
     .app-main-left {
       .app-text-left {
-        font-size: 32px;
+        font-size: 29px;
         font-family: bold;
       }
 
@@ -87,28 +87,74 @@
   }
 
   @include respond-to("small") {
-    .app-main-left {
-      text-align: center;
-      padding: 0px 50px !important;
+    .app-main {
+      font-size: 12px !important;
+      width: 100%;
+      margin-left: 0 !important;
+
+      .col-12 {
+        flex: none;
+      }
+
+      .appLeft {
+        width: 50% !important;
+
+        .app-main-left {
+
+          text-align: center;
+          width: 100%;
+          padding: 0 !important;
+        }
+      }
+
+      .appRight {
+        width: 50% !important;
+
+        .app-main-right {
+          height: 100% !important;
+          width: 100%;
+        }
+      }
+
+      .carousel {
+        display: block !important;
+      }
+
+
     }
   }
 
   @include respond-to("phone") {
+
     .app-main-left {
-      .app-text-left {
-        font-size: $size-20 !important;
+      padding: 0;
+
+      p {
+        width: 150px;
+      }
+
+      button {
+        width: 150px;
       }
 
       .app-btn-left {
-        font-size: $size-16 !important;
+        padding: 5px !important;
+      }
+
+      .app-text-left {
+        font-size: 14px !important;
+      }
+
+      .app-btn-left {
+        font-size: 12px !important;
       }
 
       .app-text-small-left {
-        font-size: $size-16 !important;
+        font-size: 12px !important;
       }
 
       .app-text-under {
-        font-size: $size-14 !important;
+        font-size: 10px !important;
       }
     }
 
@@ -120,7 +166,7 @@
           width: 100%;
           border-radius: 23px !important;
         }
+      }
     }
-    }
-    }
+  }
 }

@@ -35,6 +35,10 @@ import {
   POST_HISTORY_OF_USER_PROFILE,
   POST_HISTORY_OF_USER_PROFILE_SUCCESS,
 } from "../const/historyUserProfileConst";
+import {
+  GET_USER_REGISTER_SUCCESS,
+  GET_USER_REGISTER,
+} from "../const/userRegisterConst";
 
 /**
  *
@@ -352,4 +356,36 @@ function* putUpdatePassWord(action) {
 }
 export function* followPutUpdatePassWord() {
   yield takeLatest(CHANGE_PASSWORD_USER, putUpdatePassWord);
+}
+
+//REGISTER
+
+function* getUserRegister(action) {
+  try {
+    // start loading
+    yield put({
+      type: START_LOADING,
+    });
+    //delay cho hiệu ứng đẹp
+    yield delay(1000);
+    let { data, status } = yield call(() => {
+      return service.getUserRegisterApi(action.payload);
+    });
+
+    //stop loading
+    yield put({
+      type: STOP_LOADING,
+    });
+
+    action.history.goBack();
+  } catch (err) {
+    alert("Đăng ký thất bại");
+    yield put({
+      type: STOP_LOADING,
+    });
+  }
+}
+export function* followGetUserRegister() {
+  // takeLatest gọi hàm chạy render function genetor
+  yield takeLatest(GET_USER_REGISTER, getUserRegister);
 }

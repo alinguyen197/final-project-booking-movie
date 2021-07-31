@@ -43,9 +43,8 @@ export default function CarouselBookingForm() {
       <div className="row">
         <div className="col-10">
           <div className="booking-form-film">
-            <div className="form-group">
-              <PostFilterForm onSubmit={handleFilterChange} />
-            </div>
+            <PostFilterForm onSubmit={handleFilterChange} />
+         
           </div>
         </div>
         <div className="col-2">

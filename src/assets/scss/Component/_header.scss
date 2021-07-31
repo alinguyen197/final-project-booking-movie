@@ -88,13 +88,13 @@
   }
 
   .navbar-collapse {
-    flex-grow: 5;
+    justify-content: center;
   }
 
   .myaccount {
     display: inline-flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
 
     .accout {
       margin-right: 25px;

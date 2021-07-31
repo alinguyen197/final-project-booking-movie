@@ -37,7 +37,7 @@ export default function EditUser(props) {
       newErrors[name] = "";
     }
     if (name === "soDt") {
-      const reg = /^([1-9]|10)$/;
+      const reg = /^[0-9]+$/;
       if (!reg.test(value)) {
         newErrors[name] = "Định dạng không phù hợp";
       } else {
@@ -106,13 +106,13 @@ export default function EditUser(props) {
     }
 
     handleUpdateUser(data);
-    document.getElementById("closeModalEdit").click();
     swal.fire({
       title: "Success !",
       html: corretContent,
       icon: "success", // error,warning,question
       confirmButtonText: "YES",
     });
+    document.getElementById("closeModalEditUser").click();
   };
   return (
     <div id="editEmployeeModalUser" className="modal fade">
@@ -122,7 +122,7 @@ export default function EditUser(props) {
             <div className="modal-header">
               <h4 className="modal-title">Sửa Người Dùng</h4>
               <button
-                id="closeModalEdit"
+                id="closeModalEditUser"
                 type="button"
                 className="close"
                 data-dismiss="modal"
@@ -135,6 +135,7 @@ export default function EditUser(props) {
               <div className="form-group">
                 <label>Tài khoản</label>
                 <input
+                  disabled
                   id="TaiKhoan"
                   type="text"
                   className="form-control"

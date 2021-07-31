@@ -40,6 +40,7 @@ class UpdateUserProfile extends Component {
       });
       return;
     }
+    const loaiNguoiDung = JSON.parse(localStorage.getItem("maLoaiNguoiDung"));
     const user = {
       taiKhoan: UserProfile.taiKhoan,
       matKhau: this.state.confirmPass,
@@ -47,8 +48,7 @@ class UpdateUserProfile extends Component {
       email: UserProfile.email,
       soDT: UserProfile.soDT,
       maNhom: UserProfile.maNhom,
-      // loaiNguoiDung: UserProfile.loaiNguoiDung,
-      maLoaiNguoiDung: "KhachHang",
+      maLoaiNguoiDung: loaiNguoiDung,
     };
 
     this.props.dispatch({

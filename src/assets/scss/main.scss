@@ -12,12 +12,17 @@
 @import "./Component/Home/movieCard";
 @import "./Component/Home/cinemaRelease";
 
-// Trang chi tiết bộ phim
+// Trang movie Detail
 @import "./Component/MovieDetail/movieDetail";
 @import "./Component/MovieDetail/inforTable.scss";
+@import "./Component/MovieDetail/_comment.scss";
+
 //Trang đăng nhập
 @import "./Layout/signIn";
+
 @import "./Layout/signUp";
+
+
 //Trang admin
 @import "./Component/Admin/admin";
 @import "./Component/Admin/dashboard";

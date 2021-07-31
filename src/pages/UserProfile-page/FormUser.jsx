@@ -21,9 +21,6 @@ export default function FormUser(props) {
       <p>
         Mã nhóm: <b>{UserProfile.maNhom}</b>
       </p>
-      <p>
-        Mã loại người dùng: <b>{UserProfile.loaiNguoiDung}</b>
-      </p>
     </div>
   );
 }

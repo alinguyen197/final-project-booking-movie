@@ -19,6 +19,8 @@ import {
 import {
   GET_USER_LOGIN_SUCCESS,
   GET_USER_LOGIN,
+  ERR_MESSAGE,
+  SUCCESS_MESSAGE,
 } from "../const/userLoginConst";
 
 import { GET_USER_LIST_SUCCESS, GET_USER_LIST } from "../const/userListConst";
@@ -114,10 +116,6 @@ export function* followGetMovieDetail() {
  */
 function* getUserLogin(action) {
   try {
-    // start loading
-    yield put({
-      type: START_LOADING,
-    });
     //delay cho hiệu ứng đẹp
     yield delay(1000);
     let { data, status } = yield call(() => {
@@ -138,17 +136,14 @@ function* getUserLogin(action) {
         payload: { ...data, isValid: true },
       });
     }
-
-    //stop loading
     yield put({
-      type: STOP_LOADING,
+      type: SUCCESS_MESSAGE,
     });
-
     action.history.goBack();
   } catch (err) {
-    alert("Tài Khoản & Mật khẩu không chính xác !!!");
     yield put({
-      type: STOP_LOADING,
+      type: ERR_MESSAGE,
+      payload: "Đăng nhập không thành công !",
     });
   }
 }
@@ -161,7 +156,6 @@ export function* followGetUserLogin() {
  * Lấy danh sách  rạp theo Brand
  */
 function* getCinemaListByBrand(action) {
-  console.log(action);
   try {
     let { status, data } = yield call(service.getCinemaListBrandApi);
     if (status === STATUS_CODE.SUCCESS) {

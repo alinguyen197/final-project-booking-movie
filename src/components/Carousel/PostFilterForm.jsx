@@ -38,7 +38,7 @@ function PostFilterForm(props) {
       };
 
       onSubmit(formValues);
-    }, 300);
+    }, 1000);
   }
   return (
     <div className="form-group">

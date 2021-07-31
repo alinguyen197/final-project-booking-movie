@@ -75,7 +75,11 @@ export default function Booking() {
                         </p>
                         <p>
                           <span className="note-signal-available"></span>
-                          Ghế trống
+                          Ghế Thường
+                        </p>
+                        <p>
+                          <span className="note-signal-vip"></span>
+                          Ghế Vip
                         </p>
                         <p>
                           <span className="note-signal-booking"></span>
@@ -89,7 +93,13 @@ export default function Booking() {
                           <button
                             disabled={chair.daDat}
                             onClick={() => handleChoiceChair(chair.maGhe)}
-                            className={chair.dangChon ? "choice" : "chair"}
+                            className={
+                              chair.dangChon
+                                ? "choice"
+                                : chair.loaiGhe === "Thuong"
+                                ? "chair"
+                                : "chairVip"
+                            }
                           >
                             {chair.tenGhe}
                           </button>
@@ -125,23 +135,28 @@ export default function Booking() {
                     </div>
                   </div>
                   <div className="bill">
-                    <p>
-                      <span className="bill-title">Ghế đang đặt :</span>
-                      {state.listChair?.map((chair, index) => {
-                        return (
-                          <span key={index} className=" bill-content chair">
-                            {chair.tenGhe}
-                            {" ,"}
-                          </span>
-                        );
-                      })}
-                    </p>
-                    <p>
-                      <span className="bill-title">Tổng tiền :</span>
+                    <div>
+                      <p>
+                        <span className="bill-title">Ghế đang đặt :</span>
+                        {state.listChair?.map((chair, index) => {
+                          return (
+                            <span key={index} className=" bill-content chair">
+                              {chair.tenGhe}
+                              {" ,"}
+                            </span>
+                          );
+                        })}
+                      </p>
+                      <p>
+                        <span className="bill-title">Tổng tiền :</span>
 
-                      <span className=" bill-content total">{tinhTien()}</span>
-                    </p>
-                    <div style={{ width: "100%" }}>
+                        <span className=" bill-content total">
+                          {tinhTien()}
+                        </span>
+                      </p>
+                    </div>
+
+                    <div>
                       <button
                         type="submit"
                         className="bill-btn"

@@ -152,7 +152,6 @@ export function* followGetUserLogin() {
  * Lấy danh sách  rạp theo Brand
  */
 function* getCinemaListByBrand(action) {
-  console.log(action);
   try {
     let { status, data } = yield call(service.getCinemaListBrandApi);
     if (status === STATUS_CODE.SUCCESS) {

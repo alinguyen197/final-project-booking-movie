@@ -140,6 +140,7 @@ export default function CinemaRelease() {
                                                 (lichChieu, index) => {
                                                   return (
                                                     <a
+                                                      key={index}
                                                       href=""
                                                       onClick={() =>
                                                         handleBookingTicket(

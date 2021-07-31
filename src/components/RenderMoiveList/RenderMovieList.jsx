@@ -7,7 +7,7 @@ import MovieCard from "../MovieCard/MovieCard";
 export default function RenderMovieList() {
   const dispatch = useDispatch();
   const { movieList } = useSelector((state) => state.movieListReducer);
-  console.log(movieList);
+
   useEffect(() => {
     dispatch({ type: GET_MOVIE_LIST });
   }, []);

@@ -81,7 +81,7 @@
       position: absolute;
       z-index: 15;
       height: 70px;
-      width: 1110px;
+      width: 1000px;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: $white;
@@ -126,8 +126,18 @@
   .item3 {
     height: 50vh !important;
   }
+  #root{
+    .navbar{
+      font-size: 12px !important;
+    }
+  }
 }
 @include respond-to("small") {
+  #root{
+    .navbar{
+      font-size: 10px !important;
+    }
+  }
   .carousel {
     display: none !important;
   }

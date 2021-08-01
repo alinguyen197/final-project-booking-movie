@@ -7,7 +7,7 @@ export default function ButtonPagination(props) {
   // totalCount tổng số item
   //totalPages là tổng số trang (tổng số item / số item trên mỗi trang)
   // pagination đc truyền từ api
-  const { currentPage, count, totalCount, totalPages } = pagination;
+  const { currentPage, totalPages } = pagination;
   //math,ceil => 5,1 => 6
   // const totalItemMovie = Math.ceil(totalCount / count);
   const handlePageChange = (newPage) => {

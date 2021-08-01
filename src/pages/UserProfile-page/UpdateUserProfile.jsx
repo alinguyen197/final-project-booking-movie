@@ -33,7 +33,7 @@ class UpdateUserProfile extends Component {
       htmlErr = "Vui lòng nhập khẩu mới !!!";
       isValid = false;
     }
-    if (isValid == false) {
+    if (isValid === false) {
       swal.fire({
         icon: "error",
         html: htmlErr,

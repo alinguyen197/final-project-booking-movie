@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import swal from "sweetalert2";
 
 export default function EditMovie(props) {
@@ -27,7 +27,7 @@ export default function EditMovie(props) {
   });
 
   const handleChange = (event) => {
-    let { name, value, type } = event.target;
+    let { name, value } = event.target;
     let newValues = { ...values };
     if (name === "hinhAnh") {
       newValues[name] = event.target.files[0];
@@ -55,8 +55,7 @@ export default function EditMovie(props) {
       }
     }
     if (name === "ngayKhoiChieu") {
-      const regex =
-        /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+      const regex = /^(0?[1-9]|[12][0-9]|3[01])(0?[1-9]|1[012])\d{4}$/;
       if (!regex.test(value)) {
         newErrors[name] = "Định dạng phải là dd/MM/yyyy";
       } else {
@@ -64,7 +63,7 @@ export default function EditMovie(props) {
       }
     }
     if (name === "hinhAnh ") {
-      if (newValues.hinhAnh == {}) {
+      if (newValues.hinhAnh === {}) {
         newErrors[name] = "Vui lòng chọn hình ảnh !!";
       } else {
         newErrors[name] = "";
@@ -212,7 +211,6 @@ export default function EditMovie(props) {
                   rows="4"
                   cols="50"
                   className="form-control"
-                  name="moTa"
                   onChange={handleChange}
                   defaultValue={movieEdit.moTa}
                 ></textarea>

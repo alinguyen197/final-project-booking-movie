@@ -9,7 +9,6 @@ import Footer from "../../components/Footer/Footer";
 class UserProfile extends Component {
   render() {
     const { UserProfile } = this.props;
-    console.log(UserProfile);
     return (
       <div id="user-profile">
         <div style={{ height: 60 }}></div>
@@ -62,7 +61,7 @@ class UserProfile extends Component {
             </div>
           </div>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

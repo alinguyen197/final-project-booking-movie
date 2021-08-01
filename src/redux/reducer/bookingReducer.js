@@ -20,7 +20,7 @@ export const bookingReducer = (state = initialState, action) => {
       //clone ra object mới
       let listChair = [...state.bookingListChair.danhSachGhe];
       //tìm cái ghế đang chọn
-      let index = listChair.findIndex((chair) => chair.maGhe == payload);
+      let index = listChair.findIndex((chair) => chair.maGhe === payload);
       if (index !== -1) {
         // 1 object trong mảng listChair
         let oldChair = listChair[index];

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import swal from "sweetalert2";
 
 export default function EditUser(props) {
@@ -24,7 +24,7 @@ export default function EditUser(props) {
   });
 
   const handleChangeUser = (event) => {
-    let { name, value, type } = event.target;
+    let { name, value } = event.target;
     let newValues = { ...values };
 
     setValues(newValues);

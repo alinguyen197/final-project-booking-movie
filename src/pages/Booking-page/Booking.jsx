@@ -36,15 +36,14 @@ export default function Booking() {
   };
   const tinhTien = () => {
     let total = 0;
-    state.listChair?.map((value, index) => {
+    state.listChair?.map((value) => {
       total += value.giaVe;
     });
     return total;
   };
-  console.log(state.listChair);
+
   const handleSubmit = (bookingCode, listChairDangChon, history) => {
-    console.log(listChairDangChon);
-    if (listChairDangChon.length == 0) {
+    if (listChairDangChon.length === 0) {
       alert("Vui long chon ghe !!");
     } else {
       dispatch({

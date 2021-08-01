@@ -1,5 +1,5 @@
 import * as callApiSaga from "./callApiSaga";
-import { all, call } from "redux-saga/effects";
+import { all } from "redux-saga/effects";
 export function* rootSaga() {
   // all theo dõi data , cập nhật data
   yield all([

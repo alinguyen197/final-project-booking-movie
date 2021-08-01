@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import swal from "sweetalert2";
-import { useDispatch } from "react-redux";
 
 export default function AddUser(props) {
   const { addUserPagination } = props;
-  const dispatch = useDispatch();
+
   let [values, setValues] = useState({
     taiKhoan: "",
     hoTen: "",
@@ -25,7 +24,7 @@ export default function AddUser(props) {
   });
 
   const handleChangeUser = (event) => {
-    let { name, value, type } = event.target;
+    let { name, value } = event.target;
     let newValues = { ...values };
 
     if (name === "taiKhoan") {
@@ -78,9 +77,9 @@ export default function AddUser(props) {
     let isValid = true;
     let err = "";
     let correct = "";
-    for (var key in values) {
-      if (values[key] === "") {
-        err += `<p>${key} không hợp lệ  !</p>`;
+    for (var key1 in values) {
+      if (values[key1] === "") {
+        err += `<p>${key1} không hợp lệ  !</p>`;
         isValid = false;
       }
       correct = "Thêm người dùng thành công ";

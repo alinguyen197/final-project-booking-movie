@@ -34,13 +34,12 @@ export default function Comment() {
       return;
     }
 
-    if (state.noidung == "") {
+    if (state.noidung === "") {
       setState({
         err: "Hãy cho tix bạn đang nghĩ gì.",
       });
       return;
     }
-
     dispatch({
       type: ADD_COMMENT,
       payload: {
@@ -53,6 +52,8 @@ export default function Comment() {
     document.getElementById("closeModal").click();
   };
   const renderComment = () => {
+    const currentDate = new Date();
+    console.log(currentDate);
     return listComment?.map((value, index) => {
       return (
         <div key={index} className="card-comment ">
@@ -61,7 +62,7 @@ export default function Comment() {
               <img src={value.img} alt="" />
               <div>
                 <p className="name">{value.name}</p>
-                <p className="active-time">18 phút trước</p>
+                <p className="active-time">Vừa xong </p>
               </div>
             </div>
 

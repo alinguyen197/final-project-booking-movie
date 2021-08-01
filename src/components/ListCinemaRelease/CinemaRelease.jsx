@@ -4,16 +4,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { GET_CINEMA_LIST_BY_BRAND } from "../../redux/const/cinemaConst";
 import Time from "react-time-format";
 import { useHistory } from "react-router";
-
+import { Link } from "react-router-dom";
 export default function CinemaRelease() {
   const history = useHistory();
   let { cinemaListByBrand } = useSelector((state) => state.cinemaReducer);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch({
-      type: GET_CINEMA_LIST_BY_BRAND,
-    });
-  }, []);
+    function getCinemaListByBrand() {
+      dispatch({
+        type: GET_CINEMA_LIST_BY_BRAND,
+      });
+    }
+    getCinemaListByBrand();
+  });
   const handleBookingTicket = (maLichChieu) => {
     const checkUserLogin = JSON.parse(localStorage.getItem("taiKhoan"));
     if (checkUserLogin === null) {
@@ -139,9 +143,7 @@ export default function CinemaRelease() {
                                               {phim.lstLichChieuTheoPhim.map(
                                                 (lichChieu, index) => {
                                                   return (
-                                                    <a
-                                                      key={index}
-                                                      href=""
+                                                    <Link
                                                       onClick={() =>
                                                         handleBookingTicket(
                                                           lichChieu.maLichChieu
@@ -156,7 +158,7 @@ export default function CinemaRelease() {
                                                           format="DD/MM/YY - hh:mm"
                                                         />
                                                       </span>
-                                                    </a>
+                                                    </Link>
                                                   );
                                                 }
                                               )}

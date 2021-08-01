@@ -1,4 +1,3 @@
-import { parseUrl } from "query-string";
 import {
   ERR_MESSAGE,
   GET_USER_LOGIN_SUCCESS,

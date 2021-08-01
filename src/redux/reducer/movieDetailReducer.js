@@ -15,7 +15,6 @@ export const movieDetailReducer = (state = initialState, action) => {
       state.movieDetail = payload;
       return { ...state };
     case GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE_SUCCESS:
-      console.log(action);
       state.showTimeMovieDetail = payload;
       return { ...state };
     default:

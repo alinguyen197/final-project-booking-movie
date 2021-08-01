@@ -6,7 +6,7 @@ import {
   SUCCESS_MESSAGE,
 } from "../../redux/const/userLoginConst";
 import { Link, withRouter } from "react-router-dom";
-import Swal from "sweetalert2";
+
 class SignIn extends Component {
   state = {
     values: {
@@ -102,7 +102,7 @@ class SignIn extends Component {
                 </span>
               </div>
               <p style={{ color: "red", fontSize: 18 }}>
-                {err_message == "" ? null : err_message}
+                {err_message === "" ? null : err_message}
               </p>
 
               {this.state.valid ? (

@@ -1,5 +1,4 @@
 import React from "react";
-import ModalUpdateUser from "./UpdateUserProfile";
 
 export default function FormUser(props) {
   const { UserProfile } = props;

@@ -3,9 +3,12 @@ import logo from "../../assets/img/web-logo.png";
 import logoLogin from "../../assets/img/avatar.png";
 import menuOption from "../../assets/img/menu-options.png";
 import arrowRight from "../../assets/img/next-session.png";
-import { NavLink, Redirect, Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import * as Scroll from "react-scroll";
+
+let ScrollLink = Scroll.Link;
 
 class Header extends Component {
   renderUserLogin() {
@@ -105,52 +108,44 @@ class Header extends Component {
               </Link>
             </li>
             <li>
-              <NavLink
-                to=""
-                className="menu titleDisplay title-menu-mobile"
-                data-scroll="homeMovies"
-                onClick={() => {
-                  document.getElementById("rendermovielist").scrollIntoView();
-                }}
+              <ScrollLink
+                style={{ cursor: "pointer" }}
+                smooth={true}
+                duration={1000}
+                to="rendermovielist"
               >
-                Lịch Chiếu
-              </NavLink>
+                Lịch chiếu
+              </ScrollLink>
             </li>
             <li>
-              <NavLink
-                ui-sref="main.cinemaMobile"
-                className="menu titleDisplay title-menu-mobile"
-                to=""
-                onClick={() => {
-                  document.getElementById("cinemarelease").scrollIntoView();
-                }}
+              <ScrollLink
+                style={{ cursor: "pointer" }}
+                to="cinemarelease"
+                smooth={true}
+                duration={1000}
               >
                 Cụm rạp
-              </NavLink>
+              </ScrollLink>
             </li>
             <li>
-              <NavLink
-                to=""
-                className="menu titleDisplay title-menu-mobile"
-                data-scroll="homeNews"
-                onClick={() => {
-                  document.getElementById("news").scrollIntoView();
-                }}
+              <ScrollLink
+                style={{ cursor: "pointer" }}
+                to="news"
+                smooth={true}
+                duration={1000}
               >
-                Tin Tức
-              </NavLink>
+                Tin tức
+              </ScrollLink>
             </li>
             <li>
-              <NavLink
-                to=""
-                className="menu titleDisplay title-menu-mobile"
-                data-scroll="wrapHomeApp"
-                onClick={() => {
-                  document.getElementById("App").scrollIntoView();
-                }}
+              <ScrollLink
+                style={{ cursor: "pointer" }}
+                to="app"
+                smooth={true}
+                duration={1000}
               >
                 Ứng dụng
-              </NavLink>
+              </ScrollLink>
             </li>
             <li>
               <Link
@@ -169,48 +164,48 @@ class Header extends Component {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ">
             <li className="nav-item ">
-              <NavLink
+              <ScrollLink
+                style={{ cursor: "pointer" }}
                 className="nav-link"
-                to=""
-                onClick={() => {
-                  document.getElementById("rendermovielist").scrollIntoView();
-                }}
+                smooth={true}
+                duration={1000}
+                to="rendermovielist"
               >
                 Lịch chiếu
-              </NavLink>
+              </ScrollLink>
             </li>
             <li className="nav-item">
-              <NavLink
+              <ScrollLink
+                style={{ cursor: "pointer" }}
                 className="nav-link"
-                to=""
-                onClick={() => {
-                  document.getElementById("cinemarelease").scrollIntoView();
-                }}
+                to="cinemarelease"
+                smooth={true}
+                duration={1000}
               >
                 Cụm rạp
-              </NavLink>
+              </ScrollLink>
             </li>
             <li className="nav-item">
-              <NavLink
+              <ScrollLink
+                style={{ cursor: "pointer" }}
                 className="nav-link"
-                to=""
-                onClick={() => {
-                  document.getElementById("news").scrollIntoView();
-                }}
+                to="news"
+                smooth={true}
+                duration={1000}
               >
                 Tin tức
-              </NavLink>
+              </ScrollLink>
             </li>
             <li className="nav-item">
-              <NavLink
+              <ScrollLink
+                style={{ cursor: "pointer" }}
                 className="nav-link"
-                to=""
-                onClick={() => {
-                  document.getElementById("App").scrollIntoView();
-                }}
+                to="app"
+                smooth={true}
+                duration={1000}
               >
                 Ứng dụng
-              </NavLink>
+              </ScrollLink>
             </li>
           </ul>
         </div>
@@ -218,93 +213,18 @@ class Header extends Component {
           {this.renderUserLogin()}
           <div className="address">
             <i className="fas fa-map-marker-alt mr-2" />
-            <a href="#hcm" className="btn-dropdown" data-toggle="dropdown">
+            <a className="btn-dropdown" data-toggle="dropdown">
               Hồ Chí Minh
               <i className="fas fa-chevron-down ml-4" />
             </a>
             <div className="dropdown-menu">
-              <a className="dropdown-item" href="#hcm">
-                Hồ Chí Minh
-              </a>
-              <a className="dropdown-item" href="#dn">
-                Đồng Nai
-              </a>
-              <a className="dropdown-item" href="#dt">
-                Đồng Tháp
-              </a>
+              <a className="dropdown-item">Hồ Chí Minh</a>
+              <a className="dropdown-item">Đồng Nai</a>
+              <a className="dropdown-item">Đồng Tháp</a>
 
-              <a className="dropdown-item" href="#hn">
-                Hà Nội
-              </a>
-              <a className="dropdown-item" href="#dn">
-                Đà Nẵng
-              </a>
-              <a className="dropdown-item" href="#hp">
-                Hải Phòng
-              </a>
-              <a className="dropdown-item" href="##">
-                Biên Hòa
-              </a>
-              <a className="dropdown-item" href="##">
-                Nha Trang
-              </a>
-              <a className="dropdown-item" href="##">
-                Bình Dương
-              </a>
-              <a className="dropdown-item" href="##">
-                Phan Thiết
-              </a>
-              <a className="dropdown-item" href="##">
-                Hạ Long
-              </a>
-              <a className="dropdown-item" href="##">
-                Cần Thơ
-              </a>
-              <a className="dropdown-item" href="##">
-                Vũng Tàu
-              </a>
-              <a className="dropdown-item" href="##">
-                Quy Nhơn
-              </a>
-              <a className="dropdown-item" href="##">
-                Huế
-              </a>
-              <a className="dropdown-item" href="##">
-                Long Xuyên
-              </a>
-              <a className="dropdown-item" href="##">
-                Thái Nguyên
-              </a>
-              <a className="dropdown-item" href="##">
-                Bắc Giang
-              </a>
-              <a className="dropdown-item" href="##">
-                Bến Tre
-              </a>
-              <a className="dropdown-item" href="##">
-                Ninh Bình
-              </a>
-              <a className="dropdown-item" href="##">
-                Vinh
-              </a>
-              <a className="dropdown-item" href="##">
-                Bảo Lộc
-              </a>
-              <a className="dropdown-item" href="##">
-                Đà Lạt
-              </a>
-              <a className="dropdown-item" href="##">
-                Buôn Mê Thuộc
-              </a>
-              <a className="dropdown-item" href="##">
-                Vĩnh Long
-              </a>
-              <a className="dropdown-item" href="##">
-                Yên Bái
-              </a>
-              <a className="dropdown-item" href="##">
-                Bắc Ninh
-              </a>
+              <a className="dropdown-item">Hà Nội</a>
+              <a className="dropdown-item">Đà Nẵng</a>
+              <a className="dropdown-item">Hải Phòng</a>
             </div>
           </div>
         </div>

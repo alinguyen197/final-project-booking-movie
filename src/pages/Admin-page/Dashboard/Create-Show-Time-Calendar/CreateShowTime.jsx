@@ -55,7 +55,7 @@ export default function CreateShowTime(props) {
           <li
             key={number}
             id={number}
-            className={currentPage == number ? "active" : ""}
+            className={currentPage === number ? "active" : ""}
             onClick={handleChangePage}
           >
             {number}
@@ -77,7 +77,7 @@ export default function CreateShowTime(props) {
   const handlePreBtn = () => {
     setCurrentPage(currentPage - 1);
 
-    if ((currentPage - 1) % pageNumberLimit == 0) {
+    if ((currentPage - 1) % pageNumberLimit === 0) {
       setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
       setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
     }
@@ -94,9 +94,9 @@ export default function CreateShowTime(props) {
   }
 
   // ban đầu là 5 item , bấm số sẽ coi đc thêm 5
-  const handleLoadMore = () => {
-    SetItemsPerPage(itemsPerPage + 5);
-  };
+  // const handleLoadMore = () => {
+  //   SetItemsPerPage(itemsPerPage + 5);
+  // };
   // Code Phân Trang - end
 
   const [stateCinema, setStateCinema] = useState({
@@ -114,7 +114,7 @@ export default function CreateShowTime(props) {
       dispatch({
         type: START_LOADING,
       });
-      let { status, data } = await axios({
+      let { data } = await axios({
         url: `${DOMAIN}/QuanLyPhim/LayThongTinPhim?MaPhim=${movieCode}`,
         method: "GET",
       });
@@ -170,7 +170,7 @@ export default function CreateShowTime(props) {
     let isValid = true;
     let errContent = "";
     for (let key in arr) {
-      if (arr[key] == "") {
+      if (arr[key] === "") {
         errContent += `<p>Vui lòng chọn  ${key}</p>`;
         isValid = false;
       }
@@ -356,7 +356,7 @@ export default function CreateShowTime(props) {
           <ul className="pageNumbers mb-3">
             <li>
               <button
-                disabled={currentPage == pages[0] ? true : false}
+                disabled={currentPage === pages[0] ? true : false}
                 onClick={handlePreBtn}
               >
                 Pre
@@ -369,7 +369,9 @@ export default function CreateShowTime(props) {
 
             <li>
               <button
-                disabled={currentPage == pages[pages.length - 1] ? true : false}
+                disabled={
+                  currentPage === pages[pages.length - 1] ? true : false
+                }
                 onClick={handleNextBtn}
               >
                 Next

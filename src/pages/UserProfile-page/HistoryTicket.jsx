@@ -5,7 +5,6 @@ import Time from "react-time-format";
 
 export default function HistoryTicket(props) {
   const { tenPhim, maVe, ngayDat, danhSachGhe, giaVe } = props.ticket;
-  console.log(props.ticket);
 
   return (
     <div id="historyTicket">

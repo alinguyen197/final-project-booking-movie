@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PostFilterForm from "./PostFilterForm";
-import queryString from "query-string";
+// import queryString from "query-string";
 import { DOMAIN } from "../../util/const/settingSystem";
 import axios from "axios";
 
@@ -44,7 +44,6 @@ export default function CarouselBookingForm() {
         <div className="col-10">
           <div className="booking-form-film">
             <PostFilterForm onSubmit={handleFilterChange} />
-         
           </div>
         </div>
         <div className="col-2">

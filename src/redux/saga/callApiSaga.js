@@ -35,10 +35,7 @@ import {
   POST_HISTORY_OF_USER_PROFILE,
   POST_HISTORY_OF_USER_PROFILE_SUCCESS,
 } from "../const/historyUserProfileConst";
-import {
-  GET_USER_REGISTER_SUCCESS,
-  GET_USER_REGISTER,
-} from "../const/userRegisterConst";
+import { GET_USER_REGISTER } from "../const/userRegisterConst";
 
 /**
  *
@@ -121,9 +118,9 @@ function* getUserLogin(action) {
     let { data, status } = yield call(() => {
       return service.getUserLoginApi(action.payload);
     });
-    console.log(data);
+
     // lưu nó xuống local storage
-    const { accessToken, taiKhoan, maLoaiNguoiDung, ...userLogin } = data;
+    const { accessToken, taiKhoan, maLoaiNguoiDung } = data;
 
     localStorage.setItem("token", JSON.stringify(accessToken));
     localStorage.setItem("taiKhoan", JSON.stringify(taiKhoan));
@@ -177,7 +174,6 @@ export function* followGetCinemaListByBrand() {
  * Lấy lịch chiếu trong movie detail by movieCode
  */
 function* getShowTimeByMovieCode(action) {
-  console.log(action);
   try {
     let { status, data } = yield call(() => {
       return service.getShowTimeByMoiveCodeApi(action.payload);
@@ -269,7 +265,6 @@ export function* followGetBookingListChair() {
  * Đặt vé xem phim
  */
 function* postBookingMovieTicket(action) {
-  console.log(action);
   try {
     // start loading
     yield put({
@@ -344,10 +339,9 @@ export function* followPostHistoryOfUserProfile() {
  *
  */
 function* putUpdatePassWord(action) {
-  console.log(action);
   try {
     const token = JSON.parse(localStorage.getItem("token"));
-    let { status, data } = yield call(() => {
+    yield call(() => {
       return service.putUpdatePassWordApi(action.payload, token);
     });
   } catch (err) {
@@ -368,7 +362,7 @@ function* getUserRegister(action) {
     });
     //delay cho hiệu ứng đẹp
     yield delay(1000);
-    let { data, status } = yield call(() => {
+    yield call(() => {
       return service.getUserRegisterApi(action.payload);
     });
 

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import swal from "sweetalert2";
-import { useDispatch, useSelector } from "react-redux";
 
 export default function AddMovie(props) {
   const { addMoviePagination } = props;
-  const dispatch = useDispatch();
+
   let [values, setValues] = useState({
     maPhim: "",
     tenPhim: "",
@@ -29,7 +28,7 @@ export default function AddMovie(props) {
   });
 
   const handleChange = (event) => {
-    let { name, value, type } = event.target;
+    let { name, value } = event.target;
     let newValues = { ...values };
     if (name === "hinhAnh") {
       newValues[name] = event.target.files[0];
@@ -57,8 +56,7 @@ export default function AddMovie(props) {
       }
     }
     if (name === "ngayKhoiChieu") {
-      const regex =
-        /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+      const regex = /^(0?[1-9]|[12][0-9]|3[01])(0?[1-9]|1[012])\d{4}$/;
       if (!regex.test(value)) {
         newErrors[name] = "Định dạng phải là dd/MM/yyyy";
       } else {
@@ -81,16 +79,16 @@ export default function AddMovie(props) {
     let isValid = true;
     let err = "";
     let correct = "";
-    for (var key in values) {
-      if (values[key] === "") {
-        err += `<p>${key} không hợp lệ  !</p>`;
+    for (var key1 in values) {
+      if (values[key1] === "") {
+        err += `<p>${key1} không hợp lệ  !</p>`;
         isValid = false;
       }
       correct = "Đăng nhập thành công ";
     }
-    for (var key in errors) {
-      if (errors[key] !== "") {
-        err += `<p>${key} không hợp lệ  !</p>`;
+    for (var key2 in errors) {
+      if (errors[key2] !== "") {
+        err += `<p>${key2} không hợp lệ  !</p>`;
         isValid = false;
       }
     }

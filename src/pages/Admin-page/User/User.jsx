@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import $ from "jquery";
 import ButtonPaginationUser from "./ButtonPaginationUser";
@@ -64,7 +64,7 @@ export default function User(props) {
     const token = JSON.parse(localStorage.getItem("token"));
     console.log("token", token);
 
-    let { status, data } = await axios({
+    let { status } = await axios({
       url: `${DOMAIN}/QuanLyNguoiDung/ThemNguoiDung`,
       method: "POST",
       data: form_user,
@@ -93,7 +93,7 @@ export default function User(props) {
   const handleDeleteUser = async (taiKhoan) => {
     if (window.confirm("Bạn có chắc muốn xoá người dùng này ?")) {
       const token = JSON.parse(localStorage.getItem("token"));
-      let { status, data } = await axios({
+      let { status } = await axios({
         url: `${DOMAIN}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
         method: "DELETE",
         headers: {
@@ -111,7 +111,7 @@ export default function User(props) {
     console.log(form_user);
     const token = JSON.parse(localStorage.getItem("token"));
     console.log(token);
-    let { status, data } = await axios({
+    let { status } = await axios({
       url: `${DOMAIN}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
       method: "PUT",
       data: form_user,

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import $ from "jquery";
 import ButtonPagination from "./ButtonPagination";
@@ -8,7 +8,7 @@ import AddMovie from "../Dashboard/AddMovie";
 import Time from "react-time-format";
 import EditMovie from "./EditMovie";
 import InputSearch from "./InputSearch";
-import { useDispatch } from "react-redux";
+
 import CreateShowTime from "./Create-Show-Time-Calendar/CreateShowTime";
 
 export default function Dashboard(props) {
@@ -25,7 +25,6 @@ export default function Dashboard(props) {
     $('[data-toggle="tooltip"]').tooltip("hide");
   });
 
-  const dispatch = useDispatch();
   const [movie, setMovie] = useState([]);
   const [movieCode, setMovieCode] = useState();
   const [movieEdit, setMovieEdit] = useState({
@@ -105,7 +104,7 @@ export default function Dashboard(props) {
   const handleDeleteFilm = async (maPhim) => {
     if (window.confirm("Bạn có chắc muốn xoá ?")) {
       const token = JSON.parse(localStorage.getItem("token"));
-      let { status, data } = await axios({
+      let { status } = await axios({
         url: `${DOMAIN}/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
         method: "DELETE",
         headers: {
@@ -123,7 +122,7 @@ export default function Dashboard(props) {
   const handleUpdateFilm = async (form_data) => {
     if (form_data) {
       const token = JSON.parse(localStorage.getItem("token"));
-      let { status, data } = await axios({
+      let { status } = await axios({
         url: `${DOMAIN}/QuanLyPhim/CapNhatPhimUpload`,
         method: "POST",
         data: form_data,

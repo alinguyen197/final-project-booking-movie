@@ -21,7 +21,7 @@
   #sideMenu {
     .dropdown-menu-right {
       font-family: medium;
-      font-size: 20px;
+      font-size: 16px;
       right: 0;
       left: auto;
       width: 65%;
@@ -161,9 +161,7 @@
       display: none;
     }
 
-    .icon-arrow-right {
-      display: none;
-    }
+
   }
 
   @include respond-to("large") {
@@ -171,14 +169,12 @@
       display: none;
     }
 
-    .icon-arrow-right {
-      display: none;
-    }
+
   }
 
   @include respond-to("small") {
     .dropdown-toggle {
-      display: block;
+      display: inline-block;
     }
 
 

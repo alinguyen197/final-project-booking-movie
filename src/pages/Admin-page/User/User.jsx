@@ -37,7 +37,6 @@ export default function User(props) {
   });
 
   const handleUserChange = (newPage) => {
-    console.log("newPage: ", newPage);
     setFilterUser({
       ...filterUser,
       soTrang: newPage,
@@ -62,7 +61,6 @@ export default function User(props) {
 
   const addUserPagination = async (form_user) => {
     const token = JSON.parse(localStorage.getItem("token"));
-    console.log("token", token);
 
     let { status, data } = await axios({
       url: `${DOMAIN}/QuanLyNguoiDung/ThemNguoiDung`,

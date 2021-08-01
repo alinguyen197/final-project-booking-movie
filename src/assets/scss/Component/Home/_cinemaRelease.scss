@@ -1,5 +1,10 @@
 #cinemarelease {
-  padding: 65px 0px;
+  .row {
+
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+
   font-family: medium;
 
   .listcinema {
@@ -82,6 +87,14 @@
     padding-left: 0px !important;
   }
 
+  .nav {
+    justify-content: center;
+
+    .nav-item {
+      left: 0;
+    }
+  }
+
   .content {
     justify-content: center;
   }
@@ -105,7 +118,7 @@
     &::after {
       content: "";
       position: absolute;
-      bottom: 0;
+
       left: 50%;
       width: calc(100% - 40px);
       transform: translateX(-50%);
@@ -115,7 +128,8 @@
   }
 
   .nav-link {
-    padding: 20px;
+    padding: 20px 10px;
+
     position: relative;
     transition: all 0.5s;
     opacity: 0.3;
@@ -323,7 +337,94 @@
     .logo-cinema {
       width: 50px;
       height: 50px;
-      padding-right: 10px;
+
+    }
+  }
+
+  @include respond-to("large") {
+
+    .container,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+      width: 100%;
+      //   padding-right: 0px !important;
+      //   padding-left: 0 !important;
+      //   margin-right: 0px !important;
+      //   margin-left: 0 !important;
+    }
+
+    #cinemarelease .nav-link {
+      padding: 0 !important;
+    }
+
+    .cinema-banner {
+      margin: 5px !important;
+
+      line-height: 0.5 !important;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .nav-item {
+      left: -18px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        margin-left: 6px;
+      }
+    }
+
+    .cinema-infor {
+      left: 20px;
+    }
+
+    .list-cinema {
+      width: calc(100% - 40% - 92px);
+    }
+
+    .cinema-name {
+      font-size: 14px !important;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+    }
+
+    .cinema-address {
+      font-size: 12px !important;
+    }
+
+    .list-flim-detail {
+      height: 300px !important;
+    }
+
+    .list-flim-detail-type {
+      position: absolute;
+      padding: 5px;
+      margin: 5px;
+    }
+
+    .list-flim-detail-showtime {
+      height: 100%;
+
+    }
+
+    .list-flim-detail-showtime a {
+      width: 40% !important;
+    }
+
+    .list-flim-detail-infor-name {
+      float: left;
+      width: 75% !important;
+      padding-left: 30px;
+      font-size: 14px !important;
     }
   }
 
@@ -467,19 +568,33 @@
       }
     }
 
+    .releaseRight {
+      border-top: none;
+      border-bottom: none;
+      border-right: none;
+
+      .releaseBr {
+        border-right: none;
+      }
+    }
+
   }
 
   @include respond-to("phone") {
 
 
     .releaseRight {
-      border-top: 1px solid #ffff;
-      border-bottom: 1px solid #ffff;
-      border-right: 1px solid #ffff;
+      border-top: none;
+      border-bottom: none;
+      border-right: none;
 
       .releaseBr {
-        border-right: 1px solid #ffff;
+        border-right: none;
       }
+    }
+
+    .nav-item {
+      border-bottom: none;
     }
   }
 }

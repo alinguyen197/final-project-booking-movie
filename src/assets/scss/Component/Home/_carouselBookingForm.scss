@@ -1,13 +1,16 @@
 .carousel-booking {
   font-family: medium;
   font-size: $size-14;
+
   .row {
     margin: 0px;
+
     .col-2,
     .col-4 {
       padding: 0px;
     }
   }
+
   .booking-form-film {
     width: 100%;
     font-family: semibold;
@@ -15,6 +18,7 @@
 
     align-items: center;
     height: 70px;
+
     &::after {
       display: table;
       content: " ";
@@ -27,8 +31,10 @@
       height: 35px;
     }
   }
+
   .booking-form-film {
     padding-left: 20px;
+
     .form-group {
       margin-bottom: 0;
       width: 95%;
@@ -38,6 +44,7 @@
         box-shadow: transparent !important;
         outline: none;
       }
+
       input {
         width: 100%;
         border: none;
@@ -52,12 +59,57 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     button {
       border-radius: 5px;
       background-color: $colorDescription;
       color: $white;
       border: none;
-      padding: 10px 20px;
+      padding: 10px 30px;
     }
   }
+
+  .searchFilm {
+    position: absolute;
+    top: 90%;
+    left: 0;
+    z-index: 10;
+    width: 82%;
+    float: left;
+    min-width: 160px;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-clip: padding-box;
+    border-radius: 4px;
+    max-height: 300px;
+    background-color: $white;
+    overflow-y: scroll;
+    -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+
+    li {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: 400;
+      line-height: 1.42857143;
+      color: #333;
+      white-space: nowrap;
+      transition: all 0.2s;
+
+      &:hover {
+        text-decoration: none;
+        background-color: #82c0f3;
+        color: #fff;
+      }
+    }
+
+
+
+
+
+  }
+
+
 }

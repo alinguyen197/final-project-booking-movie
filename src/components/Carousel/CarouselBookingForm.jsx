@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import PostFilterForm from "./PostFilterForm";
-<<<<<<< HEAD
 
-=======
 // import queryString from "query-string";
->>>>>>> anhkhoa
 import { DOMAIN } from "../../util/const/settingSystem";
 import axios from "axios";
 import { useHistory } from "react-router-dom";

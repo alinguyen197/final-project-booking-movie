@@ -70,7 +70,9 @@ export default function CarouselBookingForm() {
         <div className="col-2">
           <div className="booking-form-button">
             <div>
-              <button>TÌM PHIM</button>
+              <button>
+                <i className="fas fa-search"></i>
+              </button>
             </div>
           </div>
         </div>

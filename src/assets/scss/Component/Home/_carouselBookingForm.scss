@@ -19,17 +19,17 @@
     align-items: center;
     height: 70px;
 
-    &::after {
-      display: table;
-      content: " ";
-      position: absolute;
-      z-index: 1;
-      border-right: 1px solid #fff;
-      border-right-color: rgba(238, 238, 238, 0.88);
-      right: 15px;
-      width: 3px;
-      height: 35px;
-    }
+    // &::after {
+    //   display: table;
+    //   content: " ";
+    //   position: absolute;
+    //   z-index: 1;
+    //   border-right: 1px solid #fff;
+    //   border-right-color: rgba(238, 238, 238, 0.88);
+    //   right: 15px;
+    //   width: 3px;
+    //   height: 35px;
+    // }
   }
 
   .booking-form-film {
@@ -48,6 +48,7 @@
       input {
         width: 100%;
         border: none;
+        box-shadow: none;
       }
     }
   }
@@ -104,12 +105,5 @@
         color: #fff;
       }
     }
-
-
-
-
-
   }
-
-
 }

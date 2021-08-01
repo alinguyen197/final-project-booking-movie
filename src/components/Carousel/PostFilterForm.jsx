@@ -38,7 +38,7 @@ function PostFilterForm(props) {
       };
 
       onSubmit(formValues);
-    }, 1000);
+    }, 500);
   }
   return (
     <div className="form-group">
@@ -46,7 +46,7 @@ function PostFilterForm(props) {
         type="search"
         className="form-control"
         id="usr"
-        placeholder="Tìm phim...."
+        placeholder="Nhập tên phim cần tìm....."
         value={searchTerm}
         onChange={handleSearchTermChange}
       />

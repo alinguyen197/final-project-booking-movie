@@ -1,70 +1,63 @@
 .table {
-    background-color: #edf3f9;
-    border: #186183;
+  background-color: #edf3f9;
+  border: #186183;
 
-    .shortcut {
-        width: 200px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        text-align: center;
+  .shortcut {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
 
-    }
+  .renderTable {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
 
-    .renderTable {
-        width: 200px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        text-align: center;
-    }
+  .tenPhim {
+    text-align: left;
+  }
 
-    .tenPhim {
-        text-align: left;
+  .moTa {
+    text-align: left;
+  }
 
-    }
-
-
-    .moTa {
-        text-align: left;
-
-    }
-
-    .card-img-top {
-        text-align: center;
-        justify-content: center;
-    }
-
-
+  .card-img-top {
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 .addPagination {
-    text-align: center;
-    justify-content: center;
-    padding-bottom: 1rem;
-    display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 1rem;
+  display: flex;
 
-
-    .page-link {
-
-        color: #27a9e3 !important;
-        border-color: #27a9e3;
-
-        &:hover {
-            border-color: #27a9e3 !important;
-        }
-
-
-
-    }
-
-    .btn.disabled,
-    .btn:disabled {
-        opacity: 0.3;
-    }
+  .page-link {
+    color: #27a9e3 !important;
+    border-color: #27a9e3;
 
     &:hover {
-        border-color: none;
-
+      border-color: #27a9e3 !important;
     }
+  }
+  .page-link-active {
+    background-color: #27a9e3 !important;
+    color: white;
+    border-color: #27a9e3;
+  }
+
+  .btn.disabled,
+  .btn:disabled {
+    opacity: 0.3;
+  }
+
+  &:hover {
+    border-color: none;
+  }
 }

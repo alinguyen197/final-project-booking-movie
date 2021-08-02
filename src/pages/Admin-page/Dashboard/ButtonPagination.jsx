@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ButtonPagination(props) {
   const { onPageChange, pagination } = props;
@@ -10,6 +10,12 @@ export default function ButtonPagination(props) {
   const { currentPage, totalPages } = pagination;
   //math,ceil => 5,1 => 6
   // const totalItemMovie = Math.ceil(totalCount / count);
+
+  // tăng giảm thì số number sẽ thay đổi
+  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+
   const handlePageChange = (newPage) => {
     if (pagination) {
       onPageChange(newPage);
@@ -21,46 +27,56 @@ export default function ButtonPagination(props) {
     pageNumbers.push(i);
   }
 
+  const handlePageChangeNext = (newPage) => {
+    onPageChange(newPage);
+    if (currentPage + 1 > maxPageNumberLimit) {
+      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+    }
+  };
+  const handlePageChangePre = (newPage) => {
+    onPageChange(newPage);
+    if ((currentPage - 1) % pageNumberLimit === 0) {
+      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+    }
+  };
+
   const renderPageNumbers = pageNumbers.map((number) => {
-    return (
-      <button
-        className="btn mr-2 page-link "
-        key={number}
-        id={number}
-        onClick={() => handlePageChange(number)}
-      >
-        {number}
-      </button>
-    );
+    if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+      return (
+        <button
+          className={
+            currentPage === number
+              ? `btn mr-2 page-link-active `
+              : "btn mr-2 page-link"
+          }
+          key={number}
+          id={number}
+          onClick={() => handlePageChange(number)}
+        >
+          {number}
+        </button>
+      );
+    } else {
+      return null;
+    }
   });
   return (
     <div className="text-center mb-5 addPagination">
       <button
         disabled={currentPage <= 1}
-        onClick={() => handlePageChange(currentPage - 1)}
+        onClick={() => handlePageChangePre(currentPage - 1)}
         className="btn mr-2 page-link "
       >
         Pre
       </button>
 
-      {/* cách 2 
-      {[...Array(totalPages)].map((x, number) => {
-        return (
-          <button
-            className="btn btn-primary mr-2"
-            key={number}
-            id={number}
-            onClick={() => handlePageChange(number)}
-          >
-            {number}
-          </button>
-        );
-      })} */}
       {renderPageNumbers}
 
       <button
         disabled={currentPage >= totalPages}
-        onClick={() => handlePageChange(currentPage + 1)}
+        onClick={() => handlePageChangeNext(currentPage + 1)}
         className="btn mr-2 page-link "
       >
         Next

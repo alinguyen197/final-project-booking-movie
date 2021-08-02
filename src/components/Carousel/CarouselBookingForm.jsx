@@ -62,13 +62,13 @@ export default function CarouselBookingForm() {
   return (
     <div className="carousel-booking">
       <div className="row">
-        <div className="col-10">
+        <div className="col-11">
           <div className="booking-form-film">
             <PostFilterForm onSubmit={handleFilterChange} />
           </div>
         </div>
 
-        <div className="col-2">
+        <div className="col-1">
           <div className="booking-form-button">
             <div>
               <button>

@@ -185,9 +185,7 @@ export default function Dashboard(props) {
               <th scope="col">Hình Ảnh</th>
               <th scope="col">Mô Tả</th>
               <th scope="col">Mã Nhóm</th>
-              <th scope="col" type>
-                Ngày khỏi chiếu
-              </th>
+              <th scope="col">Ngày khỏi chiếu</th>
               <th scope="col">Thao tác</th>
             </tr>
           </thead>

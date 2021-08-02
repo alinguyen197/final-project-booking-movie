@@ -167,9 +167,7 @@ export default function User(props) {
               <th scope="col">Số điện thoại</th>
               <th scope="col">Mật Khẩu </th>
               <th scope="col">Mã Nhóm </th>
-              <th scope="col" type>
-                Mã Loại Người Dùng
-              </th>
+              <th scope="col">Mã Loại Người Dùng</th>
               <th scope="col">Thao tác</th>
             </tr>
           </thead>

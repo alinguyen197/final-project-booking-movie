@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ButtonPaginationUser(props) {
   const { onUserChange, paginationUser } = props;
   const { currentPage, totalPages } = paginationUser;
 
+  const [pageNumberLimit, setPageNumberLimit] = useState(10);
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(10);
+  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
+
   const handleUserChange = (newPage) => {
     if (paginationUser) {
       onUserChange(newPage);
+    }
+  };
+
+  const handleUserChangeNext = (newPage) => {
+    onUserChange(newPage);
+    if (currentPage + 1 > maxPageNumberLimit) {
+      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+    }
+  };
+
+  const handleUserChangePre = (newPage) => {
+    onUserChange(newPage);
+    if ((currentPage - 1) % pageNumberLimit === 0) {
+      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
     }
   };
   // Logic for displaying page numbers
@@ -15,12 +35,15 @@ export default function ButtonPaginationUser(props) {
     userNumbers.push(i);
   }
 
-  const renderUserNumbers = userNumbers
-    .filter((item) => item <= 10)
-    .map((number) => {
+  const renderUserNumbers = userNumbers.map((number) => {
+    if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       return (
         <button
-          className="btn page-link mr-2"
+          className={
+            currentPage === number
+              ? "btn page-link-active mr-2"
+              : "btn page-link mr-2"
+          }
           key={number}
           id={number}
           onClick={() => handleUserChange(number)}
@@ -28,12 +51,15 @@ export default function ButtonPaginationUser(props) {
           {number}
         </button>
       );
-    });
+    } else {
+      return null;
+    }
+  });
   return (
     <div className="text-center mb-5 addPagination">
       <button
         disabled={currentPage <= 1}
-        onClick={() => handleUserChange(currentPage - 1)}
+        onClick={() => handleUserChangePre(currentPage - 1)}
         className="btn page-link mr-2"
       >
         Pre
@@ -43,7 +69,7 @@ export default function ButtonPaginationUser(props) {
 
       <button
         disabled={currentPage >= totalPages}
-        onClick={() => handleUserChange(currentPage + 1)}
+        onClick={() => handleUserChangeNext(currentPage + 1)}
         className="btn page-link"
       >
         Next

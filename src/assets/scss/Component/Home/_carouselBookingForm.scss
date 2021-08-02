@@ -37,7 +37,7 @@
 
     .form-group {
       margin-bottom: 0;
-      width: 95%;
+      width: 100%;
 
       &:focus {
         border: none;
@@ -63,8 +63,8 @@
 
     button {
       border-radius: 5px;
-      background-color: $colorDescription;
-      color: $white;
+      background-color: transparent;
+      // color: $white;
       border: none;
       padding: 10px 30px;
     }
@@ -75,7 +75,7 @@
     top: 90%;
     left: 0;
     z-index: 10;
-    width: 82%;
+    width: 89%;
     float: left;
     min-width: 160px;
     margin: 2px 0 0;

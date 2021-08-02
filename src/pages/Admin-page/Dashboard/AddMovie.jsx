@@ -202,7 +202,7 @@ export default function AddMovie(props) {
                 <label>Hình Ảnh</label>
                 <input
                   type="file"
-                  class="form-control-file"
+                  className="form-control-file"
                   name="hinhAnh"
                   required
                   onChange={handleChange}

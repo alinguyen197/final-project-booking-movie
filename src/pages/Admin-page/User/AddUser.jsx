@@ -203,7 +203,7 @@ export default function AddUser(props) {
               <div className="form-group">
                 <label>Mã loại người dùng</label>
                 <select
-                  class="form-select"
+                  className="form-select"
                   aria-label="Default select example"
                   className="form-control"
                   name="maLoaiNguoiDung"

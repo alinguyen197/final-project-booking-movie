@@ -25,7 +25,6 @@ export default function CarouselBookingForm() {
       });
 
       setData(data);
-      console.log(data);
     } catch (error) {
       console.log("Failed to fetch", error.message);
     }

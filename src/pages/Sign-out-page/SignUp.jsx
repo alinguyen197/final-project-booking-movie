@@ -13,7 +13,7 @@ class SignUp extends Component {
       email: "",
       soDt: "",
       maNhom: "",
-      maLoaiNguoiDung: "",
+      maLoaiNguoiDung: "KhachHang",
       matKhau: "",
     },
     errors: {
@@ -205,28 +205,7 @@ class SignUp extends Component {
                     {this.state.errors.maNhom}
                   </span>
                 </div>
-                <div className="form-group ">
-                  <span className="icon_register">
-                    <i class="fa fa-address-card" aria-hidden="true"></i>
-                  </span>
 
-                  <select
-                    class="form-select"
-                    aria-label="maLoaiNguoiDungHelp"
-                    id="IdMaLoaiNguoiDung"
-                    className="form-control input_fix"
-                    name="maLoaiNguoiDung"
-                    onChange={this.handelChangeSignUp}
-                    defaultValue={this.state.values.maLoaiNguoiDung}
-                  >
-                    <option selected>Vui lòng chọn loại người dùng</option>
-                    <option value="KhachHang">Khách hàng</option>
-                    <option value="QuanTri">Quản trị</option>
-                  </select>
-                  <span className="text-danger">
-                    {this.state.errors.maLoaiNguoiDung}
-                  </span>
-                </div>
                 <div className="form-group ">
                   <span className="icon_register">
                     <i className="fa fa-lock" />

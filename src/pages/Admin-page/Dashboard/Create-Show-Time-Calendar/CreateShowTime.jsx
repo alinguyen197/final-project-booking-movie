@@ -22,10 +22,10 @@ export default function CreateShowTime(props) {
 
   // Code Phân Trang - start
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, SetItemsPerPage] = useState(5);
+  const [itemsPerPage] = useState(5);
 
   // tăng giảm thì số number sẽ thay đổi
-  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [pageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
@@ -109,7 +109,6 @@ export default function CreateShowTime(props) {
     getListShowTime(movieCode);
   }, [movieCode]);
   const getListShowTime = async (movieCode) => {
-    console.log(movieCode);
     if (movieCode) {
       dispatch({
         type: START_LOADING,

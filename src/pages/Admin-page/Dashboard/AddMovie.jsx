@@ -216,7 +216,6 @@ export default function AddMovie(props) {
                   rows="4"
                   cols="50"
                   className="form-control"
-                  name="moTa"
                   onChange={handleChange}
                   value={values.moTa}
                 ></textarea>

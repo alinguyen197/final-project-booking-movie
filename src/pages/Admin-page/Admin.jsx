@@ -19,7 +19,10 @@ export default function Admin() {
         <div className="navigation">
           <ul className="nav nav-pills">
             <li>
-              <a href="">
+              <a
+                href="
+              "
+              >
                 <span className="icon">
                   <img src={logo} alt="" className="imageIcon" />
                 </span>

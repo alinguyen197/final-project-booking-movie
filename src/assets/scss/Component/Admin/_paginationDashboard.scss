@@ -50,6 +50,9 @@
     background-color: #27a9e3 !important;
     color: white;
     border-color: #27a9e3;
+    &:hover {
+      color: white;
+    }
   }
 
   .btn.disabled,

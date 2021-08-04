@@ -185,7 +185,6 @@ export default function CreateShowTime(props) {
     let ngayChieuGioChieu = document.getElementById("ngayChieuGioChieu").value;
     let date = new Date(ngayChieuGioChieu);
     let formatDate = format(date, "dd/MM/yyyy HH:mm:ss");
-    console.log(formatDate);
 
     const token = JSON.parse(localStorage.getItem("token"));
 
@@ -250,11 +249,11 @@ export default function CreateShowTime(props) {
           <div className="modal-body">
             <form id="createShowTimeForm" action="" className="mb-3">
               <div style={{ width: "40%", float: "left", marginRight: 20 }}>
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Hệ thống rạp</label>
+                <div className="form-group">
+                  <label>Hệ thống rạp</label>
                   <select
                     id="maHeThongRap"
-                    class="form-control"
+                    className="form-control"
                     name="maHeThongRap"
                     onChange={handleChange}
                   >
@@ -267,13 +266,11 @@ export default function CreateShowTime(props) {
                     })}
                   </select>
                 </div>
-                <div class="form-group ">
-                  <label for="exampleFormControlSelect1">
-                    Hệ thống cụm rạp
-                  </label>
+                <div className="form-group ">
+                  <label>Hệ thống cụm rạp</label>
                   <select
                     id="maCumRap"
-                    class="form-control"
+                    className="form-control"
                     name="maCumRap"
                     onChange={handleChange}
                   >
@@ -286,11 +283,11 @@ export default function CreateShowTime(props) {
                     })}
                   </select>
                 </div>
-                <div class="form-group ">
-                  <label for="exampleFormControlSelect1"> Rạp</label>
+                <div className="form-group ">
+                  <label> Rạp</label>
                   <select
                     id="maRap"
-                    class="form-control"
+                    className="form-control"
                     name="maRap"
                     onChange={handleChange}
                   >
@@ -305,8 +302,8 @@ export default function CreateShowTime(props) {
                 </div>
               </div>
               <div style={{ width: "30%", float: "left", marginRight: "8%" }}>
-                <div class="form-group ">
-                  <label for="exampleFormControlSelect1">Ngày giờ chiếu</label>
+                <div className="form-group ">
+                  <label>Ngày giờ chiếu</label>
                   <input
                     type="datetime-local"
                     className="form-control"
@@ -314,8 +311,8 @@ export default function CreateShowTime(props) {
                   />
                 </div>
 
-                <div class="form-group ">
-                  <label for="exampleFormControlSelect1">Giá vé</label>
+                <div className="form-group ">
+                  <label>Giá vé</label>
                   <input type="text" className="form-control" id="giaVe" />
                 </div>
               </div>
@@ -337,7 +334,7 @@ export default function CreateShowTime(props) {
               </div>
             </form>
 
-            <table class="table table-dark table-xl">
+            <table className="table table-dark table-xl">
               <thead>
                 <tr>
                   <th>ID</th>

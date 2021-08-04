@@ -4,7 +4,7 @@ export default function ButtonPaginationUser(props) {
   const { onUserChange, paginationUser } = props;
   const { currentPage, totalPages } = paginationUser;
 
-  const [pageNumberLimit, setPageNumberLimit] = useState(10);
+  const [pageNumberLimit] = useState(10);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(10);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 

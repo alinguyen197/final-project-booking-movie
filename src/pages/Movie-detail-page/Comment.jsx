@@ -52,8 +52,6 @@ export default function Comment() {
     document.getElementById("closeModal").click();
   };
   const renderComment = () => {
-    const currentDate = new Date();
-    console.log(currentDate);
     return listComment?.map((value, index) => {
       return (
         <div key={index} className="card-comment ">

@@ -21,7 +21,7 @@ export default function ShowTime(props) {
       type: GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE,
       payload: props.movieCode,
     });
-  }, []);
+  }, [dispatch, props.movieCode]);
   const { showTimeMovieDetail } = useSelector(
     (state) => state.movieDetailReducer
   );
@@ -157,7 +157,7 @@ export default function ShowTime(props) {
                                                 </div>
 
                                                 <div className="list-flim-detail-showtime">
-                                                  <a>
+                                                  <a href="#ngayGioChieu">
                                                     <span>
                                                       <Time
                                                         value={

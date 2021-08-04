@@ -111,7 +111,7 @@ class Header extends Component {
               <ScrollLink
                 style={{ cursor: "pointer" }}
                 smooth={true}
-                duration={1000}
+                duration={500}
                 to="rendermovielist"
               >
                 Lịch chiếu
@@ -122,7 +122,7 @@ class Header extends Component {
                 style={{ cursor: "pointer" }}
                 to="cinemarelease"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Cụm rạp
               </ScrollLink>
@@ -132,7 +132,7 @@ class Header extends Component {
                 style={{ cursor: "pointer" }}
                 to="news"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Tin tức
               </ScrollLink>
@@ -142,7 +142,7 @@ class Header extends Component {
                 style={{ cursor: "pointer" }}
                 to="app"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Ứng dụng
               </ScrollLink>
@@ -168,7 +168,7 @@ class Header extends Component {
                 style={{ cursor: "pointer" }}
                 className="nav-link"
                 smooth={true}
-                duration={1000}
+                duration={500}
                 to="rendermovielist"
               >
                 Lịch chiếu
@@ -180,7 +180,7 @@ class Header extends Component {
                 className="nav-link"
                 to="cinemarelease"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Cụm rạp
               </ScrollLink>
@@ -191,7 +191,7 @@ class Header extends Component {
                 className="nav-link"
                 to="news"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Tin tức
               </ScrollLink>
@@ -202,7 +202,7 @@ class Header extends Component {
                 className="nav-link"
                 to="app"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Ứng dụng
               </ScrollLink>

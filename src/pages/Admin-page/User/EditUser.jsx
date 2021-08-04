@@ -212,7 +212,6 @@ export default function EditUser(props) {
               <div className="form-group">
                 <label>Mã loại người dùng</label>
                 <select
-                  class="form-select"
                   aria-label="Default select example"
                   id="MaLoaiNguoiDung"
                   className="form-control"

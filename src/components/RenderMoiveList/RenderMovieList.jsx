@@ -6,11 +6,11 @@ import MovieCard from "../MovieCard/MovieCard";
 
 export default function RenderMovieList() {
   const dispatch = useDispatch();
-  const { movieList } = useSelector((state) => state.movieListReducer);
 
   useEffect(() => {
     dispatch({ type: GET_MOVIE_LIST });
-  }, []);
+  }, [dispatch]);
+  const { movieList } = useSelector((state) => state.movieListReducer);
 
   const render = () => {
     var settings = {

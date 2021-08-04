@@ -104,10 +104,12 @@ export default function CreateShowTime(props) {
     maCumRap: "",
     maRap: "",
   });
+
   useEffect(() => {
     heThongRap();
     getListShowTime(movieCode);
   }, [movieCode]);
+
   const getListShowTime = async (movieCode) => {
     if (movieCode) {
       dispatch({

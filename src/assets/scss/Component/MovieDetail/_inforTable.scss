@@ -22,4 +22,28 @@
       font-size: $size-14;
     }
   }
+  @include respond-to("small") {
+    .leftInfor {
+      .title {
+        font-size: $size-14;
+        font-family: semibold;
+        display: inline-block;
+        width: 25%;
+      }
+      .content {
+        font-size: 12px;
+        display: inline-block;
+        margin-left: 20px;
+      }
+    }
+    .rightInfor {
+      .title {
+        font-size: $size-14;
+        font-family: semibold;
+      }
+      .content {
+        font-size: 12px;
+      }
+    }
+  }
 }

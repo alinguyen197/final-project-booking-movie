@@ -114,7 +114,7 @@ class SignUp extends Component {
               <form onSubmit={this.submitSignUp}>
                 <div className="form-group ">
                   <span className="icon_register">
-                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                    <i className="fa fa-user-circle" aria-hidden="true"></i>
                   </span>
 
                   <input

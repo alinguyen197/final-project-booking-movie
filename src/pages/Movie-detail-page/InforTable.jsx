@@ -26,10 +26,10 @@ export default function InforTable(props) {
             <p className="title">Bí Danh</p>
             <p className="content">{movieDetail.biDanh}</p>
           </div>
-          <div className="leftInfor">
+          {/* <div className="leftInfor">
             <p className="title">Trailer</p>
             <p className="content">{movieDetail.trailer}</p>
-          </div>
+          </div> */}
           <div className="leftInfor">
             <p className="title">Quốc Gia SX</p>
             <p className="content">America</p>

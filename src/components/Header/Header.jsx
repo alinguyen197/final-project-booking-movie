@@ -68,6 +68,8 @@ class Header extends Component {
     this.props.history.push("/");
   };
   render() {
+    const taiKhoanLocal = JSON.parse(localStorage.getItem("taiKhoan"));
+
     return (
       <nav className="navbar navbar-expand-sm  ">
         <div style={{ marginRight: 150 }}>
@@ -98,15 +100,20 @@ class Header extends Component {
                 {this.renderUserLogin()}
               </Link>
             </li>
-            <li>
-              <Link
-                to="/user-profile"
-                className="menu titleDisplay title-menu-mobile"
-                data-scroll="wrapHomeApp"
-              >
-                Thông tin cá nhân
-              </Link>
-            </li>
+            {taiKhoanLocal ? (
+              <li>
+                <Link
+                  to="/user-profile"
+                  className="menu titleDisplay title-menu-mobile"
+                  data-scroll="wrapHomeApp"
+                >
+                  Thông tin cá nhân
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
+
             <li>
               <ScrollLink
                 style={{ cursor: "pointer" }}
@@ -147,16 +154,20 @@ class Header extends Component {
                 Ứng dụng
               </ScrollLink>
             </li>
-            <li>
-              <Link
-                to="#"
-                className="menu titleDisplay title-menu-mobile"
-                data-scroll="wrapHomeApp"
-                onClick={this.handleLogOut}
-              >
-                Đăng xuất
-              </Link>
-            </li>
+            {taiKhoanLocal ? (
+              <li>
+                <Link
+                  to="#"
+                  className="menu titleDisplay title-menu-mobile"
+                  data-scroll="wrapHomeApp"
+                  onClick={this.handleLogOut}
+                >
+                  Đăng xuất
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
 

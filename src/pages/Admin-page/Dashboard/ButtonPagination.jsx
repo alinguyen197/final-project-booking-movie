@@ -12,7 +12,7 @@ export default function ButtonPagination(props) {
   // const totalItemMovie = Math.ceil(totalCount / count);
 
   // tăng giảm thì số number sẽ thay đổi
-  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [pageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 

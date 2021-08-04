@@ -37,7 +37,7 @@ export default function Booking() {
   const tinhTien = () => {
     let total = 0;
     state.listChair?.map((value) => {
-      total += value.giaVe;
+      return (total += value.giaVe);
     });
     return total;
   };
@@ -90,6 +90,7 @@ export default function Booking() {
                       {bookingListChair.danhSachGhe?.map((chair, index) => {
                         return (
                           <button
+                            key={index}
                             disabled={chair.daDat}
                             onClick={() => handleChoiceChair(chair.maGhe)}
                             className={

@@ -68,6 +68,8 @@ class Header extends Component {
     this.props.history.push("/");
   };
   render() {
+    const taiKhoanLocal = JSON.parse(localStorage.getItem("taiKhoan"));
+
     return (
       <nav className="navbar navbar-expand-sm  ">
         <div style={{ marginRight: 150 }}>
@@ -98,20 +100,25 @@ class Header extends Component {
                 {this.renderUserLogin()}
               </Link>
             </li>
-            <li>
-              <Link
-                to="/user-profile"
-                className="menu titleDisplay title-menu-mobile"
-                data-scroll="wrapHomeApp"
-              >
-                Thông tin cá nhân
-              </Link>
-            </li>
+            {taiKhoanLocal ? (
+              <li>
+                <Link
+                  to="/user-profile"
+                  className="menu titleDisplay title-menu-mobile"
+                  data-scroll="wrapHomeApp"
+                >
+                  Thông tin cá nhân
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
+
             <li>
               <ScrollLink
                 style={{ cursor: "pointer" }}
                 smooth={true}
-                duration={1000}
+                duration={500}
                 to="rendermovielist"
               >
                 Lịch chiếu
@@ -122,7 +129,7 @@ class Header extends Component {
                 style={{ cursor: "pointer" }}
                 to="cinemarelease"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Cụm rạp
               </ScrollLink>
@@ -132,7 +139,7 @@ class Header extends Component {
                 style={{ cursor: "pointer" }}
                 to="news"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Tin tức
               </ScrollLink>
@@ -142,21 +149,25 @@ class Header extends Component {
                 style={{ cursor: "pointer" }}
                 to="app"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Ứng dụng
               </ScrollLink>
             </li>
-            <li>
-              <Link
-                to="#"
-                className="menu titleDisplay title-menu-mobile"
-                data-scroll="wrapHomeApp"
-                onClick={this.handleLogOut}
-              >
-                Đăng xuất
-              </Link>
-            </li>
+            {taiKhoanLocal ? (
+              <li>
+                <Link
+                  to="#"
+                  className="menu titleDisplay title-menu-mobile"
+                  data-scroll="wrapHomeApp"
+                  onClick={this.handleLogOut}
+                >
+                  Đăng xuất
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
 
@@ -168,7 +179,7 @@ class Header extends Component {
                 style={{ cursor: "pointer" }}
                 className="nav-link"
                 smooth={true}
-                duration={1000}
+                duration={500}
                 to="rendermovielist"
               >
                 Lịch chiếu
@@ -180,7 +191,7 @@ class Header extends Component {
                 className="nav-link"
                 to="cinemarelease"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Cụm rạp
               </ScrollLink>
@@ -191,7 +202,7 @@ class Header extends Component {
                 className="nav-link"
                 to="news"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Tin tức
               </ScrollLink>
@@ -202,7 +213,7 @@ class Header extends Component {
                 className="nav-link"
                 to="app"
                 smooth={true}
-                duration={1000}
+                duration={500}
               >
                 Ứng dụng
               </ScrollLink>
@@ -224,75 +235,6 @@ class Header extends Component {
                 </a>
                 <a className="dropdown-item" href="#HN">
                   Hà Nội
-                </a>
-                <a className="dropdown-item" href="#DN">
-                  Đà Nẵng
-                </a>
-                <a className="dropdown-item" href="#HP">
-                  Hải Phòng
-                </a>
-                <a className="dropdown-item" href="#BH">
-                  Biên Hòa
-                </a>
-                <a className="dropdown-item" href="#NT">
-                  Nha Trang
-                </a>
-                <a className="dropdown-item" href="#BD">
-                  Bình Dương
-                </a>
-                <a className="dropdown-item" href="#PT">
-                  Phan Thiết
-                </a>
-                <a className="dropdown-item" href="#HL">
-                  Hạ Long
-                </a>
-                <a className="dropdown-item" href="#CT">
-                  Cần Thơ
-                </a>
-                <a className="dropdown-item" href="#VT">
-                  Vũng Tàu
-                </a>
-                <a className="dropdown-item" href="#QN">
-                  Quy Nhơn
-                </a>
-                <a className="dropdown-item" href="#H">
-                  Huế
-                </a>
-                <a className="dropdown-item" href="#LX">
-                  Long Xuyên
-                </a>
-                <a className="dropdown-item" href="#TN">
-                  Thái Nguyên
-                </a>
-                <a className="dropdown-item" href="#BG">
-                  Bắc Giang
-                </a>
-                <a className="dropdown-item" href="#BT">
-                  Bến Tre
-                </a>
-                <a className="dropdown-item" href="#NB">
-                  Ninh Bình
-                </a>
-                <a className="dropdown-item" href="#V">
-                  Vinh
-                </a>
-                <a className="dropdown-item" href="#BL">
-                  Bảo Lộc
-                </a>
-                <a className="dropdown-item" href="#DL">
-                  Đà Lạt
-                </a>
-                <a className="dropdown-item" href="#BMT">
-                  Buôn Mê Thuộc
-                </a>
-                <a className="dropdown-item" href="#VL">
-                  Vĩnh Long
-                </a>
-                <a className="dropdown-item" href="#YB">
-                  Yên Bái
-                </a>
-                <a className="dropdown-item" href="#BN">
-                  Bắc Ninh
                 </a>
               </div>
             </div>

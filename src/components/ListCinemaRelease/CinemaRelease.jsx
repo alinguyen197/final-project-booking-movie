@@ -11,13 +11,10 @@ export default function CinemaRelease() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    function getCinemaListByBrand() {
-      dispatch({
-        type: GET_CINEMA_LIST_BY_BRAND,
-      });
-    }
-    getCinemaListByBrand();
-  });
+    dispatch({
+      type: GET_CINEMA_LIST_BY_BRAND,
+    });
+  }, [dispatch]);
   const handleBookingTicket = (maLichChieu) => {
     const checkUserLogin = JSON.parse(localStorage.getItem("taiKhoan"));
     if (checkUserLogin === null) {
@@ -141,9 +138,12 @@ export default function CinemaRelease() {
                                               className="list-flim-detail-showtime"
                                             >
                                               {phim.lstLichChieuTheoPhim.map(
-                                                (lichChieu, index) => {
+                                                (lichChieu, indexLichChieu) => {
                                                   return (
                                                     <Link
+                                                      className="a"
+                                                      to="#"
+                                                      key={indexLichChieu}
                                                       onClick={() =>
                                                         handleBookingTicket(
                                                           lichChieu.maLichChieu

@@ -196,7 +196,7 @@ export default function EditMovie(props) {
                 <input
                   id="idHinhAnh"
                   type="file"
-                  class="form-control-file"
+                  className="form-control-file"
                   name="hinhAnh"
                   required
                   onChange={handleChange}

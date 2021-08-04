@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 export default function UserSearch(props) {
   const { onSubmit } = props;
   // tạo state để lưu giá trị onChange từ input
-  const [search, setSearch] = useState("");
+  const [, setSearch] = useState("");
 
   const typingTimeOutRef = useRef(null);
 

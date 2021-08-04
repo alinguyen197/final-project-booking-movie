@@ -150,7 +150,7 @@ export default function User(props) {
                 className="btn btn-success"
                 data-toggle="modal"
               >
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                <i className="fa fa-plus-circle" aria-hidden="true"></i>
                 <span>THÊM NGƯỜI DÙNG MỚI</span>
               </a>
             </div>
@@ -200,7 +200,7 @@ export default function User(props) {
                     <a
                       data-toggle="tooltip"
                       title="Delete User"
-                      href="#"
+                      href="#delete"
                       className="delete"
                       // data-toggle="modal"
                       onClick={() => handleDeleteUser(value.taiKhoan)}

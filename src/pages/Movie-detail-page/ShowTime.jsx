@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE } from "../../redux/const/movieDetailConst";
 import Time from "react-time-format";
 import { useHistory } from "react-router-dom";
-
 export default function ShowTime(props) {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -21,7 +20,7 @@ export default function ShowTime(props) {
       type: GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE,
       payload: props.movieCode,
     });
-  }, []);
+  }, [dispatch, props.movieCode]);
   const { showTimeMovieDetail } = useSelector(
     (state) => state.movieDetailReducer
   );
@@ -157,22 +156,19 @@ export default function ShowTime(props) {
                                                 </div>
 
                                                 <div className="list-flim-detail-showtime">
-                                                  <a>
-                                                    <span>
-                                                      <Time
-                                                        value={
-                                                          phim.ngayChieuGioChieu
-                                                        }
-                                                        format="DD/MM/YY - hh:mm"
-                                                        onClick={() =>
-                                                          handleBookingTicket(
-                                                            phim.maLichChieu
-                                                          )
-                                                        }
-                                                      ></Time>
-                                                      <span></span>
-                                                    </span>
-                                                  </a>
+                                                  <span className="a">
+                                                    <Time
+                                                      value={
+                                                        phim.ngayChieuGioChieu
+                                                      }
+                                                      format="DD/MM/YY - hh:mm"
+                                                      onClick={() =>
+                                                        handleBookingTicket(
+                                                          phim.maLichChieu
+                                                        )
+                                                      }
+                                                    ></Time>
+                                                  </span>
                                                 </div>
                                               </div>
                                             </div>

@@ -1,6 +1,5 @@
 #cinemarelease {
   .row {
-
     margin-right: 0px !important;
     margin-left: 0px !important;
   }
@@ -239,7 +238,7 @@
       color: #108f3e;
     }
 
-    a {
+    .a {
       width: 25%;
       margin: 10px;
       float: left;
@@ -337,12 +336,10 @@
     .logo-cinema {
       width: 50px;
       height: 50px;
-
     }
   }
 
   @include respond-to("large") {
-
     .container,
     .container-fluid,
     .container-lg,
@@ -394,7 +391,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-
     }
 
     .cinema-address {
@@ -413,7 +409,6 @@
 
     .list-flim-detail-showtime {
       height: 100%;
-
     }
 
     .list-flim-detail-showtime a {
@@ -429,7 +424,6 @@
   }
 
   @include respond-to("medium") {
-
     .container,
     .container-fluid,
     .container-lg,
@@ -481,7 +475,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-
     }
 
     .cinema-address {
@@ -500,7 +493,6 @@
 
     .list-flim-detail-showtime {
       height: 100%;
-
     }
 
     .list-flim-detail-showtime a {
@@ -532,8 +524,6 @@
     .list-flim-detail {
       height: 300px !important;
 
-
-
       .list-flim-detail-showtime {
         height: 100%;
         width: 100%;
@@ -544,7 +534,6 @@
 
         a {
           width: 40% !important;
-
         }
       }
 
@@ -577,12 +566,9 @@
         border-right: none;
       }
     }
-
   }
 
   @include respond-to("phone") {
-
-
     .releaseRight {
       border-top: none;
       border-bottom: none;

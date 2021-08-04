@@ -214,6 +214,7 @@ export default function Dashboard(props) {
                   </td>
                   <td>
                     <a
+                      href="#create"
                       data-toggle="modal"
                       data-target="#myModal"
                       onClick={() => handleCreateShowTime(value.maPhim)}
@@ -222,7 +223,6 @@ export default function Dashboard(props) {
                     </a>
                     <a
                       href="#editEmployeeModal"
-                      data-toggle="tooltip"
                       title="Edit Movie"
                       className="edit"
                       data-toggle="modal"
@@ -231,6 +231,7 @@ export default function Dashboard(props) {
                       <i className="fa fa-edit"></i>
                     </a>
                     <a
+                      href="#delete"
                       data-toggle="tooltip"
                       title="Delete Movie"
                       className="delete"

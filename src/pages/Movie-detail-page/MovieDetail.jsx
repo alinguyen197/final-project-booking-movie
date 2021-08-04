@@ -20,7 +20,7 @@ function MovieDetail(props) {
       type: GET_MOVIE_DETAIL,
       payload: movieCode,
     });
-  }, []);
+  }, [dispatch, movieCode]);
 
   const { movieDetail } = useSelector((state) => state.movieDetailReducer);
   const { hinhAnh, ngayKhoiChieu, tenPhim, trailer, danhGia } = movieDetail;

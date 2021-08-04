@@ -205,11 +205,10 @@ export default function AddUser(props) {
                 <select
                   className="form-select"
                   aria-label="Default select example"
-                  className="form-control"
                   name="maLoaiNguoiDung"
                   onChange={handleChangeUser}
                 >
-                  <option selected>Chọn mã loại người dùng</option>
+                  <option value>Chọn mã loại người dùng</option>
                   <option value="KhachHang">Khách hàng</option>
                   <option value="QuanTri">Quản trị</option>
                 </select>

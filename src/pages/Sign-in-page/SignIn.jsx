@@ -105,24 +105,14 @@ class SignIn extends Component {
                 {err_message === "" ? null : err_message}
               </p>
 
-              {this.state.valid ? (
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  onClick={this.submitLogin}
-                >
-                  Đăng Nhập
-                </button>
-              ) : (
-                <button
-                  disabled
-                  type="submit"
-                  className="btn btn-primary"
-                  onClick={this.submitLogin}
-                >
-                  Đăng Nhập
-                </button>
-              )}
+              <button
+                disabled={!this.state.valid}
+                type="submit"
+                className="btn btn-primary"
+                onClick={this.submitLogin}
+              >
+                ĐĂNG NHẬP
+              </button>
             </form>
             <Link className="text-white float-right" to="/sign-up">
               Register

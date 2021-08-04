@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 export default function InputSearch(props) {
   const { onSubmit } = props;
   // tạo state để lưu giá trị onChange từ input
-  const [search, setSearch] = useState("");
+  const [, setSearch] = useState("");
   // const [formValues, setFormValues] = useState({});
 
   // sử dụng kỹ thuật debounce, useRef để giữ giá trị giữa vòng đời render

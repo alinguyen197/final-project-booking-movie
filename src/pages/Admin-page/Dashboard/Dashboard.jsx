@@ -176,7 +176,7 @@ export default function Dashboard(props) {
         </div>
       </div>
 
-      <div>
+      <div className="tableAdmin">
         <table className="table table-striped">
           <thead>
             <tr className="shortcut">

@@ -12,7 +12,7 @@ class SignUp extends Component {
       hoTen: "",
       email: "",
       soDt: "",
-      maNhom: "",
+      maNhom: "GP01",
       maLoaiNguoiDung: "KhachHang",
       matKhau: "",
     },
@@ -133,6 +133,43 @@ class SignUp extends Component {
                 </div>
                 <div className="form-group ">
                   <span className="icon_register">
+                    <i className="fa fa-lock" />
+                  </span>
+
+                  <input
+                    type="text"
+                    name="matKhau"
+                    className="form-control input_fix"
+                    id="IdMatKhau"
+                    placeholder="Vui lòng nhập mật khẩu"
+                    value={this.state.values.matKhau}
+                    onChange={this.handelChangeSignUp}
+                  />
+                  <span className="text-danger mt-2">
+                    {this.state.errors.matKhau}
+                  </span>
+                </div>
+                {/* <div className="form-group ">
+                
+                    <span className="icon_register">
+                      <i className="fa fa-lock" />
+                    </span>
+             
+                  <input
+                    type="text"
+                    name="matKhau"
+                    className="form-control input_fix"
+                    id="exampleInputPassword1"
+                    placeholder="Vui lòng nhập lại mật khẩu"
+                    value={this.state.values.matKhau}
+                    onChange={this.handelChangeSignUp}
+                  />
+                  <span className="text-danger mt-2">
+                    {this.state.errors.matKhau}
+                  </span>
+                </div> */}
+                <div className="form-group ">
+                  <span className="icon_register">
                     <i className="fa fa-user" />
                   </span>
 
@@ -187,7 +224,7 @@ class SignUp extends Component {
                     {this.state.errors.soDt}
                   </span>
                 </div>
-                <div className="form-group ">
+                {/* <div className="form-group ">
                   <span className="icon_register">
                     <i class="fa fa-users" aria-hidden="true"></i>
                   </span>
@@ -204,45 +241,8 @@ class SignUp extends Component {
                   <span className="text-danger mt-2">
                     {this.state.errors.maNhom}
                   </span>
-                </div>
-
-                <div className="form-group ">
-                  <span className="icon_register">
-                    <i className="fa fa-lock" />
-                  </span>
-
-                  <input
-                    type="text"
-                    name="matKhau"
-                    className="form-control input_fix"
-                    id="IdMatKhau"
-                    placeholder="Vui lòng nhập mật khẩu"
-                    value={this.state.values.matKhau}
-                    onChange={this.handelChangeSignUp}
-                  />
-                  <span className="text-danger mt-2">
-                    {this.state.errors.matKhau}
-                  </span>
-                </div>
-                {/* <div className="form-group ">
-                
-                    <span className="icon_register">
-                      <i className="fa fa-lock" />
-                    </span>
-             
-                  <input
-                    type="text"
-                    name="matKhau"
-                    className="form-control input_fix"
-                    id="exampleInputPassword1"
-                    placeholder="Vui lòng nhập lại mật khẩu"
-                    value={this.state.values.matKhau}
-                    onChange={this.handelChangeSignUp}
-                  />
-                  <span className="text-danger mt-2">
-                    {this.state.errors.matKhau}
-                  </span>
                 </div> */}
+
                 <div className="form-group ">
                   {this.state.valid ? (
                     <button

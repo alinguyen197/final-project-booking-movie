@@ -157,7 +157,7 @@ export default function User(props) {
           </div>
         </div>
       </div>
-      <div>
+      <div className="tableAdmin">
         <table className="table table-striped">
           <thead>
             <tr className="shortcut">
@@ -166,7 +166,9 @@ export default function User(props) {
               <th scope="col">Email</th>
               <th scope="col">Số điện thoại</th>
               <th scope="col">Mật Khẩu </th>
-              <th scope="col">Mã Nhóm </th>
+              <th scope="col" className="maNhomUser">
+                Mã Nhóm{" "}
+              </th>
               <th scope="col">Mã Loại Người Dùng</th>
               <th scope="col">Thao tác</th>
             </tr>
@@ -175,14 +177,14 @@ export default function User(props) {
           <tbody>
             {user.items?.map((value, index) => {
               return (
-                <tr key={index} className="renderTable">
+                <tr key={index} className="renderTable tableUser">
                   <td>{value.taiKhoan}</td>
                   <td>{value.hoTen}</td>
 
                   <td>{value.email}</td>
                   <td>{value.soDt}</td>
                   <td>{value.matKhau}</td>
-                  <td>{value.maNhom}</td>
+                  <td className="maNhomUser">{value.maNhom}</td>
                   <td>{value.maLoaiNguoiDung}</td>
                   <td>
                     <a

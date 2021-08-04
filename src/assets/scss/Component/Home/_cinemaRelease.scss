@@ -596,5 +596,67 @@
     .nav-item {
       border-bottom: none;
     }
+
+    .cinema-item {
+      height: 300px;
+    }
+
+    .list-cinema {
+      width: calc(100% - 40% - 92px);
+      height: 300px;
+    }
+
+    .cinema-address {
+      font-size: 10px !important;
+    }
+
+    .list-flim-detail {
+      height: 300px !important;
+
+
+
+      .list-flim-detail-showtime {
+        height: 100%;
+        width: 100%;
+
+        span {
+          font-size: 12px !important;
+        }
+
+        a {
+          width: 40% !important;
+
+        }
+      }
+
+      .list-flim-detail-infor-name {
+        float: left;
+        width: 75% !important;
+        padding-left: 30px;
+        font-size: 12px !important;
+      }
+
+      .list-cinema .list-flim-detail-type {
+        position: relative;
+      }
+    }
+
+    .nav {
+      justify-content: center;
+
+      .nav-item {
+        left: 0;
+      }
+    }
+
+    .releaseRight {
+      border-top: none;
+      border-bottom: none;
+      border-right: none;
+
+      .releaseBr {
+        border-right: none;
+      }
+    }
   }
 }

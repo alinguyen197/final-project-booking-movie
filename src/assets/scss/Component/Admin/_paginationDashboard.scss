@@ -18,6 +18,8 @@
     text-align: center;
   }
 
+
+
   .tenPhim {
     text-align: left;
   }
@@ -37,6 +39,7 @@
   justify-content: center;
   padding-bottom: 1rem;
   display: flex;
+  margin-top: 10px;
 
   .page-link {
     color: #27a9e3 !important;
@@ -46,10 +49,12 @@
       border-color: #27a9e3 !important;
     }
   }
+
   .page-link-active {
     background-color: #27a9e3 !important;
     color: white;
     border-color: #27a9e3;
+
     &:hover {
       color: white;
     }
@@ -62,5 +67,33 @@
 
   &:hover {
     border-color: none;
+  }
+
+  @include respond-to("medium") {
+    .addPagination {
+      .page-link {
+
+        // padding: 10px !important;
+        line-height: 1 !important;
+        font-size: 10px !important;
+
+      }
+    }
+
+
+  }
+
+  @include respond-to("extra-large") {
+    .addPagination {
+      .page-link {
+
+        // padding: 10px !important;
+        line-height: 1 !important;
+        font-size: 10px !important;
+
+      }
+    }
+
+
   }
 }

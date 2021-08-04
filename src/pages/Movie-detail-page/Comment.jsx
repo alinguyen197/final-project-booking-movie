@@ -52,41 +52,39 @@ export default function Comment() {
     document.getElementById("closeModal").click();
   };
   const renderComment = () => {
-    return listComment?.map((value, index) => {
-      return (
-        <div key={index} className="card-comment ">
-          <div className="card-comment-header">
-            <div className="infor">
-              <img src={value.img} alt="" />
-              <div>
-                <p className="name">{value.name}</p>
-                <p className="active-time">Vừa xong </p>
-              </div>
-            </div>
-
-            <div className="rating">
-              <p>10</p>
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
+    return listComment?.map((value, index) => (
+      <div key={index} className="card-comment ">
+        <div className="card-comment-header">
+          <div className="infor">
+            <img src={value.img} alt="" />
+            <div>
+              <p className="name">{value.name}</p>
+              <p className="active-time">Vừa xong </p>
             </div>
           </div>
-          <div className="card-comment-body">
-            <div>{value.content}</div>
-          </div>
-          <div className="card-comment-footer">
-            <button>
-              <img src={like} alt="" />
-            </button>
 
-            <span>0</span>
-            <span>Thích </span>
+          <div className="rating">
+            <p>10</p>
+            <i className="fas fa-star" />
+            <i className="fas fa-star" />
+            <i className="fas fa-star" />
+            <i className="fas fa-star" />
+            <i className="fas fa-star" />
           </div>
         </div>
-      );
-    });
+        <div className="card-comment-body">
+          <div>{value.content}</div>
+        </div>
+        <div className="card-comment-footer">
+          <button>
+            <img src={like} alt="" />
+          </button>
+
+          <span>0</span>
+          <span>Thích </span>
+        </div>
+      </div>
+    ));
   };
   return (
     <div id="comment-movie-detail">

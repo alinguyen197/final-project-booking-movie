@@ -141,6 +141,7 @@ export default function CinemaRelease() {
                                                 (lichChieu, indexLichChieu) => {
                                                   return (
                                                     <Link
+                                                      className="a"
                                                       to="#"
                                                       key={indexLichChieu}
                                                       onClick={() =>

@@ -7,6 +7,7 @@ import {
 const initialState = {
   bookingListChair: [],
   historyOfBooking: "",
+  valid: "",
 };
 
 export const bookingReducer = (state = initialState, action) => {
@@ -33,7 +34,12 @@ export const bookingReducer = (state = initialState, action) => {
       }
       return { ...state };
     case BOOKING_MOVIE_TICKET_SUCCESS:
-      state.historyOfBooking = payload;
+      let newState = {
+        ...state,
+        historyOfBooking: payload,
+        valid: action.message,
+      };
+      state = newState;
       return { ...state };
     default:
       return state;

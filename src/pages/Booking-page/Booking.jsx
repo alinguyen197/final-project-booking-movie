@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,6 +9,7 @@ import {
 } from "../../redux/const/bookingConst";
 import { useHistory } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
+// import startOfMinute from "date-fns/fp/startOfMinute/index.js";
 export default function Booking() {
   const [state, setState] = useState({
     listChair: [],
@@ -24,7 +26,10 @@ export default function Booking() {
   useEffect(() => {
     callBookingListChair(bookingCode);
   }, []);
-  const { bookingListChair } = useSelector((state) => state.bookingReducer);
+  const { bookingListChair, valid } = useSelector(
+    (state) => state.bookingReducer
+  );
+
   const handleChoiceChair = (maGhe) => {
     dispatch({
       type: CHOICE_CHAIR,
@@ -42,17 +47,53 @@ export default function Booking() {
     return total;
   };
 
+  const renderListChair = () => {
+    return bookingListChair?.danhSachGhe?.map((chair, index) => {
+      return (
+        <button
+          key={index}
+          disabled={chair.daDat}
+          onClick={() => handleChoiceChair(chair.maGhe)}
+          className={
+            chair.dangChon
+              ? "choice"
+              : chair.loaiGhe === "Thuong"
+              ? "chair"
+              : "chairVip"
+          }
+        >
+          {chair.tenGhe}
+        </button>
+      );
+    });
+  };
+
   const handleSubmit = (bookingCode, listChairDangChon, history) => {
     if (listChairDangChon.length === 0) {
-      alert("Vui long chon ghe !!");
-    } else {
-      dispatch({
-        type: BOOKING_MOVIE_TICKET,
-        bookingCode,
-        listChairDangChon,
-        history,
+      Swal.fire({
+        icon: "error",
+        html: "Vui lòng chọn ghế",
       });
+      return;
     }
+
+    dispatch({
+      type: BOOKING_MOVIE_TICKET,
+      bookingCode,
+      listChairDangChon,
+      history,
+    });
+    setState({ listChair: [] });
+    console.log("lozz");
+    if (valid !== "") {
+      setTimeout(() => {
+        Swal.fire({
+          icon: "success",
+          html: "Đặt vé thành công",
+        });
+      }, 2500);
+    }
+    callBookingListChair(bookingCode);
   };
 
   return (
@@ -86,26 +127,7 @@ export default function Booking() {
                         </p>
                       </div>
                     </div>
-                    <div className="listchair">
-                      {bookingListChair.danhSachGhe?.map((chair, index) => {
-                        return (
-                          <button
-                            key={index}
-                            disabled={chair.daDat}
-                            onClick={() => handleChoiceChair(chair.maGhe)}
-                            className={
-                              chair.dangChon
-                                ? "choice"
-                                : chair.loaiGhe === "Thuong"
-                                ? "chair"
-                                : "chairVip"
-                            }
-                          >
-                            {chair.tenGhe}
-                          </button>
-                        );
-                      })}
-                    </div>
+                    <div className="listchair">{renderListChair()}</div>
                   </div>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4">

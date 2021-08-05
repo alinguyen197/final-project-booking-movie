@@ -5,6 +5,6 @@ export default function Guard(props) {
   if (maLoaiNguoiDung === "QuanTri") {
     return props.children;
   } else {
-    return <Redirect to="/" />;
+    return <Redirect to="" />;
   }
 }

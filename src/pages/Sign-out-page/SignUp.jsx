@@ -104,7 +104,6 @@ class SignUp extends Component {
   render() {
     return (
       <div className="card bg-light">
-        <div style={{ height: 60 }}></div>
         <div className="sign-up-inner">
           <div className="sign-up-from">
             <img src={logo} alt="" />

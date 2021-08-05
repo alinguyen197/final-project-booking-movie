@@ -24,8 +24,8 @@ class Header extends Component {
           >
             <img className="btnLogin " src={logoLogin} alt="Login" />
             <span>Đăng nhập</span>
-            <img src={arrowRight} className="icon-arrow-right" alt="user" />
           </Link>
+          <img src={arrowRight} className="icon-arrow-right" alt="user" />
         </div>
       );
     } else {
@@ -40,7 +40,7 @@ class Header extends Component {
             <img className="btnLogin " src={logoLogin} alt="Login" />
             <span className="toggle">{taiKhoanLocal}</span>
           </NavLink>
-
+          <img src={arrowRight} className="icon-arrow-right" alt="user" />
           <div className="dropdown-menu" style={{ textDecoration: "none" }}>
             <button
               className="dropdown-item"
@@ -91,9 +91,7 @@ class Header extends Component {
             <img src={menuOption} alt="" />
           </button>
           <ul className="dropdown-menu dropdown-menu-right">
-            <li style={{ marginBottom: 50 }}>
-              <img src={arrowRight} className="icon-arrow-right" alt="user" />
-            </li>
+            <li style={{ marginBottom: 30 }}></li>
 
             <li>
               <Link to="#" className="title-menu-mobile menu">

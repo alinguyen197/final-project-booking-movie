@@ -1,6 +1,6 @@
 .sign-up-inner {
   background-image: url("../../img/bg2.jpeg");
-  background-size: 70%;
+  background-size: 100%;
   height: 100vh;
   font-family: medium;
   color: $white;
@@ -12,8 +12,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: linear-gradient(to bottom,
+
         rgba(20, 50, 93, 0.9),
         rgba(8, 22, 48, 0.9));
+
     padding: 30px 20px;
 
     img {

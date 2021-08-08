@@ -97,7 +97,7 @@ class SignUp extends Component {
 
   submitSignUp = (event) => {
     event.preventDefault();
-    console.log("submit", this.state.values);
+
     this.props.userRegister(this.state.values, this.props.history);
   };
 

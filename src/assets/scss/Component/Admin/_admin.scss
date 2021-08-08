@@ -186,3 +186,27 @@
 
   }
 }
+
+@include respond-to("medium") {
+
+  .CreateShowHeThong {
+    width: 35% !important;
+
+  }
+
+  .CreateShowDate {
+    width: 30% !important;
+  }
+
+  .ImageShowTime {
+    width: 20% !important;
+
+
+    img {
+      height: 150px !important;
+    }
+
+  }
+
+
+}

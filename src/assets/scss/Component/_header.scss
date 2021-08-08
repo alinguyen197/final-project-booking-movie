@@ -97,9 +97,52 @@
       margin-right: 25px;
       position: relative;
 
+      .drp-mnu {
+        padding: 10px;
+        min-width: 190px;
+        top: 122%;
+        left: -50%;
+
+
+        li {
+          list-style-type: none;
+
+          display: block;
+          padding: 3px 15px;
+          clear: both;
+          font-weight: normal;
+          line-height: 1.42857143;
+          color: #333;
+          white-space: nowrap;
+          transition: 0.5s all ease;
+
+          a {
+            color: black !important;
+            text-decoration: none;
+            transition: 0.5s all ease;
+          }
+
+          i {
+            margin-right: 0.5em;
+          }
+
+          &:hover {
+            background: none;
+            color: #e94e02 !important;
+
+            a {
+              color: #e94e02 !important;
+            }
+          }
+        }
+
+
+      }
+
       a {
         cursor: pointer;
         color: $account;
+        transition: 0.5s all ease;
 
         img {
           height: 25px;
@@ -123,6 +166,8 @@
           color: $account;
         }
       }
+
+
     }
 
     .address {
@@ -196,6 +241,12 @@
       img {
         height: 40px;
         width: 40px;
+      }
+    }
+
+    .accout {
+      a {
+        color: #9b9b9b;
       }
     }
 

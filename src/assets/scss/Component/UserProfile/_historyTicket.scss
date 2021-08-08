@@ -99,7 +99,26 @@
 
   }
 
+  #thongtinlichchieu {
+    h3 {
+      text-align: center;
+      margin: 10px;
+    }
+  }
 
+  #thongtincanhan {
+    h3 {
+      text-align: center;
+      margin: 10px;
+    }
+  }
+
+  #capnhatthongtin {
+    h3 {
+      text-align: center;
+      margin: 10px;
+    }
+  }
 }
 
 @include respond-to("medium") {

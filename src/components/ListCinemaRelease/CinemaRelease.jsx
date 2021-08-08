@@ -150,12 +150,20 @@ export default function CinemaRelease() {
                                                         )
                                                       }
                                                     >
-                                                      <span>
+                                                      <span className="ShowDate">
                                                         <Time
                                                           value={
                                                             lichChieu.ngayChieuGioChieu
                                                           }
-                                                          format="DD/MM/YY - hh:mm"
+                                                          format="DD/MM/YY"
+                                                        />
+                                                      </span>
+                                                      <span className="ShowDateTime">
+                                                        <Time
+                                                          value={
+                                                            lichChieu.ngayChieuGioChieu
+                                                          }
+                                                          format=" ~ hh:mm"
                                                         />
                                                       </span>
                                                     </Link>

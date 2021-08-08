@@ -240,7 +240,11 @@ export default function CreateShowTime(props) {
           <div className="modal-header">
             <h4 className="modal-title">
               THÔNG TIN LỊCH CHIẾU PHIM :{" "}
-              <b style={{ textTransform: "uppercase" }}>
+              <b
+                style={
+                  ({ textTransform: "uppercase" }, { textAlign: "center" })
+                }
+              >
                 {movieShowTime?.tenPhim} - {"MOVIE ID"} {movieShowTime?.maPhim}
               </b>
             </h4>
@@ -250,7 +254,10 @@ export default function CreateShowTime(props) {
           </div>
           <div className="modal-body">
             <form id="createShowTimeForm" action="" className="mb-3">
-              <div style={{ width: "40%", float: "left", marginRight: 20 }}>
+              <div
+                className="CreateShowHeThong"
+                style={{ width: "40%", float: "left", marginRight: 20 }}
+              >
                 <div className="form-group">
                   <label>Hệ thống rạp</label>
                   <select
@@ -304,7 +311,10 @@ export default function CreateShowTime(props) {
                   </select>
                 </div>
               </div>
-              <div style={{ width: "30%", float: "left", marginRight: "8%" }}>
+              <div
+                className="CreateShowDate"
+                style={{ width: "30%", float: "left", marginRight: "8%" }}
+              >
                 <div className="form-group ">
                   <label>Ngày giờ chiếu</label>
                   <input
@@ -319,7 +329,7 @@ export default function CreateShowTime(props) {
                   <input type="text" className="form-control" id="giaVe" />
                 </div>
               </div>
-              <div style={{ width: "20%", float: "left" }}>
+              <div className="ImageShowTime" style={{ float: "left" }}>
                 <img
                   style={{ width: "100%", height: 250 }}
                   src={movieShowTime?.hinhAnh}
@@ -328,8 +338,8 @@ export default function CreateShowTime(props) {
               </div>
               <div style={{ clear: "both", textAlign: "center" }}>
                 <button
-                  style={{ width: "20%", margin: " auto" }}
-                  className="btn btn-primary"
+                  style={{ margin: " auto" }}
+                  className="btn btn-primary btnTaoLich"
                   onClick={handleSubmit}
                 >
                   TẠO LỊCH CHIẾU

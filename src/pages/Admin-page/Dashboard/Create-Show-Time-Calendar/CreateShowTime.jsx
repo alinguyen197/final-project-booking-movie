@@ -259,6 +259,7 @@ export default function CreateShowTime(props) {
                     name="maHeThongRap"
                     onChange={handleChange}
                   >
+                    <option>-- Vui lòng chọn hệ thống rạp --</option>
                     {brand?.map((value, index) => {
                       return (
                         <option key={index} value={value.maHeThongRap}>

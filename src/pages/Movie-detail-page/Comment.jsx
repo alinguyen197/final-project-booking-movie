@@ -4,9 +4,10 @@ import commentStar from "../../assets/img/commentStar.png";
 import { useDispatch, useSelector } from "react-redux";
 import buttonMedia from "../../assets/img/buttonMedia.png";
 import like from "../../assets/img/news/like.png";
+// import like_red from "../../assets/img/news/like_red.png";
 import { ADD_COMMENT } from "../../redux/const/commentCons";
 import Swal from "sweetalert2";
-
+// import $ from "jquery";
 export default function Comment() {
   const taiKhoan = JSON.parse(localStorage.getItem("taiKhoan"));
   const { listComment } = useSelector((state) => state.commentReducer);
@@ -51,40 +52,43 @@ export default function Comment() {
 
     document.getElementById("closeModal").click();
   };
+
   const renderComment = () => {
-    return listComment?.map((value, index) => (
-      <div key={index} className="card-comment ">
-        <div className="card-comment-header">
-          <div className="infor">
-            <img src={value.img} alt="" />
-            <div>
-              <p className="name">{value.name}</p>
-              <p className="active-time">Vừa xong </p>
+    return listComment?.map((value, index) => {
+      return (
+        <div key={index} className="card-comment ">
+          <div className="card-comment-header">
+            <div className="infor">
+              <img src={value.img} alt="" />
+              <div>
+                <p className="name">{value.name}</p>
+                <p className="active-time">Vừa xong </p>
+              </div>
+            </div>
+
+            <div className="rating">
+              <p>10</p>
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
             </div>
           </div>
+          <div className="card-comment-body">
+            <div>{value.content}</div>
+          </div>
+          <div className="card-comment-footer">
+            <button>
+              <img className="heart" src={like} alt="" />
+            </button>
 
-          <div className="rating">
-            <p>10</p>
-            <i className="fas fa-star" />
-            <i className="fas fa-star" />
-            <i className="fas fa-star" />
-            <i className="fas fa-star" />
-            <i className="fas fa-star" />
+            <span className="like">0</span>
+            <span>Thích </span>
           </div>
         </div>
-        <div className="card-comment-body">
-          <div>{value.content}</div>
-        </div>
-        <div className="card-comment-footer">
-          <button>
-            <img src={like} alt="" />
-          </button>
-
-          <span>0</span>
-          <span>Thích </span>
-        </div>
-      </div>
-    ));
+      );
+    });
   };
   return (
     <div id="comment-movie-detail">

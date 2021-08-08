@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import $ from "jquery";
 import ButtonPaginationUser from "./ButtonPaginationUser";
-
+import Swal from "sweetalert2";
 import { DOMAIN } from "../../../util/const/settingSystem";
 import AddUser from "../User/AddUser";
 import EditUser from "./EditUser";
@@ -88,21 +88,30 @@ export default function User(props) {
     });
   };
 
-  const handleDeleteUser = async (taiKhoan) => {
-    if (window.confirm("Bạn có chắc muốn xoá người dùng này ?")) {
-      const token = JSON.parse(localStorage.getItem("token"));
-      let { status } = await axios({
-        url: `${DOMAIN}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (status === 200) {
-        getListUserPagination();
+  const handleDeleteUser = (taiKhoan) => {
+    Swal.fire({
+      title: "Bạn muốn xoá người dùng này?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const token = JSON.parse(localStorage.getItem("token"));
+        let { status } = await axios({
+          url: `${DOMAIN}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (status === 200) {
+          getListUserPagination();
+        }
+        Swal.fire("Xoá thành công !", "", "success");
       }
-    } else {
-    }
+    });
   };
 
   const handleUpdateUser = async (form_user) => {

@@ -10,6 +10,7 @@ import Comment from "./Comment";
 import Progressbar from "../../components/Circular-progressbar/Progressbar";
 import VideoModal from "../../components/Modal-video/VideoModal";
 import ModalVideo2 from "../../components/Modal-video/MovieCard2";
+import Header2 from "../../components/Header/Header2";
 
 function MovieDetail(props) {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function MovieDetail(props) {
   const formatTime = new Date(ngayKhoiChieu);
   return (
     <section id="movieDetail">
+      <Header2 />
       <div style={{ height: 60 }}></div>
 
       {/* Giới thiệu */}

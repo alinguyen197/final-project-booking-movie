@@ -14,7 +14,6 @@ export default function Admin() {
   };
   return (
     <section id="admin">
-      <div style={{ height: 60 }}></div>
       <div className="admin-menu">
         <div className="navigation">
           <ul className="nav nav-pills">

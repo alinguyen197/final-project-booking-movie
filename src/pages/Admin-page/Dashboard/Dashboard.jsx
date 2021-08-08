@@ -8,7 +8,7 @@ import AddMovie from "../Dashboard/AddMovie";
 import Time from "react-time-format";
 import EditMovie from "./EditMovie";
 import InputSearch from "./InputSearch";
-
+import Swal from "sweetalert2";
 import CreateShowTime from "./Create-Show-Time-Calendar/CreateShowTime";
 
 export default function Dashboard(props) {
@@ -101,22 +101,31 @@ export default function Dashboard(props) {
     });
   };
 
-  const handleDeleteFilm = async (maPhim) => {
-    if (window.confirm("Bạn có chắc muốn xoá ?")) {
-      const token = JSON.parse(localStorage.getItem("token"));
-      let { status } = await axios({
-        url: `${DOMAIN}/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (status === 200) {
-        //render lại mảng
-        getListMoviePagination();
+  const handleDeleteFilm = (maPhim) => {
+    Swal.fire({
+      title: "Bạn muốn xoá phim này?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const token = JSON.parse(localStorage.getItem("token"));
+        let { status } = await axios({
+          url: `${DOMAIN}/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (status === 200) {
+          //render lại mảng
+          getListMoviePagination();
+        }
+        Swal.fire("Xoá thành công !", "", "success");
       }
-    } else {
-    }
+    });
   };
 
   const handleUpdateFilm = async (form_data) => {

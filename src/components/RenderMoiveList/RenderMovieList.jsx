@@ -3,7 +3,8 @@ import Slider from "react-slick";
 import { useSelector, useDispatch } from "react-redux";
 import { GET_MOVIE_LIST } from "../../redux/const/movieListConst";
 import MovieCard from "../MovieCard/MovieCard";
-
+import next from "../../assets/img/next-session.png";
+import pre from "../../assets/img/back-session.png";
 export default function RenderMovieList() {
   const dispatch = useDispatch();
 
@@ -11,6 +12,43 @@ export default function RenderMovieList() {
     dispatch({ type: GET_MOVIE_LIST });
   }, [dispatch]);
   const { movieList } = useSelector((state) => state.movieListReducer);
+
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+          backgroundImage: `url("${next}")`,
+          width: 65,
+          height: 65,
+          backgroundPosition: "center",
+          backgroundSize: "100% 100%",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+          background: `url("${pre}")`,
+          width: 65,
+          height: 65,
+          backgroundPosition: "center",
+          backgroundSize: "100% 100%",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
 
   const render = () => {
     var settings = {
@@ -22,6 +60,8 @@ export default function RenderMovieList() {
       initialSlide: 0,
       rows: 2,
       arrows: true,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
       responsive: [
         {
           breakpoint: 1024,

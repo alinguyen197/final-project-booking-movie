@@ -29,16 +29,23 @@
       overflow: hidden;
     }
     .slick-next,
-    .slick-next {
+    .slick-pre {
       &:before {
+        content: none !important;
       }
     }
+    .slick-prev {
+      left: -50px;
+    }
+
+    .slick-next {
+      right: -50px;
+    }
+  }
+  @include respond-to("medium") {
     .slick-prev,
     .slick-next {
-      background: $account;
-      height: 35px;
-      width: 35px;
-      border-radius: 50%;
+      display: none !important;
     }
   }
   @include respond-to("phone") {

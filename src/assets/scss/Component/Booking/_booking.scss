@@ -205,17 +205,21 @@
   }
   @include respond-to("extra-large") {
     .infor {
-      margin-top: 10px;
       .infor-left {
-        max-width: 18% !important;
+        max-width: 30% !important;
+      }
+      .infor-right {
+        max-width: 70% !important;
       }
     }
   }
   @include respond-to("large") {
     .infor {
-      margin-top: 10px;
       .infor-left {
-        max-width: 25% !important;
+        max-width: 30% !important;
+      }
+      .infor-right {
+        max-width: 70% !important;
       }
     }
   }
@@ -223,7 +227,10 @@
     .infor {
       margin-top: 10px;
       .infor-left {
-        max-width: 30% !important;
+        max-width: 40% !important;
+      }
+      .infor-right {
+        max-width: 60% !important;
       }
     }
   }
@@ -233,6 +240,9 @@
       .infor-left {
         max-width: 40% !important;
       }
+      .infor-right {
+        max-width: 60% !important;
+      }
     }
   }
   @include respond-to("phone") {
@@ -240,6 +250,9 @@
       margin-top: 10px;
       .infor-left {
         max-width: 40% !important;
+      }
+      .infor-right {
+        max-width: 60% !important;
       }
     }
   }

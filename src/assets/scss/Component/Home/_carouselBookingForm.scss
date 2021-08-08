@@ -1,7 +1,4 @@
 .carousel-booking {
-  font-family: medium;
-  font-size: $size-14;
-
   .row {
     margin: 0px;
 
@@ -13,9 +10,8 @@
 
   .booking-form-film {
     width: 100%;
-    font-family: semibold;
-    display: flex;
 
+    display: flex;
     align-items: center;
     height: 70px;
 
@@ -25,23 +21,28 @@
     //   position: absolute;
     //   z-index: 1;
     //   border-right: 1px solid #fff;
-    //   border-right-color: rgba(238, 238, 238, 0.88);
-    //   right: 15px;
+    //   border-right-color: rgba(150, 149, 149, 0.88);
+    //   right: 0px;
     //   width: 3px;
     //   height: 35px;
     // }
   }
 
   .booking-form-film {
-    padding-left: 20px;
+    // padding-left: 20px;
 
     .form-group {
       margin-bottom: 0;
-      width: 100%;
-
+      width: 95%;
+      border: none;
+      .form-control {
+        border: none;
+        font-family: medium;
+        font-size: 14px;
+        box-shadow: none !important;
+      }
       &:focus {
         border: none;
-        box-shadow: transparent !important;
         outline: none;
       }
 
@@ -60,11 +61,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    .active {
+      border-radius: 5px;
+      background-color: $hoverText;
+      color: $white;
+      border: none;
+      padding: 10px 30px;
+    }
     button {
       border-radius: 5px;
-      background-color: transparent;
-      // color: $white;
+      background-color: #4a4a4a;
+      color: $white;
       border: none;
       padding: 10px 30px;
     }
@@ -105,5 +112,13 @@
         color: #fff;
       }
     }
+  }
+
+  // Material UI
+  .MuiMenu-paper {
+    // max-height: calc(100% - 96px);
+    height: 300px !important;
+    top: 101px;
+    width: 300px !important;
   }
 }

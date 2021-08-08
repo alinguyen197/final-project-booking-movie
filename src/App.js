@@ -1,5 +1,4 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Header from "./components/Header/Header.jsx";
 import LoadingComponent from "./components/Loading/LoadingComponent.jsx";
 import Guard from "./HOC/Guard.jsx";
 import Admin from "./pages/Admin-page/Admin.jsx";
@@ -14,7 +13,6 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
         <LoadingComponent />
 
         <Switch>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import popupInfor from "../../assets/img/popup.png";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,7 +10,8 @@ import {
 } from "../../redux/const/bookingConst";
 import { useHistory } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-// import startOfMinute from "date-fns/fp/startOfMinute/index.js";
+import Header2 from "../../components/Header/Header2";
+
 export default function Booking() {
   const [state, setState] = useState({
     listChair: [],
@@ -26,9 +28,7 @@ export default function Booking() {
   useEffect(() => {
     callBookingListChair(bookingCode);
   }, []);
-  const { bookingListChair, valid } = useSelector(
-    (state) => state.bookingReducer
-  );
+  const { bookingListChair } = useSelector((state) => state.bookingReducer);
 
   const handleChoiceChair = (maGhe) => {
     dispatch({
@@ -71,40 +71,61 @@ export default function Booking() {
   const handleSubmit = (bookingCode, listChairDangChon, history) => {
     if (listChairDangChon.length === 0) {
       Swal.fire({
-        icon: "error",
+        imageUrl: popupInfor,
         html: "Vui lòng chọn ghế",
+        confirmButtonColor: "#d33",
+        imageHeight: 70,
+        imageWidth: 120,
       });
       return;
+    } else {
+      Swal.fire({
+        icon: "warning",
+        html: `Bạn chắc chắn muốn đặt ?`,
+        showCancelButton: true,
+        cancelButtonText: "Không đặt nữa",
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Có, tôi muốn đặt",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch({
+            type: BOOKING_MOVIE_TICKET,
+            bookingCode,
+            listChairDangChon,
+            history,
+          });
+          Swal.fire({
+            icon: "success",
+            html: "Đặt vé thành công",
+            showCancelButton: true,
+            confirmButtonColor: "#00ac4d",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "Về Home",
+            confirmButtonText: "Đặt vé tiếp",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              setState({ listChair: [] });
+              callBookingListChair(bookingCode);
+            } else {
+              history.push("/");
+            }
+          });
+        }
+      });
     }
-
-    dispatch({
-      type: BOOKING_MOVIE_TICKET,
-      bookingCode,
-      listChairDangChon,
-      history,
-    });
-    setState({ listChair: [] });
-    console.log("lozz");
-    if (valid !== "") {
-      setTimeout(() => {
-        Swal.fire({
-          icon: "success",
-          html: "Đặt vé thành công",
-        });
-      }, 2500);
-    }
-    callBookingListChair(bookingCode);
   };
 
   return (
     <section>
+      <Header2 />
       <div style={{ height: 60 }}></div>
       <div id="booking-page">
         <div className="overlay">
           <div className="mid">
             <div className="container ">
               <div className="row">
-                <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-8">
+                <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
                   <div className="bookingChair">
                     <div className="screen text-center">SCREEN</div>
                     <div className="note">
@@ -130,7 +151,7 @@ export default function Booking() {
                     <div className="listchair">{renderListChair()}</div>
                   </div>
                 </div>
-                <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4">
+                <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                   <div className="infor">
                     <div className="infor-left">
                       <img

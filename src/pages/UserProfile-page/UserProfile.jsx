@@ -6,11 +6,13 @@ import UpdateUserProfile from "./UpdateUserProfile";
 import { connect } from "react-redux";
 import { POST_HISTORY_OF_USER_PROFILE } from "../../redux/const/historyUserProfileConst";
 import Footer from "../../components/Footer/Footer";
+import Header2 from "../../components/Header/Header2";
 class UserProfile extends Component {
   render() {
     const { UserProfile } = this.props;
     return (
       <div id="user-profile">
+        <Header2 />
         <div style={{ height: 60 }}></div>
         <div className="container my-5">
           <div className="row">

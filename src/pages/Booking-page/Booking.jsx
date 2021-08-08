@@ -11,6 +11,7 @@ import {
 import { useHistory } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header2 from "../../components/Header/Header2";
+import Time from "react-time-format";
 
 export default function Booking() {
   const [state, setState] = useState({
@@ -115,7 +116,7 @@ export default function Booking() {
       });
     }
   };
-
+  console.log(bookingListChair);
   return (
     <section>
       <Header2 />

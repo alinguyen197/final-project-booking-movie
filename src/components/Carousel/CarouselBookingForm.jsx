@@ -84,8 +84,67 @@ export default function CarouselBookingForm() {
       let arr = state?.heThongRapChieu?.filter(
         (cumRap) => cumRap.tenHeThongRap === cumRap.tenHeThongRap
       );
-      console.log("lấy rạp", arr);
+      console.log("Hệ thống rạp :", arr);
       // lấy chi tiết cụm rạp theo rạp bhd-quang-trung , bhd-bitexco
+      const rapchitiet = [];
+      let arr1 = arr.map((rap) => {
+        return rap.cumRapChieu.map((cumRap) => {
+          return rapchitiet.push(cumRap);
+        });
+      });
+
+      // filter lấy ra đúng cái thằng cụm rạp mình chọn . vd mình chọn bhd-quang-trung trả về ngày giờ chiếu của mỗi cụm rạp này
+      let arrLichChieu = rapchitiet.filter(
+        (item) => item.tenCumRap === data.tenCumRap
+      );
+
+      // vì ở trên chỉ trả về giá trị của đúng 1 thằng nên mình [0] lấy phần tử đầu tiên đi map để lấy ra hết ngày giờ của thằng mình đang chọn
+      // ở đây arrNgayGio mình đã có tất cả thời gian
+      let arrNgayGio = arrLichChieu[0].lichChieuPhim.map((time) => {
+        return time.ngayChieuGioChieu;
+      });
+      console.log("Thông tin ngày giờ của 1 cụm rạp: ", arrNgayGio);
+
+      // xử lý ngày bị trùng nhau , hàm set xoá đi các phần tử giống nhau
+      let arrDays = new Set(
+        arrNgayGio.map((days) => {
+          return new Date(days).toLocaleDateString();
+        })
+      );
+
+      let arrDaysLastOfProgress = [...arrDays];
+      console.log("Giờ sau khi xử lý trùng :", arrDaysLastOfProgress);
+
+      return (
+        <select
+          className="form-control"
+          name="ngayChieu"
+          onChange={(e) => handleCinema(e)}
+        >
+          <option>Vui lòng chọn ngày</option>
+
+          {arrDaysLastOfProgress?.map((ngayChieu, index) => {
+            return <option key={index}>{ngayChieu}</option>;
+          })}
+        </select>
+      );
+    } else {
+      return (
+        <select className="form-control">
+          <option>Vui lòng chọn rạp</option>
+        </select>
+      );
+    }
+  };
+  console.log(data);
+  const renderHours = () => {
+    if (data.tenCumRap !== "") {
+      // lấy hệ thống rạp BHD , CGV ...
+      let arr = state?.heThongRapChieu?.filter(
+        (cumRap) => cumRap.tenHeThongRap === cumRap.tenHeThongRap
+      );
+
+      // lấy chi tiết cụm rạp theo rạp ví dụ BHD :  bhd-quang-trung , bhd-bitexco ....
       const rapchitiet = [];
       let arr1 = arr.map((rap) => {
         return rap.cumRapChieu.map((cumRap) => {
@@ -101,90 +160,27 @@ export default function CarouselBookingForm() {
       // vì ở trên chỉ trả về giá trị của đúng 1 thằng nên mình [0] lấy phần tử đầu tiên đi map để lấy ra hết ngày giờ của thằng mình đang chọn
       // ở đây arrNgayGio mình đã có tất cả thời gian
       let arrNgayGio = arrLichChieu[0]?.lichChieuPhim?.map((time) => {
-        return `${time.ngayChieuGioChieu} + ${time.maLichChieu}`;
+        return time;
       });
-      console.log("ngày giờ của 1 thằng", arrNgayGio);
+      console.log("Oject của 1 cụm rạp chứa ngày và giờ", arrNgayGio);
 
-      // mảng ngày giờ chiếu
-      let arrDays = arrLichChieu[0].lichChieuPhim?.map((item) => {
-        return item.ngayChieuGioChieu;
+      // so sánh để bắt đúng chuỗi ngày chiều giờ chiếu ở trên
+      let arrHours = arrNgayGio?.filter((lichChieu) => {
+        return (
+          new Date(lichChieu.ngayChieuGioChieu).toLocaleDateString() ===
+          data.ngayChieu
+        );
       });
-
-      // xử lý ngày bị trùng nhau , hàm set xoá đi các phần tử giống nhau
-      // let arrDaysfilter = new Set(
-      //   arrDays.filter((item) => {
-      //     return new Date(item === item);
-      //   })
-      // );
-
-      // let arrDaysLastOfProgress = [...arrDaysfilter];
-      // console.log(arrDaysLastOfProgress);
-
-      return (
-        <select
-          className="form-control"
-          name="ngayChieu"
-          onChange={(e) => handleCinema(e)}
-        >
-          <option>Vui lòng chọn ngày</option>
-          {arrNgayGio?.map((ngayChieu, index) => {
-            return (
-              <option key={index} value={ngayChieu}>
-                {ngayChieu.slice(0, 10)}
-              </option>
-            );
-          })}
-        </select>
-      );
-    } else {
-      return (
-        <select className="form-control">
-          <option>Vui lòng chọn rạp</option>
-        </select>
-      );
-    }
-  };
-  console.log(data);
-  const renderHours = () => {
-    if (data.tenCumRap !== "") {
-      // lấy rạp BHD , CGV
-      let arr = state?.heThongRapChieu?.filter(
-        (cumRap) => cumRap.tenHeThongRap === cumRap.tenHeThongRap
-      );
-      console.log("lấy rạp", arr);
-      // lấy chi tiết cụm rạp theo rạp bhd-quang-trung , bhd-bitexco
-      const rapchitiet = [];
-      let arr1 = arr.map((rap) => {
-        return rap.cumRapChieu.map((cumRap) => {
-          return rapchitiet.push(cumRap);
-        });
-      });
-
-      // filter lấy ra đúng cái thằng cụm rạp mình chọn . vd mình chọn bhd-quang-trung trả về ngày giờ chiếu của mỗi cụm rạp này
-      let arrLichChieu = rapchitiet.filter(
-        (item) => item.tenCumRap === data.tenCumRap
+      console.log(
+        "Trả về đúng cái giờ của cái ngày đã chọn ở trên :",
+        arrHours
       );
 
-      console.log("lấy ra tên cụm rạp chọn", arrLichChieu);
-
-      // vì ở trên chỉ trả về giá trị của đúng 1 thằng nên mình [0] lấy phần tử đầu tiên đi map để lấy ra hết ngày giờ của thằng mình đang chọn
-      // ở đây arrNgayGio mình đã có tất cả thời gian
-      let arrNgayGio = arrLichChieu[0].lichChieuPhim.map((time) => {
-        return `${time.ngayChieuGioChieu} + ${time.maLichChieu}`;
+      // sau khi có đc chuỗi giờ mình bóc tách show giờ kèm theo lịch chiếu để đi booking
+      let arrHourseAfterProgress = arrHours?.map((hours) => {
+        return hours.ngayChieuGioChieu.slice(-8, -3) + hours.maLichChieu;
       });
-      console.log("ngày giờ của 1 thằng", arrNgayGio);
-
-      //xử lý ngày bị trùng nhau , hàm set xoá đi các phần tử giống nhau
-      // let arrHours = arrNgayGio?.filter((lichChieu) => {
-      //   return new Date(lichChieu).toLocaleDateString() === data.ngayChieu;
-      // });
-
-      // console.log(arrHours);
-
-      // let arrHourseAfterProgress = arrHours?.map((hours) => {
-      //   return hours.ngayChieuGioChieu.slice(-8, -3);
-      // });
-      // console.log(arrHourseAfterProgress);
+      console.log(arrHourseAfterProgress);
       return (
         <select
           className="form-control"
@@ -192,9 +188,14 @@ export default function CarouselBookingForm() {
           onChange={handleCinema}
         >
           <option>Vui lòng chọn giờ</option>
-          <option value={data.ngayChieu.slice(-5)}>
-            {data.ngayChieu.slice(11, 16)}
-          </option>
+
+          {arrHourseAfterProgress?.map((value, index) => {
+            return (
+              <option key={index} value={value.slice(-5)}>
+                {value.slice(0, 5)}
+              </option>
+            );
+          })}
         </select>
       );
     } else {

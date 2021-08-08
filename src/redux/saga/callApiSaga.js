@@ -266,10 +266,10 @@ export function* followGetBookingListChair() {
  */
 function* postBookingMovieTicket(action) {
   try {
-    // start loading
-    yield put({
-      type: START_LOADING,
-    });
+    // // start loading
+    // yield put({
+    //   type: START_LOADING,
+    // });
     //delay cho hiệu ứng đẹp
     yield delay(1000);
     const taiKhoan = JSON.parse(localStorage.getItem("taiKhoan"));
@@ -286,14 +286,14 @@ function* postBookingMovieTicket(action) {
       yield put({
         type: BOOKING_MOVIE_TICKET_SUCCESS,
         payload: action.listChairDangChon,
+        message: data,
       });
     }
-    alert(data);
-    action.history.goBack("/");
-    //stop loading
-    yield put({
-      type: STOP_LOADING,
-    });
+
+    // //stop loading
+    // yield put({
+    //   type: STOP_LOADING,
+    // });
   } catch (err) {
     console.log(err);
   }

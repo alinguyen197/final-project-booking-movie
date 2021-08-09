@@ -103,6 +103,7 @@ export default function CarouselBookingForm() {
       let arrNgayGio = arrLichChieu[0].lichChieuPhim.map((time) => {
         return time.ngayChieuGioChieu;
       });
+
       console.log("Thông tin ngày giờ của 1 cụm rạp: ", arrNgayGio);
 
       // xử lý ngày bị trùng nhau , hàm set xoá đi các phần tử giống nhau

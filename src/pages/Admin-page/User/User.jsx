@@ -20,7 +20,7 @@ export default function User(props) {
     email: "",
     soDt: "",
     matKhau: "",
-    maNhom: "",
+    maNhom: "GP01",
     maLoaiNguoiDung: "",
   });
 
@@ -83,7 +83,7 @@ export default function User(props) {
       email: nguoiDung.email,
       soDt: nguoiDung.soDt,
       matKhau: nguoiDung.matKhau,
-      maNhom: nguoiDung.maNhom,
+
       maLoaiNguoiDung: nguoiDung.maLoaiNguoiDung,
     });
   };
@@ -175,9 +175,7 @@ export default function User(props) {
               <th scope="col">Email</th>
               <th scope="col">Số điện thoại</th>
               <th scope="col">Mật Khẩu </th>
-              <th scope="col" className="maNhomUser">
-                Mã Nhóm{" "}
-              </th>
+
               <th scope="col">Mã Loại Người Dùng</th>
               <th scope="col">Thao tác</th>
             </tr>
@@ -193,7 +191,7 @@ export default function User(props) {
                   <td>{value.email}</td>
                   <td>{value.soDt}</td>
                   <td>{value.matKhau}</td>
-                  <td className="maNhomUser">{value.maNhom}</td>
+
                   <td>{value.maLoaiNguoiDung}</td>
                   <td>
                     <a

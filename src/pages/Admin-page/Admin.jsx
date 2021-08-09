@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/img/web-logo.png";
-
+import { Link } from "react-router-dom";
 import Dashboard from "./Dashboard/Dashboard";
 import User from "./User/User";
 export default function Admin() {
@@ -63,7 +63,9 @@ export default function Admin() {
 
               <div className="user">
                 <p>Xin chào</p>
-                <img src={logo} alt="" />
+                <Link className="navbar-brand" to="/">
+                  <img src={logo} alt="logo" />
+                </Link>
               </div>
             </div>
 

@@ -157,7 +157,13 @@
       }
     }
 
+    .tableAdmin {
+      overflow: scroll;
+    }
+
     table.table-striped {
+
+
       tbody {
         tr {
           &:nth-of-type(odd) {
@@ -386,7 +392,7 @@
         .tableAdmin {
           font-size: 12px !important;
           width: 100%;
-
+          overflow: scroll;
         }
 
         .table td,

@@ -61,7 +61,7 @@ export default function CarouselBookingForm() {
           name="tenCumRap"
           onChange={handleCinema}
         >
-          <option>Vui lòng chọn rạp</option>
+          <option value="">Vui lòng chọn rạp</option>
           {state?.heThongRapChieu?.map((cumRap) => {
             return cumRap?.cumRapChieu?.map((value, index) => {
               return <option key={index}>{value.tenCumRap}</option>;
@@ -72,7 +72,7 @@ export default function CarouselBookingForm() {
     } else {
       return (
         <select className="form-control">
-          <option>Vui lòng chọn phim</option>
+          <option value="">Vui lòng chọn phim</option>
         </select>
       );
     }
@@ -121,7 +121,7 @@ export default function CarouselBookingForm() {
           name="ngayChieu"
           onChange={(e) => handleCinema(e)}
         >
-          <option>Vui lòng chọn ngày</option>
+          <option value="">Vui lòng chọn ngày</option>
 
           {arrDaysLastOfProgress?.map((ngayChieu, index) => {
             return <option key={index}>{ngayChieu}</option>;
@@ -131,7 +131,7 @@ export default function CarouselBookingForm() {
     } else {
       return (
         <select className="form-control">
-          <option>Vui lòng chọn rạp</option>
+          <option value="">Vui lòng chọn rạp</option>
         </select>
       );
     }
@@ -187,7 +187,7 @@ export default function CarouselBookingForm() {
           name="gioChieu"
           onChange={handleCinema}
         >
-          <option>Vui lòng chọn giờ</option>
+          <option value="">Vui lòng chọn giờ</option>
 
           {arrHourseAfterProgress?.map((value, index) => {
             return (
@@ -201,7 +201,7 @@ export default function CarouselBookingForm() {
     } else {
       return (
         <select className="form-control">
-          <option>Vui lòng chọn ngày</option>
+          <option value="">Vui lòng chọn ngày</option>
         </select>
       );
     }
@@ -234,6 +234,7 @@ export default function CarouselBookingForm() {
         <div className="col-2">
           <div className="booking-form-button">
             <button
+              disabled={data.gioChieu !== "" ? false : true}
               className={data.gioChieu !== "" ? "active" : ""}
               onClick={() => {
                 history.push(`/booking/${data.gioChieu}`);

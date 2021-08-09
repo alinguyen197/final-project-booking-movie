@@ -14,6 +14,8 @@ import Header2 from "../../components/Header/Header2";
 import Time from "react-time-format";
 
 export default function Booking() {
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(30);
   const [state, setState] = useState({
     listChair: [],
   });
@@ -26,9 +28,32 @@ export default function Booking() {
       payload: bookingCode,
     });
   };
+
   useEffect(() => {
     callBookingListChair(bookingCode);
   }, []);
+
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      // kiểm tra giây
+      if (seconds > 0) {
+        setSeconds(seconds - 1);
+      }
+
+      if (seconds === 0) {
+        if (minutes === 0) {
+          // alert("Thời gian giữ ghế");
+          clearInterval(myInterval);
+        } else {
+          setMinutes(minutes - 1);
+          setSeconds(59);
+        }
+      }
+    }, 1000);
+    return () => {
+      clearInterval(myInterval);
+    };
+  });
   const { bookingListChair } = useSelector((state) => state.bookingReducer);
 
   const handleChoiceChair = (maGhe) => {
@@ -50,21 +75,22 @@ export default function Booking() {
 
   const renderListChair = () => {
     return bookingListChair?.danhSachGhe?.map((chair, index) => {
+      let classLoaiGhe = chair.loaiGhe === "Vip" ? "chairVip" : "";
+      let classDaDat = chair.daDat ? "chairDisable" : "";
+      let classDangChon = chair.dangChon ? "choice" : "";
+      let classContentofDaDat = chair.daDat ? "X" : chair.tenGhe;
       return (
-        <button
-          key={index}
-          disabled={chair.daDat}
-          onClick={() => handleChoiceChair(chair.maGhe)}
-          className={
-            chair.dangChon
-              ? "choice"
-              : chair.loaiGhe === "Thuong"
-              ? "chair"
-              : "chairVip"
-          }
-        >
-          {chair.tenGhe}
-        </button>
+        <>
+          <button
+            key={index}
+            disabled={chair.daDat}
+            onClick={() => handleChoiceChair(chair.maGhe)}
+            className={`chair ${classLoaiGhe} ${classDaDat} ${classDangChon} `}
+          >
+            {classContentofDaDat}
+          </button>
+          {(index + 1) % 16 === 0 ? <br /> : ""}
+        </>
       );
     });
   };
@@ -89,13 +115,13 @@ export default function Booking() {
         cancelButtonColor: "#d33",
         confirmButtonText: "Có, tôi muốn đặt",
       }).then((result) => {
+        dispatch({
+          type: BOOKING_MOVIE_TICKET,
+          bookingCode,
+          listChairDangChon,
+          history,
+        });
         if (result.isConfirmed) {
-          dispatch({
-            type: BOOKING_MOVIE_TICKET,
-            bookingCode,
-            listChairDangChon,
-            history,
-          });
           Swal.fire({
             icon: "success",
             html: "Đặt vé thành công",
@@ -116,6 +142,7 @@ export default function Booking() {
       });
     }
   };
+
   console.log(bookingListChair);
   return (
     <section>
@@ -128,6 +155,9 @@ export default function Booking() {
               <div className="row">
                 <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
                   <div className="bookingChair">
+                    <div className="text-center clockCountDown">
+                      {`0${minutes}`}:{seconds < 10 ? `0${seconds}` : seconds}
+                    </div>
                     <div className="screen text-center">SCREEN</div>
                     <div className="note">
                       <div>
@@ -166,8 +196,9 @@ export default function Booking() {
                       </p>
                       <p className="time">
                         <span>
-                          {bookingListChair.thongTinPhim?.ngayChieu}-
-                          {bookingListChair.thongTinPhim?.gioChieu}
+                          {bookingListChair.thongTinPhim?.ngayChieu} -{" "}
+                          {bookingListChair.thongTinPhim?.gioChieu} -{" "}
+                          {bookingListChair.thongTinPhim?.tenRap}
                         </span>
                       </p>
                       <p className="cinemaname">
@@ -219,6 +250,7 @@ export default function Booking() {
           </div>
         </div>
       </div>
+
       <Footer />
     </section>
   );

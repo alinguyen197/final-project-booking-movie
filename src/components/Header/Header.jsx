@@ -12,8 +12,8 @@ let ScrollLink = Scroll.Link;
 
 class Header extends Component {
   renderUserLogin() {
-    // const { taiKhoan, isValid } = this.props.userLogin;
-    const taiKhoanLocal = JSON.parse(localStorage.getItem("taiKhoan"));
+    const { taiKhoan, isValid } = this.props.userLogin;
+    const taiKhoanLocal = JSON.parse(localStorage.getItem("maLoaiNguoiDung"));
     if (taiKhoanLocal == null) {
       return (
         <div className="accout">
@@ -28,12 +28,37 @@ class Header extends Component {
           <img src={arrowRight} className="icon-arrow-right" alt="user" />
         </div>
       );
+    }
+    if (taiKhoanLocal === "QuanTri") {
+      return (
+        <div className="accout">
+          <NavLink id="logout" to="#" data-toggle="dropdown">
+            <img className="btnLogin " src={logoLogin} alt="Login" />
+            <span className="toggle">{taiKhoan}</span>
+          </NavLink>
+          <img src={arrowRight} className="icon-arrow-right" alt="user" />
+
+          <ul class="dropdown-menu drp-mnu ">
+            <li>
+              <i class="fas fa-user-shield"></i>
+              <Link to="/admin"> Trang Admin</Link>
+            </li>
+            <li>
+              <i class="fa fa-user"></i>
+              <Link to="/user-profile"> Thông tin cá nhân</Link>
+            </li>
+            <li onClick={this.handleLogOut}>
+              <i class="fas fa-sign-out-alt"></i>Đăng xuất
+            </li>
+          </ul>
+        </div>
+      );
     } else {
       return (
         <div className="accout">
           <NavLink id="logout" to="#" data-toggle="dropdown">
             <img className="btnLogin " src={logoLogin} alt="Login" />
-            <span className="toggle">{taiKhoanLocal}</span>
+            <span className="toggle">{taiKhoan}</span>
           </NavLink>
           <img src={arrowRight} className="icon-arrow-right" alt="user" />
 

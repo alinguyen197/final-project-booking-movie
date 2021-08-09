@@ -283,7 +283,7 @@
 
   .list-flim-detail-infor {
     cursor: pointer;
-    height: 140px;
+
 
     img {
       width: 60px;
@@ -298,7 +298,7 @@
     position: relative;
     padding: 20px;
     width: 100%;
-    height: 250px;
+
 
     &::after {
       content: "";
@@ -308,7 +308,7 @@
       width: 90%;
       transform: translateX(-50%);
       border-bottom: 1px solid #ccc;
-      border-color: rgba(238, 238, 238, 0.88);
+
     }
   }
 
@@ -421,9 +421,7 @@
       font-size: 12px !important;
     }
 
-    .list-flim-detail {
-      height: 300px !important;
-    }
+
 
     .list-flim-detail-type {
       position: absolute;
@@ -506,9 +504,7 @@
       font-size: 12px !important;
     }
 
-    .list-flim-detail {
-      height: 300px !important;
-    }
+
 
     .list-flim-detail-type {
       position: absolute;
@@ -547,7 +543,7 @@
     }
 
     .list-flim-detail {
-      height: 300px !important;
+
 
       .list-flim-detail-showtime {
         height: 100%;
@@ -622,7 +618,6 @@
     }
 
     .list-flim-detail {
-      height: 300px !important;
 
 
 

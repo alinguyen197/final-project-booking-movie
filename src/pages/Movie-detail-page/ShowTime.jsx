@@ -4,6 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { GET_MOVIE_DETAIL_SHOWTIMES_BY_MOVIECODE } from "../../redux/const/movieDetailConst";
 import Time from "react-time-format";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 export default function ShowTime(props) {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -24,6 +32,16 @@ export default function ShowTime(props) {
   const { showTimeMovieDetail } = useSelector(
     (state) => state.movieDetailReducer
   );
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: "100%",
+    },
+    heading: {
+      fontSize: theme.typography.pxToRem(15),
+      fontWeight: theme.typography.fontWeightRegular,
+    },
+  }));
+  const classes = useStyles();
 
   return (
     <section id="cinemarelease">
@@ -132,44 +150,76 @@ export default function ShowTime(props) {
                                               className="list-flim-detail"
                                               key={index2}
                                             >
-                                              <div className="list-flim-detail-infor">
-                                                <img
-                                                  src={
-                                                    showTimeMovieDetail.hinhAnh
-                                                  }
-                                                  alt=""
-                                                />
-                                                <div className="list-flim-detail-infor-name">
-                                                  <span className="list-flim-detail-infor-name-type mr-2">
-                                                    2D
-                                                  </span>
-                                                  <p className="list-flim-detail-infor-movie-name">
-                                                    {
-                                                      showTimeMovieDetail.tenPhim
+                                              <div className={classes.root}>
+                                                <Accordion className="bg-secondary text-white">
+                                                  <AccordionSummary
+                                                    expandIcon={
+                                                      <ExpandMoreIcon />
                                                     }
-                                                  </p>
-                                                  <p className="cinema-address">
-                                                    Thời lượng :{" "}
-                                                    {phim.thoiLuong} -{" "}
-                                                    {phim.tenRap}
-                                                  </p>
-                                                </div>
+                                                    aria-controls="panel1a-content"
+                                                    id="panel1a-header"
+                                                    className="list-flim-detail-infor"
+                                                  >
+                                                    <img
+                                                      src={
+                                                        showTimeMovieDetail.hinhAnh
+                                                      }
+                                                      alt=""
+                                                    />
+                                                    <div className="list-flim-detail-infor-name">
+                                                      <span className="list-flim-detail-infor-name-type mr-2">
+                                                        2D
+                                                      </span>
+                                                      <p className="list-flim-detail-infor-movie-name">
+                                                        {
+                                                          showTimeMovieDetail.tenPhim
+                                                        }
+                                                      </p>
+                                                      <p className="cinema-address text-white">
+                                                        Thời lượng :{" "}
+                                                        {phim.thoiLuong} -{" "}
+                                                        {phim.tenRap}
+                                                      </p>
+                                                    </div>
+                                                  </AccordionSummary>
 
-                                                <div className="list-flim-detail-showtime">
-                                                  <span className="a">
-                                                    <Time
-                                                      value={
-                                                        phim.ngayChieuGioChieu
-                                                      }
-                                                      format="DD/MM/YY - hh:mm"
-                                                      onClick={() =>
-                                                        handleBookingTicket(
-                                                          phim.maLichChieu
-                                                        )
-                                                      }
-                                                    ></Time>
-                                                  </span>
-                                                </div>
+                                                  <AccordionSummary
+                                                    aria-controls="panel2a-content"
+                                                    id="panel2a-header"
+                                                  >
+                                                    <Typography
+                                                      key={index2}
+                                                      className="list-flim-detail-showtime"
+                                                    >
+                                                      <Link
+                                                        className="a"
+                                                        to="#"
+                                                        onClick={() =>
+                                                          handleBookingTicket(
+                                                            phim.maLichChieu
+                                                          )
+                                                        }
+                                                      >
+                                                        <span className="ShowDate">
+                                                          <Time
+                                                            value={
+                                                              phim.ngayChieuGioChieu
+                                                            }
+                                                            format="DD/MM/YY"
+                                                          />
+                                                        </span>
+                                                        <span className="ShowDateTime">
+                                                          <Time
+                                                            value={
+                                                              phim.ngayChieuGioChieu
+                                                            }
+                                                            format=" ~ hh:mm"
+                                                          />
+                                                        </span>
+                                                      </Link>
+                                                    </Typography>
+                                                  </AccordionSummary>
+                                                </Accordion>
                                               </div>
                                             </div>
                                           );

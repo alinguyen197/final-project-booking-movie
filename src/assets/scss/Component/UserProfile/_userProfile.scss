@@ -1,5 +1,7 @@
 #user-profile {
+  background: linear-gradient(to top, #f05f57, #360940);
   .user-profile-left {
+    margin-bottom: 30px;
     .user-img {
       width: 50%;
       margin: 0 auto;
@@ -22,22 +24,30 @@
         white-space: nowrap;
 
         button {
-          background-color: #6a6f7c;
+          // background: linear-gradient(45deg, #f05f57, #360940);
           border: none;
           border-radius: 8px;
           padding: 5px 10px;
           width: 70%;
           font-size: 12px;
           text-decoration: none;
-          color: $white;
+          color: black;
           outline: none;
 
+          &:hover {
+            background: linear-gradient(45deg, #9533ab, #f05f57);
+            box-shadow: 0px 0px 20px #fff;
+          }
         }
       }
     }
   }
 
   .user-profile-right {
+    background: white;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
     .scroll-ticket {
       overflow-x: hidden;
       overflow-y: auto;
@@ -57,7 +67,6 @@
       width: 50% !important;
     }
   }
-
 }
 
 @include respond-to("medium") {
@@ -66,5 +75,4 @@
       width: 90% !important;
     }
   }
-
 }

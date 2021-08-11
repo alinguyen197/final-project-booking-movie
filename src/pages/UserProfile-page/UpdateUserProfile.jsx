@@ -64,7 +64,7 @@ class UpdateUserProfile extends Component {
   render() {
     return (
       <div>
-        <h3>Đổi mật khẩu</h3>
+        <h3 style={{ marginBottom: 50 }}>Đổi mật khẩu</h3>
         <form id="changepass" onSubmit={this.handleSubmit} action="">
           <div className="form-group ">
             <label>Mật khẩu mới :</label>
@@ -91,7 +91,7 @@ class UpdateUserProfile extends Component {
               style={{
                 padding: "5px 15px",
                 outline: "none",
-                backgroundColor: "#6666",
+                backgroundColor: "#3f51b5",
                 borderRadius: 8,
                 border: "none",
                 color: "white",

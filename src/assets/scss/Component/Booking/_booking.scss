@@ -24,8 +24,7 @@
       .bookingChair {
         background-color: white;
         padding: 10px;
-        overflow: hidden;
-        overflow-x: scroll;
+
         border-radius: 6px;
         .clockCountDown {
           margin-bottom: 5px;
@@ -80,7 +79,8 @@
           padding: 15px 0px;
           margin: 0 auto;
           text-align: center;
-          width: 450px;
+          overflow: hidden;
+          overflow-x: scroll;
           .chair {
             outline: none;
             border: none;

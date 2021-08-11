@@ -16,19 +16,12 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import HistoryTicket from "./HistoryTicket";
 import { useSelector } from "react-redux";
-import roundToNearestMinutesWithOptions from "date-fns/fp/roundToNearestMinutesWithOptions/index";
-import Time from "react-time-format";
 import Button from "@material-ui/core/Button";
-import { TableFooter } from "@material-ui/core";
-import semibold from "../../assets/font/sf-ui-display-semibold-58646eddcae92.otf";
 const useRowStyles = makeStyles({
   root: {
     "& > *": {
       borderBottom: "unset",
     },
-  },
-  customeButon: {
-    // background: " linear-gradient(45deg, #f05f57, #360940)",
   },
 });
 
@@ -53,13 +46,15 @@ function Row(props) {
           </IconButton>
         </TableCell>
       </TableRow>
-      <TableRow>
+      <TableRow
+        style={{ background: "linear-gradient(45deg ,#9198e5, transparent)" }}
+      >
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
-              <Typography variant="h6" gutterBottom component="div">
+              {/* <Typography variant="h6" gutterBottom component="div">
                 Thông tin vé
-              </Typography>
+              </Typography> */}
 
               <HistoryTicket data={row} />
               {/* <Table size="small" aria-label="purchases">
@@ -102,7 +97,7 @@ export default function HistoryBookedTable() {
   );
   const dataThongTinDatVe = data.thongTinDatVe;
   const [itemPerPage, setItemPerPage] = useState(5);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage] = useState(1);
 
   const lastOfIndex = itemPerPage * currentPage;
   const firstOfIndex = lastOfIndex - itemPerPage;
@@ -114,7 +109,7 @@ export default function HistoryBookedTable() {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
-        <TableHead>
+        <TableHead className="title">
           <TableRow>
             <TableCell>STT</TableCell>
             <TableCell>Tên Phim</TableCell>

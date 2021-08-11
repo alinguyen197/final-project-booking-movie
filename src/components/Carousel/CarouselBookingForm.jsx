@@ -1,9 +1,7 @@
-import { regexLiteral } from "@babel/types";
 import axios from "axios";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { DOMAIN, STATUS_CODE } from "../../util/const/settingSystem";
-import Time from "react-time-format";
 import { useHistory } from "react-router";
 
 export default function CarouselBookingForm() {

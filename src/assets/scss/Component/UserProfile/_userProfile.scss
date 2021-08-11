@@ -33,10 +33,10 @@
           text-decoration: none;
           color: black;
           outline: none;
-
           &:hover {
             background: linear-gradient(45deg, #9533ab, #f05f57);
-            box-shadow: 0px 0px 20px #fff;
+            box-shadow: 0px 0px 10px #fff;
+            color: white;
           }
         }
       }
@@ -52,6 +52,15 @@
       overflow-x: hidden;
       overflow-y: auto;
       height: 350px;
+    }
+    .MuiTableCell-head {
+      white-space: nowrap;
+      font-family: bold;
+      text-transform: uppercase;
+    }
+    .MuiTableCell-body {
+      font-family: medium;
+      font-size: 14px;
     }
   }
 }

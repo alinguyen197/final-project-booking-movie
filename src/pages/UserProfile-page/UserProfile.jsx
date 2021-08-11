@@ -22,7 +22,7 @@ class UserProfile extends Component {
                 <img style={{ width: "100%" }} src={img} alt="" />
               </div>
               <div className="user-name text-center">
-                <p>
+                <p style={{ color: "white" }}>
                   @<i>{UserProfile.taiKhoan}</i>
                 </p>
               </div>

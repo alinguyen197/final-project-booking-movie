@@ -20,6 +20,7 @@ import roundToNearestMinutesWithOptions from "date-fns/fp/roundToNearestMinutesW
 import Time from "react-time-format";
 import Button from "@material-ui/core/Button";
 import { TableFooter } from "@material-ui/core";
+import semibold from "../../assets/font/sf-ui-display-semibold-58646eddcae92.otf";
 const useRowStyles = makeStyles({
   root: {
     "& > *": {

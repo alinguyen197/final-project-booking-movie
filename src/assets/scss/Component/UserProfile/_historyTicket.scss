@@ -71,11 +71,7 @@
       }
     }
   }
-
-
-
 }
-
 
 @include respond-to("phone") {
   .ticket-content {
@@ -96,7 +92,6 @@
     .seat-type {
       font-size: 14px !important;
     }
-
   }
 
   #thongtinlichchieu {
@@ -122,26 +117,33 @@
 }
 
 @include respond-to("medium") {
-  .ticket-content {
-    .ticket-title {
-      font-size: 16px !important;
+  .ticket {
+    .col-2,
+    .col-6,
+    .col-4 {
+      padding: 0px 10px !important;
+    }
+    .ticket-content {
+      .ticket-title {
+        font-size: 14px !important;
+      }
+
+      .ticket-movie-name {
+        font-size: 14px !important;
+      }
+
+      .ticket-type {
+        font-size: 16px !important;
+      }
     }
 
-    .ticket-movie-name {
-      font-size: 14px !important;
-    }
-
-    .ticket-type {
-      font-size: 16px !important;
+    .ticket-seat {
+      .seat-type {
+        font-size: 10px !important;
+      }
+      .seat-price {
+        font-size: 12px !important;
+      }
     }
   }
-
-  .ticket-seat {
-    .seat-type {
-      font-size: 14px !important;
-    }
-
-  }
-
-
 }

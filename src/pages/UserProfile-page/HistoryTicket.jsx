@@ -12,7 +12,11 @@ export default function HistoryTicket(props) {
       <div className="ticket">
         <div className="row">
           <div className="col-2 d-flex">
-            <img style={{ width: "100%", height: "auto" }} src={qcode} alt="" />
+            <img
+              style={{ width: "100%", height: "150px" }}
+              src={qcode}
+              alt=""
+            />
           </div>
           <div className="col-6" style={{ borderRight: "1px dotted #666" }}>
             <div className="ticket-content">

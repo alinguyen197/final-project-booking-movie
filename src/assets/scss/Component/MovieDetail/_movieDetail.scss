@@ -1,7 +1,12 @@
 #movieDetail {
+  #cinemareleaseMobile {
+    display: none;
+  }
+
   .backgroundMain {
     position: relative;
     height: 445px;
+
     .playing-trailer {
       display: none;
       position: absolute;
@@ -11,6 +16,7 @@
       z-index: 20;
       height: 500px;
       width: 100%;
+
       .btn-modal-video2 {
         background: transparent;
         border: none;
@@ -21,11 +27,13 @@
         transform: translate(-50%, -50%);
       }
     }
+
     .styleBlur {
       position: relative;
       top: 0;
       left: 0;
       width: 100%;
+
       // overflow: hidden;
       .posterLandscapeFilm {
         // filter: blur(15px);
@@ -39,22 +47,23 @@
         -webkit-clip-path: inset(0);
         clip-path: inset(0);
       }
+
       .styleGradient {
         top: 0;
         left: 0;
         height: 100%;
         width: 100%;
         position: absolute;
-        background: linear-gradient(
-          to top,
-          rgb(10, 32, 41),
-          rgba(10, 32, 41, 0.562)
-        );
+        background: linear-gradient(to top,
+            rgb(10, 32, 41),
+            rgba(10, 32, 41, 0.562));
       }
+
       .containerCustom {
         max-width: 1040px;
         margin: 0 auto;
       }
+
       .detailMainInfor {
         display: flex;
         flex-wrap: wrap;
@@ -64,20 +73,25 @@
         width: 100%;
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
+
         .filmPoster {
           width: 85%;
         }
+
         .filmName {
           color: $white;
           font-family: medium;
+
           .film-date-release {
             display: block;
           }
+
           .film-title {
             display: block;
             font-size: 30px;
             font-family: bold;
           }
+
           .film-time-release {
             display: block;
           }
@@ -85,27 +99,33 @@
       }
     }
   }
+
   .contentMain {
     background: linear-gradient(to top, rgb(10, 32, 41), rgb(10, 31, 41));
 
     .containerCustom2 {
       max-width: 1040px;
       margin: 0 auto;
+
       .contentMain-inner {
         .contentMain-nav {
           justify-content: center;
           margin-bottom: 40px !important;
+
           .contentMain-item {
             margin-right: 20px;
+
             .contentMain-link.active {
               background-color: transparent;
               color: $hoverText;
               transform: scale(1.2);
             }
+
             .contentMain-link {
               color: $white;
               font-family: semibold;
               font-size: $size-20;
+
               &:hover {
                 transition: 0.5s;
                 transform: scale(1.2);
@@ -115,20 +135,26 @@
         }
       }
     }
+
   }
+
   @include respond-to("medium") {
     .playing-trailer {
       display: block !important;
     }
+
     .styleBlur {
       .detailMainInfor {
         top: 80% !important;
+
         .progressbar {
           display: none !important;
         }
+
         .filmPoster {
           display: none !important;
         }
+
         .filmName {
           .film-time-trailer {
             .btn-modal-video {
@@ -137,24 +163,38 @@
           }
         }
       }
+
       .posterLandscapeFilm {
         filter: blur(0px) !important;
       }
     }
+
+    #cinemareleaseMobile {
+      display: block;
+    }
+
+    #cinemarelease {
+      display: none;
+    }
   }
+
   @include respond-to("large") {
     .playing-trailer {
       display: block !important;
     }
+
     .styleBlur {
       .detailMainInfor {
         top: 80% !important;
+
         .progressbar {
           display: none !important;
         }
+
         .filmPoster {
           display: none !important;
         }
+
         .filmName {
           .film-time-trailer {
             .btn-modal-video {
@@ -163,9 +203,30 @@
           }
         }
       }
+
       .posterLandscapeFilm {
         filter: blur(0px) !important;
       }
+    }
+  }
+
+  @include respond-to("small") {
+    #cinemareleaseMobile {
+      display: block;
+    }
+
+    #cinemarelease {
+      display: none;
+    }
+  }
+
+  @include respond-to("phone") {
+    #cinemareleaseMobile {
+      display: block;
+    }
+
+    #cinemarelease {
+      display: none;
     }
   }
 }

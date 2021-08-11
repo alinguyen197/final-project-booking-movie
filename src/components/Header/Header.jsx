@@ -12,8 +12,9 @@ let ScrollLink = Scroll.Link;
 
 class Header extends Component {
   renderUserLogin() {
-    const { taiKhoan, isValid } = this.props.userLogin;
+    // const { taiKhoan, isValid } = this.props.userLogin;
     const taiKhoanLocal = JSON.parse(localStorage.getItem("maLoaiNguoiDung"));
+    const nameTaiKhoan = JSON.parse(localStorage.getItem("taiKhoan"));
     if (taiKhoanLocal == null) {
       return (
         <div className="accout">
@@ -34,7 +35,7 @@ class Header extends Component {
         <div className="accout">
           <NavLink id="logout" to="#" data-toggle="dropdown">
             <img className="btnLogin " src={logoLogin} alt="Login" />
-            <span className="toggle">{taiKhoan}</span>
+            <span className="toggle">{nameTaiKhoan}</span>
           </NavLink>
           <img src={arrowRight} className="icon-arrow-right" alt="user" />
 
@@ -58,7 +59,7 @@ class Header extends Component {
         <div className="accout">
           <NavLink id="logout" to="#" data-toggle="dropdown">
             <img className="btnLogin " src={logoLogin} alt="Login" />
-            <span className="toggle">{taiKhoan}</span>
+            <span className="toggle">{nameTaiKhoan}</span>
           </NavLink>
           <img src={arrowRight} className="icon-arrow-right" alt="user" />
 

@@ -114,12 +114,13 @@
           line-height: 1.42857143;
           color: #333;
           white-space: nowrap;
-          transition: 0.5s all ease;
+
+          cursor: pointer;
 
           a {
             color: black !important;
             text-decoration: none;
-            transition: 0.5s all ease;
+
           }
 
           i {
@@ -127,11 +128,11 @@
           }
 
           &:hover {
-            background: none;
-            color: #e94e02 !important;
+            background: #e94e02;
+            color: #fff !important;
 
             a {
-              color: #e94e02 !important;
+              color: #fff !important;
             }
           }
         }
@@ -142,7 +143,7 @@
       a {
         cursor: pointer;
         color: $account;
-        transition: 0.5s all ease;
+
 
         img {
           height: 25px;

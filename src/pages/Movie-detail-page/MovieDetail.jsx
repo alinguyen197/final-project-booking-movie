@@ -11,6 +11,7 @@ import Progressbar from "../../components/Circular-progressbar/Progressbar";
 import VideoModal from "../../components/Modal-video/VideoModal";
 import ModalVideo2 from "../../components/Modal-video/MovieCard2";
 import Header2 from "../../components/Header/Header2";
+import ShowTimeMobile from "./ShowTimeMobile";
 
 function MovieDetail(props) {
   const dispatch = useDispatch();
@@ -107,7 +108,11 @@ function MovieDetail(props) {
               <div className="tab-content">
                 <div className="tab-pane container active" id="infor">
                   <InforTable movieDetail={movieDetail} />
-                  <ShowTime movieCode={movieCode} />
+                  <ShowTime movieCode={movieCode} className="ShowTimeMain" />
+                  <ShowTimeMobile
+                    movieCode={movieCode}
+                    className="ShowTimeMobile"
+                  />
                 </div>
                 <div className="tab-pane container fade" id="comment">
                   <Comment />

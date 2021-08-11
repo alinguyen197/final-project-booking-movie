@@ -4,8 +4,9 @@ import cine from "../../assets/img/4x/cine@4x-8.png";
 import Time from "react-time-format";
 
 export default function HistoryTicket(props) {
-  const { tenPhim, maVe, ngayDat, danhSachGhe, giaVe } = props.ticket;
-
+  const { data } = props;
+  // const { tenPhim, ngayDat, maVe, giaVe, tenHeThongRap } = props.danhSachGhe;
+  const { tenPhim, ngayDat, danhSachGhe, maVe, giaVe } = data;
   return (
     <div id="historyTicket">
       <div className="ticket">

@@ -4,7 +4,7 @@ export default function FormUser(props) {
   const { UserProfile } = props;
   return (
     <div>
-      <h3>Thông Tin Cá Nhân</h3>
+      <h3 style={{ marginBottom: 50 }}>Thông Tin Cá Nhân</h3>
       <p>
         Tên đăng nhập: <b>{UserProfile.taiKhoan}</b>{" "}
       </p>

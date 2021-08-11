@@ -15,7 +15,7 @@ import Time from "react-time-format";
 
 export default function Booking() {
   const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(30);
+  const [seconds, setSeconds] = useState(59);
   const [state, setState] = useState({
     listChair: [],
   });
@@ -42,8 +42,21 @@ export default function Booking() {
 
       if (seconds === 0) {
         if (minutes === 0) {
-          // alert("Thời gian giữ ghế");
           clearInterval(myInterval);
+
+          console.log("render");
+          Swal.fire({
+            imageUrl: popupInfor,
+            html: "Hết thời gian giữ ghế",
+            confirmButtonColor: "#d33",
+            imageHeight: 70,
+            imageWidth: 120,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              callBookingListChair(bookingCode);
+              setSeconds(30);
+            }
+          });
         } else {
           setMinutes(minutes - 1);
           setSeconds(59);
@@ -54,6 +67,7 @@ export default function Booking() {
       clearInterval(myInterval);
     };
   });
+
   const { bookingListChair } = useSelector((state) => state.bookingReducer);
 
   const handleChoiceChair = (maGhe) => {
@@ -143,7 +157,6 @@ export default function Booking() {
     }
   };
 
-  console.log(bookingListChair);
   return (
     <section>
       <Header2 />
@@ -155,8 +168,27 @@ export default function Booking() {
               <div className="row">
                 <div className="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
                   <div className="bookingChair">
-                    <div className="text-center clockCountDown">
-                      {`0${minutes}`}:{seconds < 10 ? `0${seconds}` : seconds}
+                    <div className="text-center clockCountDown mb-3">
+                      <p style={{ marginBottom: 10 }}>Thời gian giữ ghế</p>
+                      <span
+                        style={{
+                          backgroundColor: "#9a9a9a",
+                          color: "#fff",
+                          padding: 10,
+                          borderRadius: 3,
+                        }}
+                      >{`0${minutes}`}</span>{" "}
+                      :{" "}
+                      <span
+                        style={{
+                          backgroundColor: "#9a9a9a",
+                          color: "#fff",
+                          padding: 10,
+                          borderRadius: 3,
+                        }}
+                      >
+                        {seconds < 10 ? `0${seconds}` : seconds}
+                      </span>
                     </div>
                     <div className="screen text-center">SCREEN</div>
                     <div className="note">
@@ -179,7 +211,11 @@ export default function Booking() {
                         </p>
                       </div>
                     </div>
-                    <div className="listchair">{renderListChair()}</div>
+                    <div className="listchair">
+                      <div style={{ width: 450, margin: "0 auto" }}>
+                        {renderListChair()}
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">

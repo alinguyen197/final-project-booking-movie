@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { POST_HISTORY_OF_USER_PROFILE } from "../../redux/const/historyUserProfileConst";
 import Footer from "../../components/Footer/Footer";
 import Header2 from "../../components/Header/Header2";
+import HistoryBookedTable from "./HistoryBookedTable";
 class UserProfile extends Component {
   render() {
     const { UserProfile } = this.props;
@@ -49,12 +50,13 @@ class UserProfile extends Component {
                   <FormUser UserProfile={UserProfile} />
                 </div>
                 <div id="thongtinlichchieu" className="tab-pane fade ">
-                  <h3>Lịch sử đặt vé</h3>
-                  <div className="scroll-ticket">
+                  <h3 style={{ marginBottom: 50 }}>Lịch sử đặt vé</h3>
+                  <HistoryBookedTable />
+                  {/* <div className="scroll-ticket">
                     {UserProfile.thongTinDatVe?.map((ticket, index) => {
                       return <HistoryTicket key={index} ticket={ticket} />;
                     })}
-                  </div>
+                  </div> */}
                 </div>
                 <div id="capnhatthongtin" className="tab-pane fade ">
                   <UpdateUserProfile UserProfile={UserProfile} />

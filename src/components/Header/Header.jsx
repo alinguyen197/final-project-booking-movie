@@ -13,6 +13,7 @@ let ScrollLink = Scroll.Link;
 class Header extends Component {
   renderUserLogin() {
     const { taiKhoan, isValid } = this.props.userLogin;
+
     const taiKhoanLocal = JSON.parse(localStorage.getItem("maLoaiNguoiDung"));
     if (taiKhoanLocal == null) {
       return (

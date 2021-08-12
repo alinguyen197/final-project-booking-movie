@@ -47,19 +47,19 @@ export default function RenderMovieMobile() {
       <div className="movielist-inner">
         <ul className="nav nav-pills ">
           <li className="nav-item">
-            <a className="nav-link active" data-toggle="pill" href="#home">
+            <a className="nav-link active" data-toggle="pill" href="#loz1">
               Đang Chiếu
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" data-toggle="pill" href="#menu1">
+            <a className="nav-link" data-toggle="pill" href="#loz2">
               Sắp Chiếu
             </a>
           </li>
         </ul>
 
         <div className="tab-content">
-          <div className="tab-pane container active" id="home">
+          <div className="tab-pane container active" id="loz1">
             {dataItemMoviePage?.map((value, index) => {
               return (
                 <div key={index}>
@@ -86,7 +86,7 @@ export default function RenderMovieMobile() {
             })}
           </div>
 
-          <div className="tab-pane container fade" id="menu1">
+          <div className="tab-pane container face" id="loz2">
             {dataItemMoviePage?.reverse().map((value, index) => {
               return (
                 <div key={index}>

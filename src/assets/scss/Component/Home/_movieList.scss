@@ -48,16 +48,15 @@
       display: none !important;
     }
   }
-  @include respond-to("phone") {
-    .slick-prev,
-    .slick-next {
-      display: none !important;
-    }
+
+}
+@include respond-to("phone") {
+  #rendermovielist {
+    display: none ;
   }
-  @include respond-to("small") {
-    .slick-prev,
-    .slick-next {
-      display: none !important;
-    }
+}
+@include respond-to("small") {
+  #rendermovielist {
+    display: none ;
   }
 }

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
-
+import BlackBlock from "../../components/Black-block/BlackBlock";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
@@ -43,6 +43,7 @@ export default function CinemaRelease() {
 
   return (
     <section id="cinemarelease">
+      <BlackBlock />
       <div className="container">
         <div className="row listcinema">
           <div
@@ -229,6 +230,7 @@ export default function CinemaRelease() {
           </div>
         </div>
       </div>
+      <BlackBlock />
     </section>
   );
 }

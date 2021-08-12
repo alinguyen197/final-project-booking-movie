@@ -135,7 +135,7 @@ export default function CarouselBookingForm() {
       );
     }
   };
-  console.log(data);
+
   const renderHours = () => {
     if (data.tenCumRap !== "") {
       // lấy hệ thống rạp BHD , CGV ...

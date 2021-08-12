@@ -4,8 +4,9 @@ import App from "../../components/App/App";
 import News from "../../components/News/News";
 import Carousel from "../../components/Carousel/Carousel";
 import RenderMovieList from "../../components/RenderMoiveList/RenderMovieList";
+import RenderMovieMobile from "../../components/RenderMoiveList/RenderMovieMobile";
 import CinemaRelease from "../../components/ListCinemaRelease/CinemaRelease";
-import BlackBlock from "../../components/Black-block/BlackBlock";
+// import BlackBlock from "../../components/Black-block/BlackBlock";
 import Header from "../../components/Header/Header";
 
 export default class Home extends Component {
@@ -16,9 +17,9 @@ export default class Home extends Component {
         <div style={{ height: 60 }}></div>
         <Carousel />
         <RenderMovieList />
-        <BlackBlock />
+<RenderMovieMobile/>
         <CinemaRelease />
-        <BlackBlock />
+
         <News />
         <App />
         <Footer />

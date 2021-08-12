@@ -135,73 +135,66 @@ export default function ShowTimeMobile(props) {
                                                           >
                                                             <div className="row">
                                                               <div className="col-12">
-                                                                {chiTietRap.lichChieuPhim.map(
-                                                                  (
-                                                                    phim,
-                                                                    index2
-                                                                  ) => {
-                                                                    return (
-                                                                      <div
-                                                                        className="list-flim-detail"
-                                                                        key={
-                                                                          index2
+                                                                <div className="list-flim-detail">
+                                                                  <div
+                                                                    className={
+                                                                      classes.root
+                                                                    }
+                                                                  >
+                                                                    <Accordion>
+                                                                      <AccordionSummary
+                                                                        expandIcon={
+                                                                          <ExpandMoreIcon />
                                                                         }
+                                                                        aria-controls="panel1a-content"
+                                                                        id="panel1a-header"
+                                                                        className="list-flim-detail-infor"
                                                                       >
-                                                                        <div
-                                                                          className={
-                                                                            classes.root
+                                                                        <img
+                                                                          src={
+                                                                            showTimeMovieDetail.hinhAnh
                                                                           }
-                                                                        >
-                                                                          <Accordion>
-                                                                            <AccordionSummary
-                                                                              expandIcon={
-                                                                                <ExpandMoreIcon />
-                                                                              }
-                                                                              aria-controls="panel1a-content"
-                                                                              id="panel1a-header"
-                                                                              className="list-flim-detail-infor"
-                                                                            >
-                                                                              <img
-                                                                                src={
-                                                                                  showTimeMovieDetail.hinhAnh
-                                                                                }
-                                                                                alt=""
-                                                                              />
-                                                                              <div className="list-flim-detail-infor-name">
-                                                                                <span className="list-flim-detail-infor-name-type mr-2">
-                                                                                  2D
-                                                                                </span>
-                                                                                <p className="list-flim-detail-infor-movie-name">
-                                                                                  {
-                                                                                    showTimeMovieDetail.tenPhim
-                                                                                  }
-                                                                                </p>
-                                                                                <p className="cinema-address">
-                                                                                  Thời
-                                                                                  lượng
-                                                                                  :{" "}
-                                                                                  {
-                                                                                    phim.thoiLuong
-                                                                                  }{" "}
-                                                                                  -{" "}
-                                                                                  {
-                                                                                    phim.tenRap
-                                                                                  }
-                                                                                </p>
-                                                                              </div>
-                                                                            </AccordionSummary>
+                                                                          alt=""
+                                                                        />
+                                                                        <div className="list-flim-detail-infor-name">
+                                                                          <span className="list-flim-detail-infor-name-type mr-2">
+                                                                            2D
+                                                                          </span>
+                                                                          <p className="list-flim-detail-infor-movie-name">
+                                                                            {
+                                                                              showTimeMovieDetail.tenPhim
+                                                                            }
+                                                                          </p>
+                                                                          {/* <p className="cinema-address">
+                                                                            Thời
+                                                                            lượng
+                                                                            :{" "}
+                                                                            {
+                                                                              phim.thoiLuong
+                                                                            }{" "}
+                                                                            -{" "}
+                                                                            {
+                                                                              phim.tenRap
+                                                                            }
+                                                                          </p> */}
+                                                                        </div>
+                                                                      </AccordionSummary>
 
-                                                                            <AccordionSummary
-                                                                              aria-controls="panel2a-content"
-                                                                              id="panel2a-header"
-                                                                            >
-                                                                              <Typography
-                                                                                key={
-                                                                                  index2
-                                                                                }
-                                                                                className="list-flim-detail-showtime"
-                                                                              >
+                                                                      <AccordionSummary
+                                                                        aria-controls="panel2a-content"
+                                                                        id="panel2a-header"
+                                                                      >
+                                                                        <Typography className="list-flim-detail-showtime">
+                                                                          {chiTietRap.lichChieuPhim?.map(
+                                                                            (
+                                                                              phim,
+                                                                              index2
+                                                                            ) => {
+                                                                              return (
                                                                                 <Link
+                                                                                  key={
+                                                                                    index2
+                                                                                  }
                                                                                   className="a"
                                                                                   to="#"
                                                                                   onClick={() =>
@@ -227,14 +220,14 @@ export default function ShowTimeMobile(props) {
                                                                                     />
                                                                                   </span>
                                                                                 </Link>
-                                                                              </Typography>
-                                                                            </AccordionSummary>
-                                                                          </Accordion>
-                                                                        </div>
-                                                                      </div>
-                                                                    );
-                                                                  }
-                                                                )}
+                                                                              );
+                                                                            }
+                                                                          )}
+                                                                        </Typography>
+                                                                      </AccordionSummary>
+                                                                    </Accordion>
+                                                                  </div>
+                                                                </div>
                                                               </div>
                                                             </div>
                                                           </div>

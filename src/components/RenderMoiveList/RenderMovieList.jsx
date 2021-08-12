@@ -125,7 +125,7 @@ export default function RenderMovieList() {
               </div>
               <div className="tab-pane container fade" id="menu1">
                 <Slider {...settings}>
-                  {movieList.map((value, index) => {
+                  {movieList.reverse().map((value, index) => {
                     return (
                       <div key={index}>
                         <div className=" movielist-item">

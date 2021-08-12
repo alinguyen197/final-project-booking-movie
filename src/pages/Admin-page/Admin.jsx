@@ -63,6 +63,7 @@ export default function Admin() {
               </div>
 
               <div className="user">
+                <p>Back to Home</p>
                 <Link className="navbar-brand" to="/">
                   <img src={logoMain} alt="logo" />
                 </Link>

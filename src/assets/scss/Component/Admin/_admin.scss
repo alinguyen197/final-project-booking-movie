@@ -163,7 +163,9 @@
 
           p {
             display: inline;
-            margin-right: 10px;
+
+            font-size: 14px;
+
           }
 
           img {
@@ -177,6 +179,7 @@
             height: 50px;
             object-fit: cover;
             transition: 0.5s;
+            color: white;
 
             &:hover {
               box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);

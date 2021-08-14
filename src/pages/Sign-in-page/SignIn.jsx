@@ -62,6 +62,17 @@ class SignIn extends Component {
     event.preventDefault();
     this.props.userLogin(this.state.values, this.props.history);
   };
+  showHidePass = () => {
+    let Mk = document.getElementById("IdMatKhau1");
+    let Eye = document.getElementById("HideShowEye1");
+    if (Mk.type === "password") {
+      Mk.type = "text";
+      Eye.style.color = "#7a797e";
+    } else {
+      Mk.type = "password";
+      Eye.style.color = "black";
+    }
+  };
   render() {
     const { err_message } = this.props;
     return (
@@ -89,15 +100,25 @@ class SignIn extends Component {
               </div>
               <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Mật Khẩu</label>
+
                 <input
-                  type="text"
+                  type="password"
                   name="matKhau"
-                  className="form-control"
-                  id="exampleInputPassword1"
+                  className="form-control input_fix"
+                  id="IdMatKhau1"
                   placeholder="Vui lòng nhập mật khẩu"
                   value={this.state.values.matKhau}
                   onChange={this.handelChangeLogin}
                 />
+                <span className="HideShowIconSignIn">
+                  <i
+                    class="fa fa-eye"
+                    onClick={this.showHidePass}
+                    id="HideShowEye1"
+                    aria-hidden="true"
+                  ></i>
+                </span>
+
                 <span className=" mt-5" style={{ color: "red", fontSize: 18 }}>
                   {this.state.errors.matKhau}
                 </span>

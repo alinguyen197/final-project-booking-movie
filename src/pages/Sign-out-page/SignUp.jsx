@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { Link, withRouter } from "react-router-dom";
 import { GET_USER_REGISTER } from "../../redux/const/userRegisterConst";
+import { Button } from "@material-ui/core";
 
 class SignUp extends Component {
   state = {
@@ -57,11 +58,10 @@ class SignUp extends Component {
       }
     }
     if (name === "matKhau") {
-      const regex =
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
       if (!regex.test(value)) {
         errMessage =
-          "Mật khẩu tối thiểu tám ký tự, ít nhất một ký tự hoa, một ký tự viết thường, một số và một ký tự đặc biệt:";
+          "Mật khẩu tối thiểu tám ký tự, ít nhất một chữ cái và một số";
       } else {
         errMessage = "";
       }
@@ -100,7 +100,17 @@ class SignUp extends Component {
 
     this.props.userRegister(this.state.values, this.props.history);
   };
-
+  showHidePass = () => {
+    let Mk = document.getElementById("IdMatKhau");
+    let Eye = document.getElementById("HideShowEye");
+    if (Mk.type === "password") {
+      Mk.type = "text";
+      Eye.style.color = "#7a797e";
+    } else {
+      Mk.type = "password";
+      Eye.style.color = "black";
+    }
+  };
   render() {
     return (
       <div className="card bg-light">
@@ -134,9 +144,16 @@ class SignUp extends Component {
                   <span className="icon_register">
                     <i className="fa fa-lock" />
                   </span>
-
+                  <span className="HideShowIcon">
+                    <i
+                      class="fa fa-eye"
+                      onClick={this.showHidePass}
+                      id="HideShowEye"
+                      aria-hidden="true"
+                    ></i>
+                  </span>
                   <input
-                    type="text"
+                    type="password"
                     name="matKhau"
                     className="form-control input_fix"
                     id="IdMatKhau"
@@ -144,29 +161,12 @@ class SignUp extends Component {
                     value={this.state.values.matKhau}
                     onChange={this.handelChangeSignUp}
                   />
+
                   <span className="text-danger mt-2">
                     {this.state.errors.matKhau}
                   </span>
                 </div>
-                {/* <div className="form-group ">
-                
-                    <span className="icon_register">
-                      <i className="fa fa-lock" />
-                    </span>
-             
-                  <input
-                    type="text"
-                    name="matKhau"
-                    className="form-control input_fix"
-                    id="exampleInputPassword1"
-                    placeholder="Vui lòng nhập lại mật khẩu"
-                    value={this.state.values.matKhau}
-                    onChange={this.handelChangeSignUp}
-                  />
-                  <span className="text-danger mt-2">
-                    {this.state.errors.matKhau}
-                  </span>
-                </div> */}
+
                 <div className="form-group ">
                   <span className="icon_register">
                     <i className="fa fa-user" />
@@ -219,6 +219,7 @@ class SignUp extends Component {
                     value={this.state.values.soDt}
                     onChange={this.handelChangeSignUp}
                   />
+
                   <span className="text-danger mt-2">
                     {this.state.errors.soDt}
                   </span>

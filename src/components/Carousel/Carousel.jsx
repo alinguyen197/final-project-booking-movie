@@ -4,8 +4,10 @@ import next from "../../assets/img/next-session.png";
 import back from "../../assets/img/back-session.png";
 import CarouselBookingForm from "./CarouselBookingForm";
 import ModalVideo from "react-modal-video";
+
 export default function Carousel() {
   const [isOpen, setOpen] = useState(false);
+
   return (
     <section id="film-carousel">
       <div

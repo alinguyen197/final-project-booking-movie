@@ -17,7 +17,7 @@ export default class Home extends Component {
         <div style={{ height: 60 }}></div>
         <Carousel />
         <RenderMovieList />
-<RenderMovieMobile/>
+        <RenderMovieMobile />
         <CinemaRelease />
 
         <News />

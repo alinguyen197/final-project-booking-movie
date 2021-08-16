@@ -220,14 +220,20 @@ export default function CreateShowTime(props) {
     return currentItems?.map((value, index) => {
       return (
         <tr key={index}>
-          <td>{value.maLichChieu}</td>
-          <td>{value.thongTinRap.maHeThongRap}</td>
-          <td>{value.thongTinRap.tenCumRap}</td>
-          <td>{value.thongTinRap.tenRap}</td>
-          <td>
+          <td style={{ border: "1px solid black" }}>{value.maLichChieu}</td>
+          <td style={{ border: "1px solid black" }}>
+            {value.thongTinRap.maHeThongRap}
+          </td>
+          <td style={{ border: "1px solid black" }}>
+            {value.thongTinRap.tenCumRap}
+          </td>
+          <td style={{ border: "1px solid black" }}>
+            {value.thongTinRap.tenRap}
+          </td>
+          <td style={{ border: "1px solid black" }}>
             <Time value={value.ngayChieuGioChieu} format="DD/MM/YY - HH:mm" />
           </td>
-          <td>{value.giaVe}</td>
+          <td style={{ border: "1px solid black" }}>{value.giaVe}</td>
         </tr>
       );
     });
@@ -313,7 +319,7 @@ export default function CreateShowTime(props) {
               </div>
               <div
                 className="CreateShowDate"
-                style={{ width: "30%", float: "left", marginRight: "8%" }}
+                style={{ width: "30%", float: "left" }}
               >
                 <div className="form-group ">
                   <label>Ngày giờ chiếu</label>
@@ -329,9 +335,12 @@ export default function CreateShowTime(props) {
                   <input type="text" className="form-control" id="giaVe" />
                 </div>
               </div>
-              <div className="ImageShowTime" style={{ float: "left" }}>
+              <div
+                className="ImageShowTime"
+                style={{ float: "left", width: "25%", marginLeft: "2%" }}
+              >
                 <img
-                  style={{ width: "100%", height: 250 }}
+                  style={{ width: "100%", height: 250, borderRadius: 10 }}
                   src={movieShowTime?.hinhAnh}
                   alt=""
                 />
@@ -347,15 +356,15 @@ export default function CreateShowTime(props) {
               </div>
             </form>
 
-            <table className="table table-dark table-xl">
+            <table className="table   table-xl">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Hệ thống rạp</th>
-                  <th>Cụm rạp</th>
-                  <th>Rạp</th>
-                  <th>Thời gian</th>
-                  <th>Price</th>
+                  <th style={{ border: "1px solid black" }}>ID</th>
+                  <th style={{ border: "1px solid black" }}>Hệ thống rạp</th>
+                  <th style={{ border: "1px solid black" }}>Cụm rạp</th>
+                  <th style={{ border: "1px solid black" }}>Rạp</th>
+                  <th style={{ border: "1px solid black" }}>Thời gian</th>
+                  <th style={{ border: "1px solid black" }}>Price</th>
                 </tr>
               </thead>
               <tbody>{renderLichChieu(currentItems)}</tbody>

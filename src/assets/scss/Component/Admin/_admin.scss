@@ -11,15 +11,13 @@
 
     .navigation.active {
       width: 60px;
-
     }
-
 
     .navigation {
       position: fixed;
       width: 250px;
       height: 100%;
-      background: #1F262D;
+      background: #1f262d;
       transition: 0.5s;
       overflow: hidden;
 
@@ -64,7 +62,6 @@
 
           &:hover {
             background-color: #27a9e3;
-
           }
 
           a {
@@ -74,11 +71,8 @@
             text-decoration: none;
             color: white;
 
-
             &:hover {
               color: white;
-              ;
-
             }
 
             .icon {
@@ -105,7 +99,6 @@
               white-space: nowrap;
 
               text-align: center;
-
             }
           }
         }
@@ -117,10 +110,7 @@
       left: 60px;
     }
 
-
-
     .main {
-
       width: calc(100% - 250px);
       background-color: rgb(240, 240, 240);
 
@@ -143,7 +133,7 @@
           cursor: pointer;
 
           .fa {
-            content: '\f0c9';
+            content: "\f0c9";
             position: absolute;
             width: 100%;
             height: 100%;
@@ -154,8 +144,6 @@
           }
         }
 
-
-
         .user {
           position: relative;
 
@@ -165,7 +153,6 @@
             display: inline;
 
             font-size: 14px;
-
           }
 
           img {
@@ -182,24 +169,20 @@
             color: white;
 
             &:hover {
-              box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+              box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+                0px 4px 5px 0px rgb(0 0 0 / 14%),
+                0px 1px 10px 0px rgb(0 0 0 / 12%);
             }
           }
         }
-
       }
-
     }
-
-
   }
 }
 
 @include respond-to("medium") {
-
   .CreateShowHeThong {
     width: 35% !important;
-
   }
 
   .CreateShowDate {
@@ -207,14 +190,11 @@
   }
 
   .ImageShowTime {
-    width: 20% !important;
-
+    width: 25% !important;
+    margin-left: 5% !important;
 
     img {
       height: 150px !important;
     }
-
   }
-
-
 }
